@@ -1,0 +1,19 @@
+{
+  "name": "Curate",
+  "private": true,
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/svpersteve/curate"
+  },
+  "devDependencies": {
+    "browser-sync": "^2.18.7",
+    "gulp": "^3.9.1",
+    "localtunnel": "^1.8.1"
+  },
+  "config": {
+    "path": {
+      "javascript": "app/assets/javascripts"
+    }
+  },
+  "dependencies": {}
+}
