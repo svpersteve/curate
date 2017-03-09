@@ -13,8 +13,13 @@ gem 'sass-rails', '~> 5.0'
 gem 'uglifier', '>= 1.3.0'
 gem 'coffee-rails', '~> 4.2'
 
+gem 'modernizr-rails'
+gem 'autoprefixer-rails'
 gem 'haml'
 gem 'haml-rails'
+
+gem 'thin'
+gem 'nokogiri'
 
 gem 'jquery-rails'
 gem 'turbolinks', '~> 5'
