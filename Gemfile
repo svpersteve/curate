@@ -26,6 +26,7 @@ group :development, :test do
   gem 'rubocop', '~> 0.47.1', require: false
   gem 'poltergeist'
   gem 'capybara'
+  gem 'scss-lint'
 end
 
 group :development do
