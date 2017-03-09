@@ -22,6 +22,7 @@ gem 'jbuilder', '~> 2.5'
 group :development, :test do
   gem 'dotenv-rails'
   gem 'byebug', platform: :mri
+  gem 'rubocop', '~> 0.47.1', require: false
 end
 
 group :development do
