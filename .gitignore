@@ -16,3 +16,14 @@
 # Ignore Byebug command history file.
 .byebug_history
 .env
+
+# Ignore npm packages and debug logs
+node_modules
+npm-debug.log
+
+# Ignore the default SQLite database.
+/db/*.sqlite3
+
+public/private/*
+public/uploads/*
+public/system/errors/*
