@@ -1,0 +1,12 @@
+.s-navbar {
+  @include flex($justify-content: space-around);
+}
+
+.s-navbar__nav {
+  padding: 20px;
+  border-bottom: solid 2px transparent;
+}
+
+.s-navbar__nav:hover {
+  border-bottom: solid 2px $colour-black;
+}
