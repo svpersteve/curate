@@ -20,7 +20,7 @@ gem 'turbolinks', '~> 5'
 gem 'jbuilder', '~> 2.5'
 
 group :development, :test do
-  gem 'dotenv-rails'
+  gem 'dotenv-rails', require: 'dotenv/rails-now'
   gem 'byebug', platform: :mri
   gem 'rubocop', '~> 0.47.1', require: false
 end
