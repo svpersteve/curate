@@ -228,6 +228,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  capybara
   coffee-rails (~> 4.2)
   database_cleaner
   dotenv-rails

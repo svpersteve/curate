@@ -25,6 +25,7 @@ group :development, :test do
   gem 'rspec-rails', '~> 3.5'
   gem 'rubocop', '~> 0.47.1', require: false
   gem 'poltergeist'
+  gem 'capybara'
 end
 
 group :development do
