@@ -14,7 +14,6 @@
 !/tmp/.keep
 
 # Ignore Byebug command history file.
-.byebug_history
 .env
 
 # Ignore npm packages and debug logs
