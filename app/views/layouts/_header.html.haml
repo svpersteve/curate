@@ -3,3 +3,7 @@
   = link_to 'Art', '#', class: 's-navbar__nav'
   = link_to 'Artists', '#', class: 's-navbar__nav'
   = link_to 'Events', '#', class: 's-navbar__nav'
+  - if current_user
+    = link_to 'Sign out', destroy_user_session_path, method: :delete
+  - else
+    = link_to 'Sign in', new_user_session_path
