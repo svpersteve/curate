@@ -1,6 +1,6 @@
 module UserHelper
   def profile_image(user)
-    image_tag user.auth_provider_profile_image
+    image_tag user.auth_provider_profile_image if user.auth_provider_profile_image.present?
   end
 
   def instagram_url(user)
