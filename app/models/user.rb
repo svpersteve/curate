@@ -1,10 +1,10 @@
 class User < ApplicationRecord
+  extend FriendlyId
+  friendly_id :username, use: [:slugged, :finders]
+
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable,
          :omniauthable, omniauth_providers: [:instagram]
-
-  extend FriendlyId
-  friendly_id :username, :use => :slugged
 
   def self.from_omniauth(auth)
     where(provider: auth.provider, uid: auth.uid).first_or_create! do |user|
@@ -17,6 +17,7 @@ class User < ApplicationRecord
       user.first_name = first_name
       user.last_name = last_name
       user.username = auth.extra.raw_info.username
+      user.slug = auth.extra.raw_info.username
       user.bio = auth.extra.raw_info.bio
       user.auth_provider_profile_image = auth.extra.raw_info.profile_picture
     end
