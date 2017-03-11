@@ -38,6 +38,7 @@ group :development, :test do
   gem 'rubocop', '~> 0.47.1', require: false
   gem 'poltergeist'
   gem 'capybara'
+  gem 'factory_girl_rails'
   gem 'scss-lint'
 end
 
