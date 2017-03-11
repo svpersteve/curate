@@ -31,6 +31,8 @@ gem 'omniauth-instagram'
 
 gem 'friendly_id'
 
+gem 'cancancan'
+
 group :development, :test do
   gem 'dotenv-rails', require: 'dotenv/rails-now'
   gem 'pry'

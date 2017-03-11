@@ -1,4 +1,8 @@
 class ApplicationController < ActionController::Base
+  rescue_from CanCan::AccessDenied do |exception|
+    redirect_to root_path, notice: exception.message
+  end
+
   protect_from_forgery with: :exception
 
   def store_location
