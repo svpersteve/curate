@@ -1,4 +1,5 @@
 class User < ApplicationRecord
+  rolify
   extend FriendlyId
   friendly_id :username, use: [:slugged, :finders]
 
