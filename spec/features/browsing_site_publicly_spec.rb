@@ -8,5 +8,5 @@ feature 'as a public user' do
 end
 
 def then_i_should_see_the_home_page
-  expect(page).to have_content('Home')
+  expect(page).to have_link('Curate', href: root_path)
 end

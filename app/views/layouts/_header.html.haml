@@ -1,10 +1,10 @@
 .s-navbar
-  = link_to 'Home', '#', class: 's-navbar__nav'
+  = link_to 'Curate', '#', class: 's-navbar__nav'
   = link_to 'Art', '#', class: 's-navbar__nav'
   = link_to 'Artists', '#', class: 's-navbar__nav'
-  = link_to 'Events', '#', class: 's-navbar__nav'
   - if current_user
     = link_to 'Sign out', destroy_user_session_path, method: :delete
+    = link_to 'My profile', user_path(current_user)
   - else
     = link_to user_instagram_omniauth_authorize_path do
       %i.fa.fa-instagram
