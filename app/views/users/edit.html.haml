@@ -1,0 +1,9 @@
+- set_page_title("Edit profile")
+
+= form_for @user do |f|
+  .a-section
+    = f.text_field :full_name, placeholder: 'Full name'
+    = f.text_field :email, placeholder: 'Email address'
+  .a-section
+    = button_to 'Cancel', user_path(@user)
+    = f.submit 'Save changes'

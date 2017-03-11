@@ -5,3 +5,7 @@
   %h1= @user.full_name
   %p= instagram_link(@user)
   %p= @user.bio
+
+- if can? :manage, @user
+  .a-section
+    = link_to 'Edit profile', edit_user_path(@user)

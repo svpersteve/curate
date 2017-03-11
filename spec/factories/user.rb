@@ -10,5 +10,11 @@ FactoryGirl.define do
 
     password 'wtf123'
     bio 'I make cool songs'
+    auth_provider_profile_image 'image.jpg'
+    slug 'jake-shears'
+  end
+
+  factory :admin, parent: :user do
+    roles { [FactoryGirl.create(:role, name: 'admin')] }
   end
 end
