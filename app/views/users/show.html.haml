@@ -1,1 +1,5 @@
-= @user.full_name
+.a-section
+  = profile_image(@user)
+  %h1= @user.full_name
+  %p= instagram_link(@user)
+  %p= @user.bio
