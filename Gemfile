@@ -43,6 +43,8 @@ group :development, :test do
   gem 'capybara'
   gem 'factory_girl_rails'
   gem 'scss-lint'
+  gem 'railroady'
+  gem 'launchy'
 end
 
 group :development do
