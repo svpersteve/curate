@@ -11,6 +11,7 @@ module FeatureSupport
         instance_eval(&block)
       end
     end
+  end
 
   RSpec.configure do |config|
     config.include self, type: :feature
