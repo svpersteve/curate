@@ -29,6 +29,8 @@ gem 'devise'
 gem 'omniauth'
 gem 'omniauth-instagram'
 
+gem 'friendly_id'
+
 group :development, :test do
   gem 'dotenv-rails', require: 'dotenv/rails-now'
   gem 'pry'
