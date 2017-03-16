@@ -1,0 +1,56 @@
+.d-form {
+  max-width: 340px;
+
+  input,
+  button,
+  select,
+  textarea {
+    font-family: inherit;
+    box-sizing: border-box;
+  }
+}
+
+//"Flat" style overrides (border radius and box shadow)
+input[type="text"],
+input[type="password"],
+input[type="datetime"],
+input[type="datetime-local"],
+input[type="date"],
+input[type="month"],
+input[type="time"],
+input[type="week"],
+input[type="number"],
+input[type="email"],
+input[type="url"],
+input[type="search"],
+input[type="tel"],
+input[type="color"],
+.uneditable-input,
+input[type="text"].input-block-level,
+.input-prepend .add-on:first-child,
+.input-prepend .btn:first-child {
+  padding: 0.5em 1em;
+  height: auto;
+  border-radius: 0;
+  box-shadow: none;
+}
+
+.input-prepend .add-on:first-child {
+  padding-right: 0.5em;
+}
+
+.input-prepend .file-field-upload {
+  border-radius: 0;
+  width: 660px;
+  height: 20px;
+}
+
+.input-prepend.input-block-level > input {
+  padding-left: 0.5em;
+}
+
+textarea {
+  padding: 0.5em 1em;
+  border-radius: 0;
+  box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+}
