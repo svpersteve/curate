@@ -1,31 +1,34 @@
-.a-section.d-form
-  %h1 Register
-  - if devise_mapping.registerable?
-    %p
-      Already registered?
-      = succeed '.' do
-        = link_to "Sign in", new_session_path(resource_name)
+.container
+  .content.d-form
+    %h1 Register
+    - if devise_mapping.registerable?
+      %p
+        Already registered?
+        = succeed '.' do
+          = link_to "Sign in", new_session_path(resource_name)
 
-.a-section.a-section--separated.d-form.u-center
-  = link_to user_instagram_omniauth_authorize_path, class: 'a-button a-button--elastic' do
-    %i.fa.fa-instagram
-    Sign in with Instagram
+.container.u-center
+  .content.content--separated.d-form
+    = link_to user_instagram_omniauth_authorize_path, class: 'a-button a-button--elastic' do
+      %i.fa.fa-instagram
+      Sign in with Instagram
 
-.a-section.d-form
-  = form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
-    = devise_error_messages!
-    %p= f.label 'Name'
-    = f.text_field :full_name, autofocus: true, class: 'u-full-width'
-    %p= f.label 'Choose a username'
-    = f.text_field :username, class: 'u-full-width'
-    %p= f.label :email
-    = f.email_field :email, class: 'u-full-width'
-    %p= f.label :password
-    = f.password_field :password, autocomplete: "off", class: 'u-full-width'
+.container
+  .content.d-form
+    = form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
+      = devise_error_messages!
+      %p= f.label 'Name'
+      = f.text_field :full_name, autofocus: true, class: 'u-full-width'
+      %p= f.label 'Choose a username'
+      = f.text_field :username, class: 'u-full-width'
+      %p= f.label :email
+      = f.email_field :email, class: 'u-full-width'
+      %p= f.label :password
+      = f.password_field :password, autocomplete: "off", class: 'u-full-width'
 
-    = flash[:recaptcha_error]
-    .u-center.u-margin-top--small.u-margin-bottom--small
-      = recaptcha_tags
+      = flash[:recaptcha_error]
+      .u-center.u-margin-top--small.u-margin-bottom--small
+        = recaptcha_tags
 
-    .u-margin-top
-      = f.submit "Register", class: 'a-button'
+      .u-margin-top
+        = f.submit "Register", class: 'a-button'

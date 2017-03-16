@@ -4,10 +4,10 @@
 @import "application/1-base/layout";
 @import "application/1-base/typography";
 @import "application/1-base/breakpoints";
+@import "application/1-base/container";
 
 @import "application/2-defaults/form";
 
-@import "application/3-modules/atoms/section";
 @import "application/3-modules/atoms/flash";
 @import "application/3-modules/atoms/button";
 @import "application/3-modules/standalones/navbar";

@@ -1,15 +1,17 @@
 - set_page_title("Edit profile")
 
 = form_for @user do |f|
-  .a-section.d-form
-    %p= f.label :full_name
-    = f.text_field :full_name, placeholder: 'Full name', class: 'u-full-width'
-    %p= f.label :email
-    = f.text_field :email, placeholder: 'Email address', class: 'u-full-width'
-    %p= f.label 'Instagram username'
-    = f.text_field :instagram_username, placeholder: 'without the @', class: 'u-full-width'
-    %p= f.label :bio
-    = f.text_area :bio, placeholder: 'Bio', class: 'u-full-width'
-  .a-section.d-form
-    = link_to 'Cancel', user_path(@user), class: 'a-button'
-    = f.submit 'Save changes', class: 'a-button'
+  .container.d-form
+    .content
+      %p= f.label :full_name
+      = f.text_field :full_name, placeholder: 'Full name', class: 'u-full-width'
+      %p= f.label :email
+      = f.text_field :email, placeholder: 'Email address', class: 'u-full-width'
+      %p= f.label 'Instagram username'
+      = f.text_field :instagram_username, placeholder: 'without the @', class: 'u-full-width'
+      %p= f.label :bio
+      = f.text_area :bio, placeholder: 'Bio', class: 'u-full-width'
+  .container.d-form
+    .content
+      = link_to 'Cancel', user_path(@user), class: 'a-button'
+      = f.submit 'Save changes', class: 'a-button'

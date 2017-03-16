@@ -1,11 +1,12 @@
 - set_page_title(@user.username)
 
-.a-section
-  = profile_image(@user)
-  %h1= @user.full_name
-  %p= instagram_link(@user)
-  %p= @user.bio
+.container
+  .content
+    = profile_image(@user)
+    %h1= @user.full_name
+    %p= instagram_link(@user)
+    %p= @user.bio
 
 - if can? :manage, @user
-  .a-section
-    = link_to 'Edit profile', edit_user_path(@user)
+  .container
+    .content= link_to 'Edit profile', edit_user_path(@user)
