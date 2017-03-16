@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  load_and_authorize_resource find_by: :slug
+  load_and_authorize_resource
   before_action :find_user, only: [:show, :edit, :update]
 
   def show
