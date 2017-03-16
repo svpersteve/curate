@@ -1,22 +1,26 @@
-%h1 Sign in
-- if devise_mapping.registerable?
-  %p
-    Not yet joined?
-    = succeed '.' do
-      = link_to "Register", new_registration_path(resource_name)
+.a-section.d-form
+  %h1 Sign in
+  - if devise_mapping.registerable?
+    %p
+      Not yet joined?
+      = succeed '.' do
+        = link_to "Register", new_registration_path(resource_name)
 
-= link_to user_instagram_omniauth_authorize_path, class: 'a-button a-button--elastic' do
-  %i.fa.fa-instagram
-  Sign in with Instagram
+.a-section.a-section--separated.d-form.u-center
+  = link_to user_instagram_omniauth_authorize_path, class: 'a-button a-button--elastic u-center' do
+    %i.fa.fa-instagram
+    Sign in with Instagram
 
-= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
-  %p Email
-  = f.email_field :email, autofocus: true, placeholder: "Email"
-  %p Password
-  = f.password_field :password, autocomplete: "off", placeholder: "Password"
-  - if devise_mapping.rememberable?
-    .m-sign-in__remember
-      = f.check_box :remember_me
-      = f.label :remember_me
-  = f.submit "Log in", class: 'a-button'
-  = render "devise/shared/links"
+.a-section.d-form
+  = form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
+    %p Email
+    = f.email_field :email, autofocus: true, placeholder: "Email", class: 'u-full-width'
+    %p Password
+    = f.password_field :password, autocomplete: "off", placeholder: "Password", class: 'u-full-width'
+    - if devise_mapping.rememberable?
+      .d-form__checkbox.u-margin-top--small
+        = f.check_box :remember_me
+        = f.label :remember_me
+
+    .u-margin-top
+      = f.submit "Sign in", class: 'a-button'

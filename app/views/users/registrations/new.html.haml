@@ -1,0 +1,25 @@
+.a-section.d-form
+  %h1 Register
+  - if devise_mapping.registerable?
+    %p
+      Already registered?
+      = succeed '.' do
+        = link_to "Sign in", new_session_path(resource_name)
+
+.a-section.a-section--separated.d-form.u-center
+  = link_to user_instagram_omniauth_authorize_path, class: 'a-button a-button--elastic' do
+    %i.fa.fa-instagram
+    Sign in with Instagram
+
+.a-section.d-form
+  = form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
+    = devise_error_messages!
+    %p= f.label :email
+    = f.email_field :email, autofocus: true, class: 'u-full-width'
+    %p= f.label :password
+    = f.password_field :password, autocomplete: "off", class: 'u-full-width'
+    %p= f.label :password_confirmation
+    = f.password_field :password_confirmation, autocomplete: "off", class: 'u-full-width'
+
+    .u-margin-top
+      = f.submit "Register", class: 'a-button'

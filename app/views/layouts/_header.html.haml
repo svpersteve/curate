@@ -5,6 +5,4 @@
     = link_to 'Sign out', destroy_user_session_path, method: :delete
     = link_to 'My profile', user_path(current_user)
   - else
-    = link_to user_instagram_omniauth_authorize_path do
-      %i.fa.fa-instagram
-      Sign in
+    = link_to 'Sign in', new_user_session_path, class: 's-navbar__nav'
