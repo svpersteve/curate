@@ -8,6 +8,8 @@
     = f.text_field :email, placeholder: 'Email address', class: 'u-full-width'
     %p= f.label 'Instagram username'
     = f.text_field :instagram_username, placeholder: 'without the @', class: 'u-full-width'
+    %p= f.label :bio
+    = f.text_area :bio, placeholder: 'Bio', class: 'u-full-width'
   .a-section.d-form
     = link_to 'Cancel', user_path(@user), class: 'a-button'
     = f.submit 'Save changes', class: 'a-button'

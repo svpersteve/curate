@@ -24,7 +24,7 @@ class UsersController < ApplicationController
   private
 
   def user_params
-    params[:user].permit(:name, :email, :full_name, :first_name, :last_name, :username, :bio)
+    params[:user].permit(:name, :email, :full_name, :bio, :instagram_username)
   end
 
   def find_user
