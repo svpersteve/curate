@@ -22,8 +22,6 @@
     = f.email_field :email, class: 'u-full-width'
     %p= f.label :password
     = f.password_field :password, autocomplete: "off", class: 'u-full-width'
-    %p= f.label :password_confirmation
-    = f.password_field :password_confirmation, autocomplete: "off", class: 'u-full-width'
 
     = flash[:recaptcha_error]
     .u-center.u-margin-top--small.u-margin-bottom--small
