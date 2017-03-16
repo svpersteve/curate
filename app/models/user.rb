@@ -8,6 +8,13 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :trackable, :validatable,
          :omniauthable, omniauth_providers: [:instagram]
 
+  validates :full_name, presence: true
+  validates :email, presence: true
+  validates :password, presence: true
+  validates :password_confirmation, presence: true
+  validates :username, presence: true
+  validates_uniqueness_of :username, case_sensitive: false
+
   def self.from_omniauth(auth) # rubocop:disable Metrics/MethodLength
     where(provider: auth.provider, uid: auth.uid).first_or_create do |user|
       user.provider = auth.provider
