@@ -28,6 +28,7 @@ gem 'jbuilder', '~> 2.5'
 gem 'devise'
 gem 'omniauth'
 gem 'omniauth-instagram'
+gem "recaptcha", require: "recaptcha/rails"
 
 gem 'friendly_id'
 

@@ -21,5 +21,9 @@
     %p= f.label :password_confirmation
     = f.password_field :password_confirmation, autocomplete: "off", class: 'u-full-width'
 
+    = flash[:recaptcha_error]
+    .u-center.u-margin-top--small.u-margin-bottom--small
+      = recaptcha_tags
+
     .u-margin-top
       = f.submit "Register", class: 'a-button'
