@@ -1,0 +1,32 @@
+.a-flash {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  z-index: 1000;
+  @media #{$to-medium} {
+    width: 100%;
+    bottom: 60px;
+    right: 0;
+  }
+}
+
+.a-flash__box {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  border: solid 2px $colour-black;
+  background-color: $colour-white;
+  padding: 10px;
+  width: 300px;
+  min-height: 100px;
+  @media #{$to-medium} {
+    margin: 0 auto;
+    min-height: 100px;
+  }
+}
+
+.a-flash__message {
+  margin-right: 10px;
+}
