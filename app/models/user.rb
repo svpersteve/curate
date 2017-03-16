@@ -25,6 +25,7 @@ class User < ApplicationRecord
       first_name, last_name = split_name(auth.extra.raw_info.full_name)
       user.first_name = first_name
       user.last_name = last_name
+      user.instagram_username = auth.extra.raw_info.username
       user.username = auth.extra.raw_info.username
       user.slug = auth.extra.raw_info.username
       user.bio = auth.extra.raw_info.bio

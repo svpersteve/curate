@@ -4,10 +4,14 @@ module UserHelper
   end
 
   def instagram_url(user)
-    "https://instagram.com/#{user.username}"
+    "https://instagram.com/#{user.instagram_username}"
   end
 
   def instagram_link(user)
-    link_to "@#{user.username}", instagram_url(user), target: '_blank'
+    if user.instagram_username.present?
+      link_to "@#{user.instagram_username}", instagram_url(user), target: '_blank'
+    else
+      "@#{user.username}"
+    end
   end
 end
