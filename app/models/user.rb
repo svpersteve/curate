@@ -1,5 +1,6 @@
 class User < ApplicationRecord
   rolify
+
   extend FriendlyId
   friendly_id :username, use: [:slugged, :finders]
 
@@ -8,7 +9,7 @@ class User < ApplicationRecord
          :omniauthable, omniauth_providers: [:instagram]
 
   def self.from_omniauth(auth) # rubocop:disable Metrics/MethodLength
-    where(provider: auth.provider, uid: auth.uid).first_or_create! do |user|
+    where(provider: auth.provider, uid: auth.uid).first_or_create do |user|
       user.provider = auth.provider
       user.uid = auth.uid
       user.email = auth.extra.raw_info.email || 'none@provided.com'
