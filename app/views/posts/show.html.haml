@@ -1,0 +1,12 @@
+- set_page_title(@post.title)
+
+.container
+  .content
+    %h1= @post.title
+    %h3
+      = link_to "By #{@post.author.full_name}", @post.author
+      %span.u-float-right
+        %i.fa.fa-calendar
+        = @post.created_at.to_date.to_formatted_s(:long)
+    = link_to 'Edit', edit_post_path(@post), class: 'a-button a-button--corner'
+    = sanitize @post.content

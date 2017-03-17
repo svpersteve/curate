@@ -1,6 +1,7 @@
 # Use this hook to configure ckeditor
 Ckeditor.setup do |config|
   config.cdn_url = "//cdn.ckeditor.com/4.6.1/basic/ckeditor.js"
+  config.authorize_with :cancan
   # ==> ORM configuration
   # Load and configure the ORM. Supports :active_record (default), :mongo_mapper and
   # :mongoid (bson_ext recommended) by default. Other ORMs may be
