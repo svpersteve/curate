@@ -38,7 +38,7 @@ gem "rolify"
 gem 'carrierwave'
 gem 'fog'
 gem 'mini_magick'
-gem 'ckeditor'
+gem 'ckeditor', github: 'galetahub/ckeditor'
 
 group :development, :test do
   gem 'dotenv-rails', require: 'dotenv/rails-now'
