@@ -1,0 +1,17 @@
+.m-canvas {
+  height: 100vh;
+  background-image: url("https://s3.eu-west-2.amazonaws.com/curate-group/assets/landing.jpg");
+  background-size: cover;
+  background-attachment: fixed;
+
+  @include flex;
+
+  h1 {
+    background-color: $colour-white;
+    padding: 20px;
+    font-size: 70px;
+    position: absolute;
+    top: 40vh;
+    margin: 0 auto;
+  }
+}
