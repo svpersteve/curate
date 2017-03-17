@@ -1,0 +1,9 @@
+- if defined?(title)
+  .content.content--tight-bottom
+    %h2= title
+- posts.each do |post|
+  .content.content--separated-bottom
+    %h2
+      = post_status(post)
+      = link_to post.title, post
+    %p= excerpt(post.content)
