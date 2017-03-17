@@ -1,6 +1,7 @@
 .s-navbar
   = link_to 'Curate', root_path, class: 's-navbar__nav'
   = link_to 'Artists', users_path, class: 's-navbar__nav'
+  = link_to 'Blog', posts_path, class: 's-navbar__nav'
   - if current_user
     = link_to 'Sign out', destroy_user_session_path, method: :delete
     = link_to 'My profile', user_path(current_user)

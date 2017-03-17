@@ -35,6 +35,11 @@ gem 'friendly_id'
 gem 'cancancan'
 gem "rolify"
 
+gem 'carrierwave'
+gem 'fog'
+gem 'mini_magick'
+gem 'ckeditor'
+
 group :development, :test do
   gem 'dotenv-rails', require: 'dotenv/rails-now'
   gem 'pry'

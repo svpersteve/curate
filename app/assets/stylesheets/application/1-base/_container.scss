@@ -4,21 +4,25 @@
   padding-right: 16px;
 }
 
-.container--wide {
+.content {
+  padding: 10px 0;
+  max-width: 36em;
+  margin: 1rem auto;
+}
+
+.content--wide {
   max-width: 52em;
 }
 
-.container--xwide {
+.content--xwide {
   max-width: 70em;
-}
-
-.content {
-  padding: 10px 0;
-  max-width: 32em;
-  margin: 1rem auto;
 }
 
 .content--separated {
   border-top: solid 1px $colour-border;
+  border-bottom: solid 1px $colour-border;
+}
+
+.content--separated-bottom {
   border-bottom: solid 1px $colour-border;
 }

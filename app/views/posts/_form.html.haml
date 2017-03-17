@@ -1,0 +1,8 @@
+.container
+  = form_for @post do |f|
+    .content
+      = f.text_field :title, class: 'u-full-width'
+    .content.content--wide
+      = cktext_area :post, :content, cols: 40, ckeditor: { uiColor: '$colour-grey', toolbar: 'mini' }
+    .content
+      = f.submit 'Save', class: 'a-button'

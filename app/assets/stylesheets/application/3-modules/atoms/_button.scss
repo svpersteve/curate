@@ -28,3 +28,11 @@
     }
   }
 }
+
+.a-button--corner {
+  @media #{$from-large} {
+    position: absolute;
+    right: 70px;
+    top: 80px;
+  }
+}

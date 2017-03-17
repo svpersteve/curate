@@ -1,0 +1,10 @@
+- set_page_title('Blog')
+
+.container
+  .content
+    %h1 Blog
+    = link_to 'Write post', new_post_path, class: 'a-button a-button--corner'
+    - @posts.each do |post|
+      .content.content--separated-bottom
+        %h2= link_to post.title, post
+        %p= excerpt(post.content)
