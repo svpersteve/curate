@@ -10,3 +10,10 @@
 - if can? :manage, @user
   .container
     .content= link_to 'Edit profile', edit_user_path(@user), class: 'a-button a-button--corner' if can? :edit, @user
+
+- if @user.posts.any?
+  .container
+    .content
+      %h2 My posts
+      = render partial: 'shared/posts', locals: { posts: current_user.posts.draft } if current_user && current_user.posts.draft.any?
+      = render partial: 'shared/posts', locals: { posts: @user.posts.published }
