@@ -15,6 +15,7 @@ feature 'User sign up' do
   scenario 'with Google OAuth2' do
     visit root_path
     click_on 'Sign in'
+    click_on 'Sign in with Instagram'
     expect(page).to have_content(user[:full_name])
   end
 end
