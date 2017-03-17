@@ -11,7 +11,6 @@ class User < ApplicationRecord
          :omniauthable, omniauth_providers: [:instagram]
 
   validates :full_name, presence: true
-  validates :password, presence: true
   validates :username, presence: true
   validates_uniqueness_of :username, case_sensitive: false
 
