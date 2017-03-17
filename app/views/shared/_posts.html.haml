@@ -6,4 +6,9 @@
     %h2
       = post_status(post)
       = link_to post.title, post
+    %h3
+      = link_to "By #{post.author.full_name}", post.author
+      %span.u-float-right
+        %i.fa.fa-calendar
+        = post_date(post)
     %p= excerpt(post.content)
