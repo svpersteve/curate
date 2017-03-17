@@ -8,5 +8,5 @@
       %span.u-float-right
         %i.fa.fa-calendar
         = @post.created_at.to_date.to_formatted_s(:long)
-    = link_to 'Edit', edit_post_path(@post), class: 'a-button a-button--corner'
+    = link_to 'Edit', edit_post_path(@post), class: 'a-button a-button--corner' if can? :edit, @post
     = sanitize @post.content

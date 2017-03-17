@@ -9,4 +9,4 @@
 
 - if can? :manage, @user
   .container
-    .content= link_to 'Edit profile', edit_user_path(@user), class: 'a-button a-button--corner'
+    .content= link_to 'Edit profile', edit_user_path(@user), class: 'a-button a-button--corner' if can? :edit, @user
