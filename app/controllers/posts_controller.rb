@@ -56,7 +56,7 @@ class PostsController < ApplicationController
     end
   end
 
-  def update
+  def update # rubocop:disable Metrics/MethodLength
     if @post.update(post_params)
       if submitting_to_publish?
         redirect_to publishing_post_path(@post)
