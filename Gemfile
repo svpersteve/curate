@@ -36,6 +36,7 @@ gem 'cancancan'
 gem "rolify"
 
 gem 'carrierwave'
+gem 'fog'
 gem 'mini_magick'
 gem 'ckeditor'
 
