@@ -6,6 +6,7 @@ class Post < ApplicationRecord
 
   scope :published, -> { where.not(published_at: nil) }
   scope :draft, -> { where(published_at: nil) }
+  scope :featured, -> { where(featured: true) }
 
   def published?
     published_at.present?

@@ -4,6 +4,11 @@
       = f.text_field :title, class: 'u-full-width'
     .content.content--wide
       = cktext_area :post, :content, cols: 40, ckeditor: { uiColor: '$colour-grey', toolbar: 'mini' }
+    - if current_user.has_role?(:admin)
+      .content
+        %h2 Admins only
+        = f.check_box :featured
+        = f.label 'Feature post on blog and home page'
     .content.content--wide
       .a-buttons.u-float-right
         - if can? :publish, @post
