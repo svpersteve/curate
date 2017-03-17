@@ -17,6 +17,7 @@ class UsersController < ApplicationController
     if @user.update(user_params)
       redirect_to user_path(user_params)
     else
+      flash[:alert] = I18n.t('user.update.failure')
       render :edit
     end
   end

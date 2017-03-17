@@ -21,4 +21,17 @@
 
 ---
 en:
-  hello: Hello world
+  errors:
+    user:
+      attributes:
+        email:
+          blank: Please fill in your email address
+        full_name:
+          blank: Please fill in your name
+        password:
+          blank: Fill in a password
+        username: Please fill in your username
+  user:
+    update:
+      failure: We couldn’t update your profile. Check below and try again.
+      success: You’ve updated your profile.
