@@ -4,5 +4,9 @@
       = f.text_field :title, class: 'u-full-width'
     .content.content--wide
       = cktext_area :post, :content, cols: 40, ckeditor: { uiColor: '$colour-grey', toolbar: 'mini' }
-    .content
-      = f.submit 'Save', class: 'a-button'
+    .content.content--wide
+      .a-buttons.u-float-right
+        - if can? :publish, @post
+          = f.submit 'Unpublish', class: 'a-button a-button--ghost', value: 'Unpublish' if @post.published?
+          = f.submit 'Publish', class: 'a-button a-button--ghost', value: 'Publish' if @post.draft?
+        = f.submit 'Save', class: 'a-button u-float-right'

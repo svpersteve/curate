@@ -6,5 +6,12 @@ Rails.application.routes.draw do
   resources :users, path: 'artists'
   get '/users', to: redirect('/artists')
 
-  resources :posts
+  resources :posts do
+    member do
+      get :publishing, path: 'publish'
+      post :publish
+      get :unpublishing, path: 'unpublish'
+      post :unpublish
+    end
+  end
 end
