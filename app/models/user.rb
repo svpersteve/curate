@@ -1,7 +1,7 @@
 class User < ApplicationRecord
   rolify
 
-  has_many :posts, foreign_key: :author_id
+  has_many :posts, foreign_key: :author_id, dependent: :destroy
 
   extend FriendlyId
   friendly_id :username, use: [:slugged, :finders]
