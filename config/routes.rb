@@ -12,6 +12,10 @@ Rails.application.routes.draw do
       post :publish
       get :unpublishing, path: 'unpublish'
       post :unpublish
+      get :like
+      post :like
+      get :unlike
+      post :unlike
     end
   end
 

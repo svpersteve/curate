@@ -14,4 +14,9 @@ module UserHelper
       "@#{user.username}"
     end
   end
+
+  def user_likes_post?(user, post)
+    post.fans.any? { |f| f == user }
+  end
 end
+
