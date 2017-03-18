@@ -1,0 +1,14 @@
+.container
+  .content.d-form
+    %h1 Password reset
+
+  .content.d-form
+    = form_for resource, as: resource_name, url: password_path(resource_name), method: :post do |f|
+      = devise_error_messages!
+      %p Email
+      = f.email_field :email, autofocus: true, class: 'u-full-width'
+      = flash[:recaptcha_error]
+      .u-margin-top
+        = recaptcha_tags
+      .u-margin-top
+        = f.submit "Reset my password", class: 'a-button'
