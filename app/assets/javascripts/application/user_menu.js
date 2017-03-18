@@ -4,8 +4,6 @@ $(document).on('turbolinks:load', function() {
 
   var toggleUserMenu = function(e) {
     e.preventDefault();
-    $('.js-dropdown').addClass('u-hide--mobile');
-    $userMenu.removeClass('u-hide--mobile');
     $userMenu.toggle();
   };
 

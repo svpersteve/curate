@@ -25,9 +25,3 @@
 .u-float-right {
   float: right;
 }
-
-.u-hide--mobile {
-  @media #{$to-medium} {
-    display: none;
-  }
-}
