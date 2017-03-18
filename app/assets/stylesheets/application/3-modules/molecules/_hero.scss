@@ -7,11 +7,11 @@
     position: center center;
     repeat: no-repeat;
     size: cover;
+    attachment: fixed;
   }
 
   h1 {
     color: $colour-white;
     font-size: 100px;
-    line-height: 1;
   }
 }
