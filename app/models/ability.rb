@@ -12,5 +12,6 @@ class Ability
 
     can :manage, User, id: user.id
     can :manage, Post, author_id: user.id
+    can :manage, Tag, creator_id: user.id
   end
 end

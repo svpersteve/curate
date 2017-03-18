@@ -1,6 +1,7 @@
 .container
   .content
     %h1= @tag.name
+    = link_to 'Edit', edit_tag_path(@tag), class: 'a-button a-button--corner' if can? :edit, @tag
     = sanitize @tag.description
 
   - if @tag.posts.published.any?
