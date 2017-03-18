@@ -14,4 +14,6 @@ Rails.application.routes.draw do
       post :unpublish
     end
   end
+
+  resources :tags
 end
