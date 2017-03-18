@@ -1,4 +1,4 @@
-exclude: 'app/assets/stylesheets/email/**'
+exclude: ['app/assets/stylesheets/email/**', app/assets/stylesheets/application/3-modules/molecules/_canvas.scss]
 
 linters:
   BangFormat:
