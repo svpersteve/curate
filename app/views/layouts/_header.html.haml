@@ -3,7 +3,12 @@
   = link_to 'Artists', users_path, class: 's-navbar__nav'
   = link_to 'Blog', posts_path, class: 's-navbar__nav'
   - if current_user
-    = link_to 'Sign out', destroy_user_session_path, method: :delete
-    = link_to avatar_small(current_user, css_class: 'a-avatar--thumb'), user_path(current_user)
+    = link_to avatar_small(current_user, css_class: 'a-avatar--thumb js-reveal__trigger'), user_path(current_user)
+
   - else
     = link_to 'Sign in', new_user_session_path, class: 's-navbar__nav'
+
+  - if current_user
+    .s-navbar__dropdown.js-reveal__hidden
+      %p= link_to 'Your profile', user_path(current_user)
+      %p= link_to 'Sign out', destroy_user_session_path, method: :delete

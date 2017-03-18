@@ -17,3 +17,4 @@
 //= require ckeditor/init
 //= require application/main.js
 //= require application/dismiss.js
+//= require application/reveal.js

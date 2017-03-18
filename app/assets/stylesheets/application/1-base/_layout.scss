@@ -4,3 +4,13 @@
   justify-content: $justify-content;
   align-items: $align-items;
 }
+
+@mixin clearfix {
+  &::before, &::after {
+    content: " ";
+    display: table;
+  }
+  &::after {
+    clear: both;
+  }
+}
