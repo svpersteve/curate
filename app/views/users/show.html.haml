@@ -2,16 +2,26 @@
 
 = render 'users/profile/intro', selector: '#profile-hero', src: @user.hero_image.url(:header_medium), srcset: {'900px' => @user.hero_image.url(:header_large)}
 
-.container
-  = link_to 'Edit profile', edit_user_path(@user), class: 'a-button a-button--corner' if can? :edit, @user
-  .u-margin-top
-  - if @user.liked_posts.any?
-    .content
-      %h2 Activity
-      = render partial: 'shared/activity', locals: { user: @user }
+= link_to 'Edit profile', edit_user_path(@user), class: 'a-button a-button--corner u-margin-bottom' if can? :edit, @user
 
-  - if @user.posts.any?
-    .content
-      %h2 My posts
-      = render partial: 'shared/posts', locals: { posts: current_user.posts.draft } if current_user && current_user.posts.draft.any?
-      = render partial: 'shared/posts', locals: { posts: @user.posts.published }
+.three-column-container
+
+  .quarter.centered
+    = profile_image(@user, css_class: 'a-avatar')
+    %br
+    %h1= @user.full_name
+
+  .half
+    - if @user.liked_posts.any?
+      .content
+        %h2 Activity
+        = render partial: 'shared/activity', locals: { user: @user }
+
+    - if @user.posts.any?
+      .content
+        %h2 Posts
+        %br
+        = render partial: 'shared/posts', locals: { posts: current_user.posts.draft } if current_user && current_user.posts.draft.any?
+        = render partial: 'shared/posts', locals: { posts: @user.posts.published }
+
+  .quarter.centered

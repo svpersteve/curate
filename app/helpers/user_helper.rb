@@ -1,6 +1,13 @@
 module UserHelper
-  def profile_image(user)
-    image_tag user.auth_provider_profile_image if user.auth_provider_profile_image.present?
+  def profile_image(user, css_class: nil)
+
+    attributes = {
+      alt: user.full_name,
+      class: css_class,
+      title: (user.full_name)
+    }
+
+    image_tag(user.avatar, attributes)
   end
 
   def instagram_url(user)

@@ -1,12 +1,13 @@
 .m-hero {
   @include flex;
+  text-align: center;
   height: 93vh;
+  background-color: $colour-black;
   background: {
     position: center center;
     repeat: no-repeat;
     size: cover;
   }
-  background-color: $colour-black;
 
   h1 {
     color: $colour-white;

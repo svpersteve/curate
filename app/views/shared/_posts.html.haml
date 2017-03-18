@@ -1,14 +1,13 @@
 - if defined?(title)
-  .content.content--tight
-    %h2= title
+  %h2= title
 - posts.each do |post|
-  .content.content--separated-bottom.content--tight-top
-    %h4
-      = post_status(post)
-      = link_to post.title, post
-    %p
-      = link_to "By #{post.author.full_name}", post.author
-      %span.u-float-right
-        %i.fa.fa-calendar
-        = post_date(post)
-    %p= excerpt(post.content)
+  %h4
+    = post_status(post)
+    = link_to post.title, post
+  %p
+    = link_to "By #{post.author.full_name}", post.author
+    %span.u-float-right
+      %i.fa.fa-calendar
+      = post_date(post)
+  %p= excerpt(post.content)
+  .u-margin-bottom

@@ -18,6 +18,10 @@
   max-width: 70em;
 }
 
+.content--xxwide {
+  max-width: 75em;
+}
+
 .content--separated {
   border-top: solid 1px $colour-border;
   border-bottom: solid 1px $colour-border;
@@ -38,4 +42,53 @@
 
 .content--tight-top {
   margin-top: 0;
+}
+
+.three-column-container {
+  width: 100%;
+  @include flex($direction: column);
+
+  .third {
+    width: 100%;
+  }
+
+  .half {
+    width: 100%;
+  }
+
+  .quarter {
+    width: 100%;
+  }
+
+  .centered {
+    @include flex($direction: column);
+  }
+
+  .content {
+    max-width: 90%;
+  }
+
+  @media #{$from-large} {
+    @include flex($direction: row, $justify-content: space-between, $align-items: flex-start);
+
+    .third {
+      width: 33%;
+    }
+
+    .half {
+      width: 50%;
+    }
+
+    .quarter {
+      width: 25%;
+    }
+
+    .centered {
+      @include flex($direction: column);
+    }
+
+    .content {
+      max-width: 90%;
+    }
+  }
 }
