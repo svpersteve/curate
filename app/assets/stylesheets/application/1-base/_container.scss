@@ -45,8 +45,10 @@
 }
 
 .three-column-container {
-  width: 100%;
+
+  width: 90%;
   @include flex($direction: column);
+  margin: 50px auto;
 
   .third {
     width: 100%;
@@ -65,14 +67,15 @@
   }
 
   .content {
-    max-width: 90%;
+    max-width: 100%;
   }
 
   @media #{$from-large} {
-    @include flex($direction: row, $justify-content: space-between, $align-items: flex-start);
+    @include flex($direction: row, $justify-content: center, $align-items: flex-start);
 
     .third {
       width: 33%;
+      margin-right: 50px;
     }
 
     .half {
@@ -88,7 +91,7 @@
     }
 
     .content {
-      max-width: 90%;
+      max-width: 80%;
     }
   }
 }
