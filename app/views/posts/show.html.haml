@@ -11,6 +11,7 @@
         %span.u-float-right
           %i.fa.fa-calendar
           = post_date(@post)
+      = render partial: 'shared/like_link', locals: { subject: @post }
     = link_to 'Edit', edit_post_path(@post), class: 'a-button a-button--corner' if can? :edit, @post
     = sanitize @post.content
 

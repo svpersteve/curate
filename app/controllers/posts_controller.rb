@@ -56,6 +56,24 @@ class PostsController < ApplicationController
     end
   end
 
+  def like
+    if current_user
+      @post_like = Like.find_or_create_by(fan_id: current_user, post_id: @post) do |like|
+        like.post = @post
+        like.fan = current_user
+      end
+      redirect_to @post
+    else
+      redirect_to sign_in_path
+    end
+  end
+
+  def unlike
+    @like = Like.find_by(fan_id: current_user.id, post_id: @post.id)
+    @like.destroy
+    redirect_to @post
+  end
+
   def update # rubocop:disable Metrics/MethodLength
     if @post.update(post_params)
       if submitting_to_publish?

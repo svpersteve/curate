@@ -1,0 +1,16 @@
+- if current_user
+  - if user_likes_post?(current_user, subject)
+    %p
+      = link_to unlike_post_path do
+        %i.fa.fa-heart
+        = likes_count(subject)
+  - else
+    %p
+      = link_to like_post_path do
+        %i.fa.fa-heart-o
+        = likes_count(subject)
+- else
+  %p
+    = link_to new_user_session_path do
+      %i.fa.fa-heart-o
+      = likes_count(subject)

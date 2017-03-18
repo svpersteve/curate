@@ -34,4 +34,8 @@ class User < ApplicationRecord
       user.auth_provider_profile_image = auth.extra.raw_info.profile_picture
     end
   end
+
+  def name
+    full_name.split.first
+  end
 end
