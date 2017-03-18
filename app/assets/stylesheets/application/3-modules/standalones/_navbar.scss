@@ -1,37 +1,99 @@
 .s-navbar {
-  padding: 0 15px;
   @include flex($justify-content: space-between);
-  font-family: $header-font;
-  font-size: 20px;
+  padding: 0 15px;
   margin-top: 5px;
   position: relative;
+  border-bottom: 1px dashed $colour-light-grey;
+  min-height: 63px;
+}
+
+.s-navbar__menu {
+  position: absolute;
+  @include flex($direction: column);
+  background-color: $colour-white;
+  padding: 10px 5px;
+  top: 62px;
+  box-shadow: 0 1px 5px 1px $colour-box-shadow;
+  border: 1px solid $colour-light-grey;
+  width: 100%;
+  overflow: visible;
+  display: none;
+  left: 0;
+  text-align: center;
+
+  .s-navbar__nav {
+    margin: 0 auto;
+    display: block;
+    font-family: $header-font;
+    font-size: 20px;
+  }
+
+  @media #{$from-medium} {
+    @include flex;
+    position: static;
+    width: 50%;
+    border: 0;
+    box-shadow: none;
+  }
+}
+
+.s-navbar__menu-burger {
+  font-size: 25px;
+
+  @media #{$from-medium} {
+    display: none;
+  }
 }
 
 .s-navbar__nav {
-  padding: 20px;
   border-bottom: solid 2px transparent;
+  font-size: 20px;
+  padding: 15px;
+
+  @media #{$from-medium} {
+    font-family: $header-font;
+    color: $colour-grey;
+    font-weight: bold;
+
+    &:not(:last-child) {
+      margin-right: 50px;
+    }
+  }
 }
 
-.s-navbar__nav:hover {
-  border-bottom: solid 2px $colour-black;
+.s-navbar__nav:hover,
+.s-navbar__nav.is-selected {
+  color: $colour-black;
 }
 
 .s-navbar__logo {
   font-size: 40px;
   font-weight: bold;
+  font-family: $header-font;
 }
 
 .s-navbar__dropdown {
+  position: absolute;
   @include flex($direction: column);
   background-color: $colour-white;
-  font-size: 16px;
-  padding: 10px 20px;
+  padding: 10px 5px;
   float: right;
   top: 62px;
   box-shadow: 0 1px 5px 1px $colour-box-shadow;
   border: 1px solid $colour-light-grey;
+  right: 15px;
   display: none;
-  @include clearfix;
-  position: absolute;
-  right: 20px;
+  @media #{$to-medium} {
+    width: 100%;
+    overflow: visible;
+    right: 0;
+    text-align: center;
+  }
+}
+
+.s-navbar__subnav {
+  font-family: $header-font;
+  font-size: 20px;
+  padding: 15px;
+  display: block;
 }

@@ -1,0 +1,11 @@
+- if current_user
+  = link_to avatar_small(current_user, css_class: 'a-avatar--thumb js-user-menu-trigger'), user_path(current_user)
+
+- else
+  = link_to 'Sign in', new_user_session_path, class: 's-navbar__nav'
+
+- if current_user
+  .s-navbar__dropdown.js-user-menu
+    = link_to 'Your profile', user_path(current_user), class: 's-navbar__subnav'
+    = link_to 'Write a blog post', new_post_path, class: 's-navbar__subnav' if can? :create, Post
+    = link_to 'Sign out', destroy_user_session_path, method: :delete, class: 's-navbar__subnav'

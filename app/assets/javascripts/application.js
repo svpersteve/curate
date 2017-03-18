@@ -18,3 +18,5 @@
 //= require application/main.js
 //= require application/dismiss.js
 //= require application/reveal.js
+//= require application/menu.js
+//= require application/user_menu.js
