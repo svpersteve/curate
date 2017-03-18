@@ -1,0 +1,8 @@
+.container
+  .content
+    %h1= @tag.name
+    = sanitize @tag.description
+
+  - if @tag.posts.published.any?
+    .content
+      = render partial: 'shared/posts', locals: { posts: @tag.posts.published, title: "Related posts" }

@@ -1,4 +1,4 @@
 .content
   .a-tags
     - tags.each do |tag|
-      .a-tag= tag.name
+      .a-tag= link_to tag.name, tag
