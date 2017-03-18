@@ -82,7 +82,9 @@
   box-shadow: 0 1px 5px 1px $colour-box-shadow;
   border: 1px solid $colour-light-grey;
   right: 15px;
+  z-index: 100;
   display: none;
+
   @media #{$to-medium} {
     width: 100%;
     overflow: visible;

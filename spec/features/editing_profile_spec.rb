@@ -26,7 +26,7 @@ private
 def when_i_edit_my_profile
   visit root_path
   click_on 'My profile'
-  click_on 'Edit profile'
+  click_on 'Edit'
   fill_in 'Full name', with: 'New name'
   click_on 'Save changes'
 end
@@ -36,7 +36,7 @@ def then_i_should_see_my_changes
 end
 
 def then_i_should_not_see_an_edit_profile_link
-  expect(page).to_not have_content('Edit profile')
+  expect(page).to_not have_content('Edit')
 end
 
 def when_i_try_to_edit_an_artists_profile

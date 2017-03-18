@@ -37,7 +37,11 @@
 }
 
 .a-button--corner {
-  float: right;
-  margin-top: 20px;
-  margin-right: 30px;
+  margin: 10px auto;
+
+  @media #{$from-medium} {
+    position: absolute;
+    right: 25px;
+    top: 90px;
+  }
 }
