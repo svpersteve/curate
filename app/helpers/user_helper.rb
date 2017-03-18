@@ -10,6 +10,17 @@ module UserHelper
     image_tag(user.avatar, attributes)
   end
 
+  def avatar_small(user, css_class: nil)
+
+    attributes = {
+      alt: user.full_name,
+      class: css_class,
+      title: (user.full_name)
+    }
+
+    image_tag(user.avatar_thumbnail, attributes)
+  end
+
   def instagram_url(user)
     "https://instagram.com/#{user.instagram_username}"
   end

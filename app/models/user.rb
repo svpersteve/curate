@@ -43,6 +43,16 @@ class User < ApplicationRecord
   end
 
   def avatar
-    profile_image.present? ? profile_image.url(:profile_image) : auth_provider_profile_image
+    if profile_image.present?
+      profile_image.url(:profile_image)
+    elsif auth_provider_profile_image.present?
+      auth_provider_profile_image
+    else
+      'https://s3.eu-west-2.amazonaws.com/wlcimages/avatar.png'
+    end
+  end
+
+  def avatar_thumbnail
+    profile_image.present? ? profile_image.url(:thumbnail) : auth_provider_profile_image
   end
 end

@@ -1,7 +1,9 @@
 .s-navbar {
-  @include flex($justify-content: space-around);
+  padding: 0 15px;
+  @include flex($justify-content: space-between);
   font-family: $header-font;
   font-size: 20px;
+  margin-top: 5px;
 }
 
 .s-navbar__nav {
@@ -11,4 +13,8 @@
 
 .s-navbar__nav:hover {
   border-bottom: solid 2px $colour-black;
+}
+
+.s-navbar__logo {
+  font-size: 40px;
 }
