@@ -1,0 +1,15 @@
+.m-hero {
+  @include flex;
+  height: 93vh;
+  background: {
+    position: center center;
+    repeat: no-repeat;
+    size: cover;
+  }
+  background-color: $colour-black;
+
+  h1 {
+    color: $colour-white;
+    font-size: 100px;
+  }
+}

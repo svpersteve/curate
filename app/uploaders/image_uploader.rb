@@ -1,6 +1,7 @@
 class ImageUploader < BaseUploader
   include CarrierWave::MiniMagick
   include Curate::ImagePreProcessor
+  include Curate::Random
 
   REGULAR_SIZE          = [442, 295]
   HERO_SIZE             = [648, 432]

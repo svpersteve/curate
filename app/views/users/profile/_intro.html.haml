@@ -1,0 +1,21 @@
+:ruby
+  srcset ||= {}
+
+- content_for :additional_stylesheet do
+  %style
+    :plain
+      #{selector} {
+        background-image: url(#{src});
+      }
+
+    - srcset.each do |width, src|
+      :plain
+        @media all and (min-width: #{width}) {
+          #{selector} {
+            background-image: url(#{src});
+          }
+        }
+
+.container.m-hero#profile-hero
+  .content
+    %h1= @user.full_name

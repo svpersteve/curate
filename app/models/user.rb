@@ -7,6 +7,8 @@ class User < ApplicationRecord
   has_many :likes, foreign_key: :fan_id
   has_many :liked_posts, through: :likes, source: :post
 
+  mount_uploader :hero_image, HeroUploader
+
   extend FriendlyId
   friendly_id :username, use: [:slugged, :finders]
 
