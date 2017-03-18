@@ -1,21 +1,19 @@
 module UserHelper
   def profile_image(user, css_class: nil)
-
     attributes = {
       alt: user.full_name,
       class: css_class,
-      title: (user.full_name)
+      title: user.full_name
     }
 
     image_tag(user.avatar, attributes)
   end
 
   def avatar_small(user, css_class: nil)
-
     attributes = {
       alt: user.full_name,
       class: css_class,
-      title: (user.full_name)
+      title: user.full_name
     }
 
     image_tag(user.avatar_thumbnail, attributes)
@@ -37,4 +35,3 @@ module UserHelper
     post.fans.any? { |f| f == user }
   end
 end
-

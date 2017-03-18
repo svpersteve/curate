@@ -14,6 +14,8 @@ AllCops:
     - tmp/**/*
     - vendor/bundle/**/*
     - db/schema.rb
+    - app/controllers/application_controller.rb
+    - lib/curate/random.rb
 
 Lint/AssignmentInCondition:
   Enabled: false

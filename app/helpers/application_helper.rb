@@ -21,12 +21,12 @@ module ApplicationHelper
 
   def likes_count(subject)
     case subject.likes.count
-      when 0
-        "0 likes"
-      when 1..3
-        "liked by #{list_all_sentence(subject.fans)}".html_safe
-      else
-        "liked by #{list_all(subject.fans.take(3))} and #{remaining_like_count(subject)}".html_safe
+    when 0
+      "0 likes"
+    when 1..3
+      "liked by #{list_all_sentence(subject.fans)}".html_safe
+    else
+      "liked by #{list_all(subject.fans.take(3))} and #{remaining_like_count(subject)}".html_safe
     end
   end
 
