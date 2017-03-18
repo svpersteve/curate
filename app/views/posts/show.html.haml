@@ -12,3 +12,9 @@
         = post_date(@post)
     = link_to 'Edit', edit_post_path(@post), class: 'a-button a-button--corner' if can? :edit, @post
     = sanitize @post.content
+
+- if @post.tags.any?
+  .container
+    .content
+      %h2 Tags
+      = render partial: 'shared/tags', locals: { tags: @post.tags }

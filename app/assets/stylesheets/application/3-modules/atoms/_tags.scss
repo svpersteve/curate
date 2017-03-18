@@ -1,0 +1,15 @@
+.a-tags {
+  @include flex($justify-content: flex-start);
+
+  .a-tag {
+    margin-bottom: 15px;
+  }
+
+  .a-tag:not(:last-child) {
+    margin-right: 15px;
+  }
+}
+
+.a-tag {
+  @extend .a-button;
+}
