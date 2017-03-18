@@ -1,14 +1,21 @@
 .container
   = form_for @post do |f|
     .content
+      %h2 Post title
       = f.text_field :title, class: 'u-full-width'
     .content.content--wide
       = cktext_area :post, :content, cols: 40, ckeditor: { uiColor: '$colour-grey', toolbar: 'mini' }
+
+    .content
+      %h2 Tags
+      = f.select :tag_ids, name_options_for_select(Tag.order('name asc'), f.object.tag_ids), { label: 'Tags' }, multiple: true, class: 'chosen-select', id: 'tag_field'
+
     - if current_user.has_role?(:admin)
       .content
         %h2 Admins only
         = f.check_box :featured
         = f.label 'Feature post on blog and home page'
+
     .content.content--wide
       .a-buttons.u-float-right
         - if can? :publish, @post
