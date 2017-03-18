@@ -18,6 +18,7 @@
 
     .content.content--wide
       .a-buttons.u-float-right
+        = @post.persisted? ? (link_to 'Cancel', @post, class: 'a-button' ) : (link_to 'Cancel', posts_path, class: 'a-button' )
         - if can? :publish, @post
           = f.submit 'Unpublish', class: 'a-button a-button--ghost', value: 'Unpublish' if @post.published?
           = f.submit 'Publish', class: 'a-button a-button--ghost', value: 'Publish' if @post.draft?
