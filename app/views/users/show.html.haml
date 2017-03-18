@@ -7,9 +7,13 @@
     %p= instagram_link(@user)
     %p= @user.bio
 
-- if can? :manage, @user
-  .container
-    .content= link_to 'Edit profile', edit_user_path(@user), class: 'a-button a-button--corner' if can? :edit, @user
+    - if can? :manage, @user
+      = link_to 'Edit profile', edit_user_path(@user), class: 'a-button a-button--corner' if can? :edit, @user
+
+  - if @user.liked_posts.any?
+    .content
+      %h2 Activity
+      = render partial: 'shared/activity', locals: { user: @user }
 
 - if @user.posts.any?
   .container

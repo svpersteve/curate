@@ -33,4 +33,17 @@ module ApplicationHelper
   def remaining_like_count(subject)
     pluralize((subject.likes.count - 4), 'other person')
   end
+
+  def relative_time(date)
+    sentence = time_ago_in_words(date)
+    sentence.slice(0, 1).capitalize + sentence.slice(1..-1)
+  end
+
+  def time_as_sentence(date)
+    date.past? ? "#{relative_time(date)} ago" : "In #{relative_time(date)}"
+  end
+
+  def date_and_time_as_sentence(date)
+    "#{time_as_sentence(date)}, #{date.to_date.to_formatted_s(:short)}"
+  end
 end
