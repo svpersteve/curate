@@ -1,6 +1,6 @@
 .container
   .content
     %h1 Tags
-
+    = link_to 'Create a tag', new_tag_path, class: 'a-button a-button--corner'  if can? :create, Tag
   .content
     = render partial: 'shared/tags', locals: { tags: @tags }

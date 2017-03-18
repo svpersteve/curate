@@ -1,0 +1,12 @@
+.container
+  = form_for @tag do |f|
+    .content
+      %h2 Tag name
+      = f.text_field :name, class: 'u-full-width'
+    .content.content--wide
+      = cktext_area :tag, :description, cols: 40, ckeditor: { uiColor: '$colour-grey', toolbar: 'mini' }
+
+    .content.content--wide
+      .a-buttons.u-float-right
+        = @tag.persisted? ? (link_to 'Cancel', @tag, class: 'a-button' ) : (link_to 'Cancel', tags_path, class: 'a-button' )
+        = f.submit 'Save', class: 'a-button'
