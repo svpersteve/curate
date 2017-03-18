@@ -5,16 +5,17 @@
     %h1
       = post_status(@post)
       = @post.title
-    %h3
-      = link_to "By #{@post.author.full_name}", @post.author
-      %span.u-float-right
-        %i.fa.fa-calendar
-        = post_date(@post)
+    .content.content--tight
+      %h4
+        = link_to "By #{@post.author.full_name}", @post.author
+        %span.u-float-right
+          %i.fa.fa-calendar
+          = post_date(@post)
     = link_to 'Edit', edit_post_path(@post), class: 'a-button a-button--corner' if can? :edit, @post
     = sanitize @post.content
 
 - if @post.tags.any?
   .container
     .content
-      %h2 Tags
+      %h3 Tags
       = render partial: 'shared/tags', locals: { tags: @post.tags }

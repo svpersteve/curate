@@ -1,12 +1,12 @@
 - if defined?(title)
-  .content.content--tight-bottom
+  .content.content--tight
     %h2= title
 - posts.each do |post|
-  .content.content--separated-bottom
-    %h2
+  .content.content--separated-bottom.content--tight-top
+    %h4
       = post_status(post)
       = link_to post.title, post
-    %h3
+    %p
       = link_to "By #{post.author.full_name}", post.author
       %span.u-float-right
         %i.fa.fa-calendar
