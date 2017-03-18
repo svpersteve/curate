@@ -1,0 +1,13 @@
+.a-icon-row
+  - if user.website.present?
+    %a{href: website_url(user), target: '_blank'}
+      %i.fa.fa-globe
+  - if user.instagram_username.present?
+    %a{href: instagram_url(user), target: '_blank'}
+      %i.fa.fa-instagram
+  - if user.facebook_username.present?
+    %a{href: facebook_url(user), target: '_blank'}
+      %i.fa.fa-facebook
+  - if user.twitter_username.present?
+    %a{href: twitter_url(user), target: '_blank'}
+      %i.fa.fa-twitter

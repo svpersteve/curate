@@ -23,6 +23,18 @@ module UserHelper
     "https://instagram.com/#{user.instagram_username}"
   end
 
+  def website_url(user)
+    user.website
+  end
+
+  def facebook_url(user)
+    "https://facebook.com/#{user.facebook_username}"
+  end
+
+  def twitter_url(user)
+    "https://twitter.com/#{user.twitter_username}"
+  end
+
   def instagram_link(user)
     if user.instagram_username.present?
       link_to "@#{user.instagram_username}", instagram_url(user), target: '_blank'

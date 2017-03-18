@@ -1,0 +1,8 @@
+.a-icon-row {
+  @include flex;
+  font-size: 30px;
+
+  a:not(:last-child) {
+    margin-right: 20px;
+  }
+}

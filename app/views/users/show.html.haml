@@ -8,6 +8,7 @@
     = profile_image(@user, css_class: 'a-avatar')
     %br
     %h1= @user.full_name
+    = render partial: 'shared/social_links', locals: { user: @user }
     .content.content--tight
       %p.u-center= sanitize @user.bio
     %br
