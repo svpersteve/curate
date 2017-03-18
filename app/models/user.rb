@@ -8,6 +8,7 @@ class User < ApplicationRecord
   has_many :liked_posts, through: :likes, source: :post
 
   mount_uploader :hero_image, HeroUploader
+  mount_uploader :profile_image, ProfileImageUploader
 
   extend FriendlyId
   friendly_id :username, use: [:slugged, :finders]
@@ -39,5 +40,9 @@ class User < ApplicationRecord
 
   def name
     full_name.split.first
+  end
+
+  def avatar
+    profile_image.present? ? profile_image.url(:profile_image) : auth_provider_profile_image
   end
 end

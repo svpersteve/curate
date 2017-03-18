@@ -6,6 +6,9 @@
       %p Cover photo
       = f.file_field :hero_image
     .content.d-form
+      %p Profile image
+      = f.file_field :profile_image
+    .content.d-form
       %p= f.label :full_name
       = f.text_field :full_name, placeholder: 'Full name', class: 'u-full-width'
       %p= f.label :email
