@@ -1,8 +1,6 @@
 - set_page_title(@user.full_name)
 
-= render 'users/profile/intro', selector: '#profile-hero', src: @user.hero_image.url(:header_medium), srcset: {'900px' => @user.hero_image.url(:header_large)}
-
-
+= render 'users/profile/intro', selector: "#user_#{@user.id}", src: @user.hero_image.url(:header_medium), srcset: {'900px' => @user.hero_image.url(:header_large)}
 
 .three-column-container
 
