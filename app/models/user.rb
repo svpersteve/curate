@@ -2,6 +2,7 @@ class User < ApplicationRecord
   rolify
 
   has_many :posts, foreign_key: :author_id, dependent: :destroy
+  has_many :tags, foreign_key: :creator_id
 
   extend FriendlyId
   friendly_id :username, use: [:slugged, :finders]
