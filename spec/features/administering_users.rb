@@ -22,7 +22,7 @@ def then_i_should_see_my_changes
 end
 
 def when_i_edit_the_artists_profile
-  click_on 'Edit profile'
+  click_on 'Edit'
   fill_in 'Full name', with: 'New name'
   click_on 'Save changes'
 end

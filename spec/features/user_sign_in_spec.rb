@@ -12,10 +12,14 @@ feature 'User sign up' do
     )
   end
 
-  scenario 'with Google OAuth2' do
+  before do
+    allow(user).to receive(:avatar_thumbnail).and_return('pic.jpg')
+  end
+
+  scenario 'with Instagram' do
     visit root_path
     click_on 'Sign in'
     click_on 'Sign in with Instagram'
-    expect(page).to have_content(user[:full_name])
+    expect(page).to have_content(user[:auth_provider_profile_image])
   end
 end

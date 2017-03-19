@@ -25,7 +25,7 @@ private
 
 def when_i_edit_my_profile
   visit root_path
-  click_on 'My profile'
+  click_on 'Your profile'
   click_on 'Edit'
   fill_in 'Full name', with: 'New name'
   click_on 'Save changes'
