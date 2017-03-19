@@ -5,6 +5,7 @@
     %h1.a-headline
       = post_status(@post)
       = @post.title
+    .u-center#likes_count= render partial: 'shared/like_link', locals: { subject: @post, user_list: true }
 
 .container
   .content.content--tight
@@ -12,9 +13,11 @@
       = link_to "By #{@post.author.full_name}", @post.author
       %span.u-float-right
         = post_date(@post)
-    = render partial: 'shared/like_link', locals: { subject: @post }
     = link_to 'Edit', edit_post_path(@post), class: 'a-button a-button--corner' if can? :edit, @post
     = sanitize @post.content
+
+    .u-center
+      %h1#likes_icon= render partial: 'shared/like_link', locals: { subject: @post }
 
 - if @post.tags.any?
   .container

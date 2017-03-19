@@ -62,7 +62,7 @@ class PostsController < ApplicationController
         like.post = @post
         like.fan = current_user
       end
-      redirect_to @post
+      render :likes
     else
       redirect_to sign_in_path
     end
@@ -71,7 +71,7 @@ class PostsController < ApplicationController
   def unlike
     @like = Like.find_by(fan_id: current_user.id, post_id: @post.id)
     @like.destroy
-    redirect_to @post
+    render :likes
   end
 
   def update # rubocop:disable Metrics/MethodLength
