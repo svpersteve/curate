@@ -39,3 +39,15 @@
 .u-navbar-clear {
   padding-top: $navbar-height;
 }
+
+.u-hide-on-mobile {
+  @media #{$to-medium} {
+    display: none;
+  }
+}
+
+.u-hide-on-desktop {
+  @media #{$from-medium} {
+    display: none;
+  }
+}

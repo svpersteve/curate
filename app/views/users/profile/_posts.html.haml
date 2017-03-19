@@ -1,12 +1,5 @@
-.three-column-container
-
-  .third.centered
-    = render partial: 'shared/artist_block', locals: { user: @user }
-
-    = link_to 'Edit profile', edit_user_path(@user), class: 'a-button' if can? :edit, @user
-
-  .half
-    - if user.posts.any?
-      .content
-        = render partial: 'shared/posts', locals: { posts: current_user.posts.draft } if current_user && current_user.posts.draft.any?
-        = render partial: 'shared/posts', locals: { posts: user.posts.published }
+.container
+  - if user.posts.any?
+    .content
+      = render partial: 'shared/posts', locals: { posts: current_user.posts.draft } if current_user && current_user.posts.draft.any?
+      = render partial: 'shared/posts', locals: { posts: user.posts.published }
