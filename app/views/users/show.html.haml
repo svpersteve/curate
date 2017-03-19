@@ -4,4 +4,4 @@
 
 = render partial: 'users/profile/nav', locals: { user: @user }
 
-#profile-ajax= render partial: 'users/profile/activity', locals: { user: @user }
+#profile-ajax= render partial: 'users/profile/activity', locals: { user: @user, updates: @updates }

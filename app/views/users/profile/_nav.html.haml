@@ -1,6 +1,7 @@
-%nav.m-subnav
-  = link_to user_activity_path, id: 'activity-nav', class: 'm-subnav__item is-selected',  :remote => true do
-    %h3 Activity
+%nav.s-navbar.s-navbar--center.js-stick--below-canvas
+  = link_to user_activity_path, id: 'activity-nav', class: 's-navbar__nav is-selected',  :remote => true do
+    Activity
   - if user.posts.any?
-    = link_to user_posts_path, id: 'post-nav', class: 'm-subnav__item',  :remote => true do
-      %h3 Posts
+    = link_to user_posts_path, id: 'post-nav', class: 's-navbar__nav',  :remote => true do
+      Posts
+.u-navbar-clear

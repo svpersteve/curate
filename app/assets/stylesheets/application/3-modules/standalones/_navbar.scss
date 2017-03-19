@@ -1,13 +1,25 @@
 .s-navbar {
   @include flex($justify-content: space-between);
   padding: 0 15px;
-  margin-top: 5px;
   position: relative;
   border-bottom: 1px dashed $colour-black;
-  min-height: 63px;
+  height: $navbar-height;
+  margin-bottom: -$navbar-height;
+}
+
+.s-navbar--center {
+  @include flex;
+}
+
+.s-navbar--fixed {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  background-color: $colour-white;
 }
 
 .s-navbar__menu {
+  max-height: $navbar-height - 2px;
   position: absolute;
   @include flex($direction: column);
   background-color: $colour-white;

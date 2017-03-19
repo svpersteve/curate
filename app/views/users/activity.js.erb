@@ -1,3 +1,3 @@
 $('.is-selected').removeClass('is-selected')
 $('#activity-nav').addClass('is-selected')
-$("#profile-ajax").html("<%= escape_javascript(render partial: 'users/profile/activity', locals: { user: @user }) %>");
+$("#profile-ajax").html("<%= escape_javascript(render partial: 'users/profile/activity', locals: { user: @user, updates: @updates }) %>");

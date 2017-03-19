@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
   load_and_authorize_resource
-  before_action :find_user, only: [:show, :edit, :update]
+  before_action :find_user, only: [:show, :edit, :update, :activity, :posts]
 
   def show
     @user = User.find(params[:id])
@@ -32,6 +32,7 @@ class UsersController < ApplicationController
   end
 
   def activity
+    @updates = @user.likes.order('created_at desc')
     respond_to do |format|
       format.js
     end

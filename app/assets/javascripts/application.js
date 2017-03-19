@@ -20,3 +20,4 @@
 //= require application/reveal.js
 //= require application/menu.js
 //= require application/user_menu.js
+//= require application/sticky_navbar.js
