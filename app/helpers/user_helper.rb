@@ -46,4 +46,8 @@ module UserHelper
   def user_likes_post?(user, post)
     user.liked_posts.any? { |l| l == post }
   end
+
+  def user_follows_artist?(user, artist)
+    user.followed_artists.any? { |l| l == artist }
+  end
 end

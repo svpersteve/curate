@@ -1,6 +1,5 @@
 class UsersController < ApplicationController
-  load_and_authorize_resource
-  before_action :find_user, only: [:show, :edit, :update, :activity, :posts]
+  before_action :find_user, only: [:show, :edit, :update, :activity, :posts, :follow, :unfollow]
 
   def show
     @user = User.find(params[:id])
@@ -20,15 +19,32 @@ class UsersController < ApplicationController
   end
 
   def edit
+    authorize! :edit, @user
   end
 
   def update
+    authorize! :manage, @user
     if @user.update(user_params)
       redirect_to user_path(user_params)
     else
       flash[:alert] = I18n.t('user.update.failure')
       render :edit
     end
+  end
+
+  def follow
+    if current_user
+      @artist_follow = ArtistFollow.find_or_create_by(follower_id: current_user.id, artist_id: @user.id)
+      render :follows
+    else
+      redirect_to sign_in_path
+    end
+  end
+
+  def unfollow
+    @artist_follow = ArtistFollow.find_by(follower_id: current_user, artist_id: @user)
+    @artist_follow.destroy
+    render :follows
   end
 
   def activity

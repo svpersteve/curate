@@ -11,6 +11,6 @@
       = likes_count(subject) if defined?(user_list)
 - else
   %p
-    = link_to new_user_session_path, class: 'a-love-link', remote: true do
+    = link_to new_user_session_path, class: 'a-love-link' do
       %i.fa.fa-heart-o
     = likes_count(subject) if defined?(user_list)

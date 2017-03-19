@@ -30,6 +30,17 @@ module ApplicationHelper
     end
   end
 
+  def artist_follower_count(artist)
+    case artist.followers.count
+    when 0
+      nil
+    when 1..3
+      "followed by #{list_all_sentence(artist.followers)}".html_safe
+    else
+      "followed by #{list_all(artist.followers.take(3))} and #{remaining_like_count(artist)}".html_safe
+    end
+  end
+
   def remaining_like_count(subject)
     pluralize((subject.likes.count - 4), 'other person')
   end
