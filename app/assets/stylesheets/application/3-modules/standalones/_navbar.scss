@@ -61,6 +61,7 @@
   border-bottom: solid 2px transparent;
   font-size: 20px;
   padding: 15px;
+  background-color: $colour-white;
 
   @media #{$from-medium} {
     font-family: $header-font;
@@ -94,7 +95,7 @@
   box-shadow: 0 1px 5px 1px $colour-box-shadow;
   border: 1px solid $colour-light-grey;
   right: 15px;
-  z-index: 100;
+  z-index: 1100;
   display: none;
 
   @media #{$to-medium} {
