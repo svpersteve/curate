@@ -1,6 +1,6 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
-  after_filter :store_location
+  after_action :store_location
 
   rescue_from CanCan::AccessDenied do |exception|
     redirect_to root_path, notice: exception.message
