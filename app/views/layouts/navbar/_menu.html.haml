@@ -1,6 +1,7 @@
 %a.s-navbar__menu-burger.js-menu-trigger{href: '#'}
   %i.fa.fa-reorder
 .s-navbar__menu.js-dropdown
+  %a.s-navbar__nav{ class: ('is-selected' if current_page?(updates_path)), href: updates_path } Home
   %a.s-navbar__nav{ class: ('is-selected' if current_page?(artworks_path)), href: artworks_path } Artwork
   %a.s-navbar__nav{ class: ('is-selected' if current_page?(users_path)), href: users_path } Artists
   %a.s-navbar__nav{ class: ('is-selected' if current_page?(posts_path)), href: posts_path } Blog
