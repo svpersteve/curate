@@ -44,6 +44,6 @@ module UserHelper
   end
 
   def user_likes_post?(user, post)
-    post.fans.any? { |f| f == user }
+    user.liked_posts.any? { |l| l == post }
   end
 end
