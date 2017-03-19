@@ -10,4 +10,8 @@
       %i.fa.fa-calendar
       = post_date(post)
   %p= excerpt(post.content)
-  .u-margin-bottom
+
+  .u-right
+    = link_to 'Read more', post, class: 'a-button'
+
+.u-margin-bottom
