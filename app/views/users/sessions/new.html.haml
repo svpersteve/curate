@@ -25,6 +25,9 @@
           = f.check_box :remember_me
           = f.label :remember_me
 
+      .u-center.u-margin-top--small.u-margin-bottom--small
+        = recaptcha_tags
+
       .u-margin-top
         = f.submit "Sign in", class: 'a-button'
       .u-margin-top
