@@ -1,0 +1,6 @@
+- set_page_title('Artwork')
+
+.container
+  .content.content--xxwide
+    %h1.u-center Artwork
+    = render partial: 'shared/artworks', locals: { artworks: @artworks }

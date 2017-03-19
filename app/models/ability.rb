@@ -14,6 +14,8 @@ class Ability
       can :manage, Tag, creator_id: user.id
       can :like, Post
       can :unlike, Post
+      can :create, Artwork
+      can :manage, Artwork, artist_id: user.id
     end
   end
 end

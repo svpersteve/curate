@@ -1,6 +1,6 @@
 - set_page_title(@user.full_name)
 
-= render 'users/profile/intro', selector: "#user_#{@user.id}", src: @user.hero_image.url(:header_medium), srcset: {'900px' => @user.hero_image.url(:header_large)}
+= render 'users/profile/intro', selector: "#user_#{@user.id}", src: @user.hero_image.url(:header_medium), srcset: {'900px' => @user.hero_image.url(:header_large)}, title: @user.full_name, user: @user
 
 = render partial: 'users/profile/nav', locals: { user: @user }
 

@@ -3,4 +3,6 @@ class Artwork < ApplicationRecord
 
   extend FriendlyId
   friendly_id :name, use: [:slugged, :finders]
+
+  mount_uploader :image, ArtworkUploader
 end

@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  before_action :find_user, only: [:show, :edit, :update, :activity, :posts, :follow, :unfollow]
+  before_action :find_user, except: [:index]
 
   def show
     @user = User.find(params[:id])
@@ -55,6 +55,12 @@ class UsersController < ApplicationController
   end
 
   def posts
+    respond_to do |format|
+      format.js
+    end
+  end
+
+  def artworks
     respond_to do |format|
       format.js
     end

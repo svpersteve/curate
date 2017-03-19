@@ -1,0 +1,9 @@
+.m-gallery {
+  @include flex($flex-wrap: wrap);
+}
+
+.m-gallery__piece {
+  @include flex($direction: column);
+  max-width: 512px;
+  padding: 20px;
+}

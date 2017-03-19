@@ -1,0 +1,21 @@
+- set_page_title("#{@artwork.name}, by #{@user.full_name}")
+
+= render 'users/profile/intro', selector: "#user_#{@user.id}", src: @artwork.image.url(:header_medium), srcset: {'900px' => @artwork.image.url(:header_large) }, title: @artwork.name, user: @user
+
+.three-column-container
+
+  .third.centered
+    = profile_image(@user, css_class: 'a-avatar')
+    %br
+    %h1= @user.full_name
+    = render partial: 'shared/social_links', locals: { user: @user }
+    .content.content--tight.u-center
+      %p= sanitize @user.bio
+      #follower_count= render partial: 'shared/follow_link', locals: { artist: @user, user_list: true }
+
+    = link_to 'Edit artwork', edit_artwork_path(@artwork), class: 'a-button' if can? :edit, @artwork
+
+  .half
+    .content
+      = image_tag @artwork.image.url(:square_large)
+      %h1.u-center= @artwork.name

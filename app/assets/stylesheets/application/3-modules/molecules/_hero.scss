@@ -11,7 +11,9 @@
   }
 
   h1 {
-    color: $colour-white;
+    background-color: $colour-white;
+    margin: 0;
+    padding: 0 30px;
     font-size: 100px;
   }
 }

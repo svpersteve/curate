@@ -1,6 +1,18 @@
-- if user.posts.any?
-  .content
-    %h2 Posts
+.three-column-container
+
+  .third.centered
+    = profile_image(@user, css_class: 'a-avatar')
     %br
-    = render partial: 'shared/posts', locals: { posts: current_user.posts.draft } if current_user && current_user.posts.draft.any?
-    = render partial: 'shared/posts', locals: { posts: user.posts.published }
+    %h1= @user.full_name
+    = render partial: 'shared/social_links', locals: { user: @user }
+    .content.content--tight.u-center
+      %p= sanitize @user.bio
+      #follower_count= render partial: 'shared/follow_link', locals: { artist: @user, user_list: true }
+
+    = link_to 'Edit', edit_user_path(@user), class: 'a-button' if can? :edit, @user
+
+  .half
+    - if user.posts.any?
+      .content
+        = render partial: 'shared/posts', locals: { posts: current_user.posts.draft } if current_user && current_user.posts.draft.any?
+        = render partial: 'shared/posts', locals: { posts: user.posts.published }

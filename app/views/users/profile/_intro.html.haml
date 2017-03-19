@@ -16,5 +16,6 @@
           }
         }
 
-.container.m-hero[@user]
-  %h1= @user.full_name
+.container.m-hero[user]
+  - if defined?(title)
+    %h1= title

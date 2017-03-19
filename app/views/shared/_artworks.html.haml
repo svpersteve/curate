@@ -1,0 +1,6 @@
+.m-gallery
+  - artworks.each do |artwork|
+    .m-gallery__piece
+      = link_to artwork do
+        = image_tag artwork.image.url(:square_small)
+        %h2= artwork.name

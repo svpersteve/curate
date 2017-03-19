@@ -1,0 +1,19 @@
+.container
+  = form_for @artwork do |f|
+    .content
+      %h2 Name
+      = f.text_field :name, class: 'u-full-width'
+
+    .content
+      %p Image
+      = f.file_field :image
+
+    .content.content--wide
+      = cktext_area :artwork, :description, cols: 40, ckeditor: { uiColor: '$colour-grey', toolbar: 'mini' }
+
+    .content.content--wide
+      .a-buttons.u-float-right
+        = @artwork.persisted? ? (link_to 'Cancel', @artwork, class: 'a-button' ) : (link_to 'Cancel', artworks_path, class: 'a-button' )
+        = f.submit 'Save', class: 'a-button u-float-right'
+
+.u-margin-bottom

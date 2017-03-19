@@ -4,4 +4,6 @@
   - if user.posts.any?
     = link_to user_posts_path, id: 'post-nav', class: 's-navbar__nav',  :remote => true do
       Posts
+  = link_to user_artworks_path, id: 'artwork-nav', class: 's-navbar__nav',  :remote => true do
+    Artwork
 .u-navbar-clear
