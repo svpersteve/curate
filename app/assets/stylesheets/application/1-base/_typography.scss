@@ -48,11 +48,17 @@ p {
 
 p a {
   color: $colour-black;
-  background-color: $colour-light-blue;
+  transition: border 0.5s;
 
   &:hover {
     color: $colour-black;
+    border-bottom: solid 1px $colour-black;
+    transition: border 0.5s;
   }
+}
+
+i {
+  color: $colour-black;
 }
 
 img {

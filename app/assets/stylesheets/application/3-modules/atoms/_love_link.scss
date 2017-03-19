@@ -1,0 +1,15 @@
+.a-love-link {
+  i {
+    transition: all 0.5s;
+  }
+
+  &:hover {
+    border: 0;
+  }
+
+  &:hover i {
+    transition: all 0.5s;
+    color: red;
+    transform: scale(1.1);
+  }
+}

@@ -30,8 +30,10 @@
   float: right;
 }
 
-.no-highlight {
-  background-color: $colour-white;
+.u-no-highlight {
+  &:hover {
+    border: 0;
+  }
 }
 
 .u-navbar-clear {
