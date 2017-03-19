@@ -1,0 +1,4 @@
+- if user.liked_posts.any?
+  .content
+    %h2 Activity
+    = render partial: 'shared/activity', locals: { user: user }

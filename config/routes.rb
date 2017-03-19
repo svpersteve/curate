@@ -19,5 +19,8 @@ Rails.application.routes.draw do
     end
   end
 
+  get "/artists/:id/user-activity" => 'users#activity', as: 'user_activity'
+  get "/artists/:id/user-pages" => 'users#posts', as: 'user_posts'
+
   resources :tags
 end

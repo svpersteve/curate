@@ -1,0 +1,28 @@
+.m-subnav {
+  @include flex;
+  border-bottom: 1px dashed $colour-black;
+
+  .is-selected {
+    color: $colour-black;
+  }
+}
+
+.m-subnav__item {
+  margin-right: 25px;
+  padding: 1em 0;
+  color: $colour-grey;
+
+  h3 {
+    font-size: $nav-item-font-size;
+    margin: 0;
+  }
+
+  &:last-child {
+    margin-right: 0;
+  }
+
+  &:hover {
+    color: $colour-black;
+  }
+}
+

@@ -1,0 +1,6 @@
+- if user.posts.any?
+  .content
+    %h2 Posts
+    %br
+    = render partial: 'shared/posts', locals: { posts: current_user.posts.draft } if current_user && current_user.posts.draft.any?
+    = render partial: 'shared/posts', locals: { posts: user.posts.published }

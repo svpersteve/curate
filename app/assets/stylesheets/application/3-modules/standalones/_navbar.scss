@@ -25,7 +25,7 @@
     margin: 0 auto;
     display: block;
     font-family: $header-font;
-    font-size: 20px;
+    font-size: $nav-item-font-size;
   }
 
   @media #{$from-medium} {
