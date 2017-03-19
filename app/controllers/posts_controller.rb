@@ -2,7 +2,7 @@ class PostsController < ApplicationController
   load_and_authorize_resource
 
   def index
-    @posts = Post.published
+    @posts = Post.published.order('published_at desc')
   end
 
   def show
