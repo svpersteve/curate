@@ -46,7 +46,7 @@
 
 .three-column-container {
 
-  width: 90%;
+  width: 100%;
   @include flex($direction: column);
   margin: 50px auto;
 

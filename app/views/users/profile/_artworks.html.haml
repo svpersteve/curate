@@ -1,3 +1,10 @@
-.container
-  .content.content--xxwide
-    = render partial: 'shared/artworks', locals: { artworks: user.artworks }
+.three-column-container
+
+  .third.centered
+    = render partial: 'shared/artist_block', locals: { user: @user }
+
+    = link_to 'Edit profile', edit_user_path(@user), class: 'a-button' if can? :edit, @user
+
+  .half
+    .content
+      = render partial: 'shared/artworks', locals: { artworks: user.artworks }

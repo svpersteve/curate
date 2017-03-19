@@ -1,13 +1,7 @@
 .three-column-container
 
   .third.centered
-    = profile_image(@user, css_class: 'a-avatar')
-    %br
-    %h1= @user.full_name
-    = render partial: 'shared/social_links', locals: { user: @user }
-    .content.content--tight.u-center
-      %p= sanitize @user.bio
-      #follower_count= render partial: 'shared/follow_link', locals: { artist: @user, user_list: true }
+    = render partial: 'shared/artist_block', locals: { user: @user }
 
     = link_to 'Edit profile', edit_user_path(@user), class: 'a-button' if can? :edit, @user
 
