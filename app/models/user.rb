@@ -28,9 +28,6 @@ class User < ApplicationRecord
       user.email = auth.extra.raw_info.email || 'none@provided.com'
       user.password = Devise.friendly_token[0, 20]
       user.full_name = auth.extra.raw_info.full_name
-      first_name, last_name = auth.extra.raw_info.full_name.split
-      user.first_name = first_name
-      user.last_name = last_name
       user.instagram_username = auth.extra.raw_info.username
       user.username = auth.extra.raw_info.username
       user.bio = auth.extra.raw_info.bio
@@ -40,6 +37,10 @@ class User < ApplicationRecord
 
   def name
     full_name.split.first
+  end
+
+  def last_name
+    full_name.split.last
   end
 
   def avatar

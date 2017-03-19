@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170318224614) do
+ActiveRecord::Schema.define(version: 20170319102208) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -95,8 +95,6 @@ ActiveRecord::Schema.define(version: 20170318224614) do
     t.text     "bio",                         default: ""
     t.string   "auth_provider_profile_image", default: ""
     t.string   "full_name",                   default: "", null: false
-    t.string   "first_name",                  default: "", null: false
-    t.string   "last_name",                   default: "", null: false
     t.string   "username",                    default: "", null: false
     t.string   "instagram_username",          default: ""
     t.string   "slug"
