@@ -1,8 +1,11 @@
-- user.likes.order('created_at desc').each do |like|
+- updates.each do |update|
   %p
-    = user.name
-    liked
-    = link_to like.post.title, like.post
+    = link_to update.fan.name, update.fan
+    liked a
+    = update.subject_type
+    = link_to update.subject_name, update.subject
+    by
+    = link_to update.subject_creator.full_name, update.subject_creator
     %br
-    = relative_time(like.created_at)
+    = relative_time(update.created_at)
     ago
