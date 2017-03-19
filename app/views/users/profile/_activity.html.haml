@@ -1,4 +1,17 @@
-- if user.liked_posts.any?
-  .content
-    %h2 Activity
-    = render partial: 'shared/activity', locals: { user: user }
+.three-column-container
+
+  .third.centered
+    = profile_image(@user, css_class: 'a-avatar')
+    %br
+    %h1= @user.full_name
+    = render partial: 'shared/social_links', locals: { user: @user }
+    .content.content--tight
+      %p.u-center= sanitize @user.bio
+    %br
+    = link_to 'Edit', edit_user_path(@user), class: 'a-button' if can? :edit, @user
+
+  .half
+    - if user.liked_posts.any?
+      .content
+        %h2 Activity
+        = render partial: 'shared/activity', locals: { user: user }

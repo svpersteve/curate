@@ -2,19 +2,6 @@
 
 = render 'users/profile/intro', selector: "#user_#{@user.id}", src: @user.hero_image.url(:header_medium), srcset: {'900px' => @user.hero_image.url(:header_large)}
 
-= render partial: 'users/profile/nav'
+= render partial: 'users/profile/nav', locals: { user: @user }
 
-.three-column-container
-
-  .third.centered
-    = profile_image(@user, css_class: 'a-avatar')
-    %br
-    %h1= @user.full_name
-    = render partial: 'shared/social_links', locals: { user: @user }
-    .content.content--tight
-      %p.u-center= sanitize @user.bio
-    %br
-    = link_to 'Edit', edit_user_path(@user), class: 'a-button' if can? :edit, @user
-
-  .half#profile-ajax
-    = render partial: 'users/profile/activity', locals: { user: @user }
+#profile-ajax= render partial: 'users/profile/activity', locals: { user: @user }

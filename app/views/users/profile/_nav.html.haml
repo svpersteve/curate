@@ -1,5 +1,6 @@
 %nav.m-subnav
   = link_to user_activity_path, id: 'activity-nav', class: 'm-subnav__item is-selected',  :remote => true do
     %h3 Activity
-  = link_to user_posts_path, id: 'post-nav', class: 'm-subnav__item',  :remote => true do
-    %h3 Posts
+  - if user.posts.any?
+    = link_to user_posts_path, id: 'post-nav', class: 'm-subnav__item',  :remote => true do
+      %h3 Posts
