@@ -19,6 +19,8 @@ class User < ApplicationRecord
 
   has_many :followers, through: :followings, source: 'follower'
 
+  has_many :artworks
+
   mount_uploader :hero_image, HeroUploader
   mount_uploader :profile_image, ProfileImageUploader
 

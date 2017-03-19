@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170319142819) do
+ActiveRecord::Schema.define(version: 20170319172959) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -23,6 +23,16 @@ ActiveRecord::Schema.define(version: 20170319142819) do
     t.index ["artist_id"], name: "index_artist_follows_on_artist_id", using: :btree
     t.index ["follower_id", "artist_id"], name: "index_artist_follows_on_follower_id_and_artist_id", unique: true, using: :btree
     t.index ["follower_id"], name: "index_artist_follows_on_follower_id", using: :btree
+  end
+
+  create_table "artworks", force: :cascade do |t|
+    t.string  "name",        null: false
+    t.integer "artist_id"
+    t.text    "description"
+    t.string  "image"
+    t.string  "image_uuid"
+    t.string  "slug"
+    t.index ["artist_id"], name: "index_artworks_on_artist_id", using: :btree
   end
 
   create_table "ckeditor_assets", force: :cascade do |t|
