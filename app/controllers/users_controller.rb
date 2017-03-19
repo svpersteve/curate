@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  before_action :find_user, except: [:index]
+  before_action :find_user, except: [:index, :home]
 
   def show
     @user = User.find(params[:id])
