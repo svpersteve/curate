@@ -43,6 +43,16 @@ h4 {
 
 p {
   font-family: $body-font;
+  color: lighten($colour-black, 30%);
+}
+
+p a {
+  color: $colour-black;
+  background-color: $colour-light-blue;
+
+  &:hover {
+    color: $colour-black;
+  }
 }
 
 img {
