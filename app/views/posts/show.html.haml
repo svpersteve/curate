@@ -1,17 +1,18 @@
 - set_page_title(@post.title)
 
 .container
-  .content
-    %h1
+  .content.content--xxwide.u-center
+    %h1.a-headline
       = post_status(@post)
       = @post.title
-    .content.content--tight
-      %h4
-        = link_to "By #{@post.author.full_name}", @post.author
-        %span.u-float-right
-          %i.fa.fa-calendar
-          = post_date(@post)
-      = render partial: 'shared/like_link', locals: { subject: @post }
+
+.container
+  .content.content--tight
+    %h4
+      = link_to "By #{@post.author.full_name}", @post.author
+      %span.u-float-right
+        = post_date(@post)
+    = render partial: 'shared/like_link', locals: { subject: @post }
     = link_to 'Edit', edit_post_path(@post), class: 'a-button a-button--corner' if can? :edit, @post
     = sanitize @post.content
 
