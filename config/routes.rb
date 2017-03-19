@@ -6,6 +6,8 @@ Rails.application.routes.draw do
   resources :users, path: 'artists'
   get '/users', to: redirect('/artists')
 
+  get '/feed', to: 'users#home', as: 'updates'
+
   resources :posts do
     member do
       get :publishing, path: 'publish'

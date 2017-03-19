@@ -1,0 +1,14 @@
+.container
+  .content
+    %h1 What's happening at Curate?
+    - @updates.each do |update|
+      %p
+        = link_to update.fan.name, update.fan
+        liked a
+        = update.subject_type
+        = link_to update.subject_name, update.subject
+        by
+        = link_to update.subject_creator.name, update.subject_creator
+        %br
+        = relative_time(update.created_at)
+        ago
