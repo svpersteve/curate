@@ -1,12 +1,13 @@
-.three-column-container
+.container
+  .three-column-container
 
-  .third.centered
-    = render partial: 'shared/artist_block', locals: { user: @user }
+    .third.centered
+      = render partial: 'shared/artist_block', locals: { user: @user }
 
-    = link_to 'Edit profile', edit_user_path(@user), class: 'a-button' if can? :edit, @user
+      = link_to 'Edit profile', edit_user_path(@user), class: 'a-button' if can? :edit, @user
 
-  .half
-    - if user.liked_posts.any?
-      .content
-        %h2 Activity
-        = render partial: 'shared/activity', locals: { updates: @updates }
+    .half
+      - if user.liked_posts.any?
+        .content
+          %h2 Activity
+          = render partial: 'shared/activity', locals: { updates: @updates }

@@ -2,14 +2,15 @@
 
 = render 'users/profile/intro', selector: "#user_#{@user.id}", src: @artwork.image.url(:header_medium), srcset: {'900px' => @artwork.image.url(:header_large) }, title: @artwork.name, user: @user
 
-.three-column-container
+.container
+  .three-column-container
 
-  .third.centered
-    = render partial: 'shared/artist_block', locals: { user: @user }
+    .third.centered
+      = render partial: 'shared/artist_block', locals: { user: @user }
 
-    = link_to 'Edit artwork', edit_artwork_path(@artwork), class: 'a-button' if can? :edit, @artwork
+      = link_to 'Edit artwork', edit_artwork_path(@artwork), class: 'a-button' if can? :edit, @artwork
 
-  .half
-    .content
-      = image_tag @artwork.image.url(:square_large)
-      %h1.u-center= @artwork.name
+    .half
+      .content
+        = image_tag @artwork.image.url(:square_large)
+        %h1.u-center= @artwork.name
