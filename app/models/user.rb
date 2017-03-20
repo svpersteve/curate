@@ -39,7 +39,7 @@ class User < ApplicationRecord
     where(provider: auth.provider, uid: auth.uid).first_or_create! do |user|
       user.provider = auth.provider
       user.uid = auth.uid
-      user.email = auth.extra.raw_info.email || 'none@provided.com'
+      user.email = auth.extra.raw_info.email || "#{auth.extra.raw_info.username}@changeme.com"
       user.password = Devise.friendly_token[0, 20]
       user.full_name = auth.extra.raw_info.full_name
       user.instagram_username = auth.extra.raw_info.username
