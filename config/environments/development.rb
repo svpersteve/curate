@@ -66,4 +66,5 @@ Rails.application.configure do
     enable_starttls_auto: true
   }
   ActionMailer::Base.delivery_method = :smtp
+  config.action_cable.allowed_request_origins = 'localhost'
 end

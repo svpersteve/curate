@@ -21,6 +21,10 @@ class User < ApplicationRecord
 
   has_many :artworks, foreign_key: :artist_id
 
+  has_many :chatroom_users
+  has_many :chatrooms, through: :chatroom_users
+  has_many :messages
+
   mount_uploader :hero_image, HeroUploader
   mount_uploader :profile_image, ProfileImageUploader
 
