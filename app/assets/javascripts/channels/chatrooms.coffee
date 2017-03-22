@@ -12,6 +12,19 @@ App.chatrooms = App.cable.subscriptions.create "ChatroomsChannel",
 
     if active_chatroom.length > 0
 
+      if document.hidden
+        if $('.strike').length == 0
+          active_chatroom.append("<div class='m-chat__strike'><p>New messages</p></div>")
+
+        if Notification.permission == 'granted'
+          notification = new Notification(data.user_full_name, {body: data.message})
+          notification.onclick = (event) ->
+          event.preventDefault()
+          window.open 'http://www.mozilla.org', '_blank'
+
+      else
+        App.last_read.update(data.chatroom_id)
+
       active_chatroom.append(
         "<div class='m-chat__message'>
         <img src='#{data.avatar}' class='a-avatar--thumb-square' />
@@ -19,10 +32,8 @@ App.chatrooms = App.cable.subscriptions.create "ChatroomsChannel",
         <p>#{data.user_full_name}</p>
         <p>#{data.message}</p></div></div>"
         )
-      messages_to_bottom()
 
-      if document.hidden && Notification.permission == 'granted'
-        new Notification(data.user_full_name, {body: data.message})
+      messages_to_bottom()
 
     else
       $("[data-behavior='chatroom-link'][data-chatroom-id='#{data.chatroom_id}']").css("font-weight", "bold")

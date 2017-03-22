@@ -26,3 +26,35 @@
 .m-chat__datestamp {
   font-size: 10px;
 }
+
+.m-chat__strike {
+  display: block;
+  text-align: center;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+.m-chat__strike > p {
+  position: relative;
+  display: inline-block;
+}
+
+.m-chat__strike > p:before,
+.m-chat__strike > p:after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  width: 9999px;
+  height: 1px;
+  background: black;
+}
+
+.m-chat__strike > p:before {
+  right: 100%;
+  margin-right: 15px;
+}
+
+.m-chat__strike > p:after {
+  left: 100%;
+  margin-left: 15px;
+}

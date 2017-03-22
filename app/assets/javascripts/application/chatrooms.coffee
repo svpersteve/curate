@@ -1,4 +1,13 @@
-$(document).on 'turbolinks:load', ->
+handleVisiblityChange = ->
+    $strike = $(".m-chat__strike")
+    if $strike.length > 0
+      chatroom_id = $("[data-behavior='messages']").data("chatroom-id")
+      App.last_read.update(chatroom_id)
+      $strike.remove()
+
+$(document).on "turbolinks:load", ->
+  $(document).on "click", handleVisiblityChange
+
   messages = $('#messages')
   messages_to_bottom = -> messages.scrollTop(messages.prop("scrollHeight"))
 
