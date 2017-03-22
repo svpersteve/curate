@@ -7,8 +7,13 @@
     .half
       %h1= sanitize message_title(@chatroom)
       .m-chat
+        - unread_messages = false
         #messages{"data-behavior" => "messages", "data-chatroom-id" => "#{@chatroom.id}"}
-          = render @chatroom.messages
+          - @chatroom.messages.each do |message|
+            - if !unread_messages && @chatroom_user.last_read_at < message.created_at
+              - unread_messages = true
+              .m-chat__strike
+            = render partial: 'messages/message', locals: { message: message }
 
         = form_for [@chatroom, Message.new] do |f|
           = f.text_area :body, autofocus: true, rows: 1, class: 'u-full-width'
