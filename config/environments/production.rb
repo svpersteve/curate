@@ -98,4 +98,6 @@ Rails.application.configure do
     enable_starttls_auto: true
   }
   ActionMailer::Base.delivery_method = :smtp
+  config.action_cable.allowed_request_origins = ['https://curate-app.herokuapp.com']
+  config.action_cable.url = "wss://curate-app.herokuapp.com/cable"
 end
