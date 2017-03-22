@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  before_action :find_user, except: [:index, :home]
+  before_action :find_user, except: [:index, :home, :new_message]
 
   def show
     @user = User.find(params[:id])
@@ -64,6 +64,13 @@ class UsersController < ApplicationController
     respond_to do |format|
       format.js
     end
+  end
+
+  def contact
+    @chatroom = Chatroom.create(name: @user.full_name)
+    @chatroom_user = @chatroom.chatroom_users.where(user_id: @user.id).first_or_create
+    @chatroom_user = @chatroom.chatroom_users.where(user_id: current_user.id).first_or_create
+    redirect_to @chatroom
   end
 
   private

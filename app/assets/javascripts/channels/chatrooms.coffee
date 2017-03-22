@@ -18,9 +18,6 @@ App.chatrooms = App.cable.subscriptions.create "ChatroomsChannel",
 
         if Notification.permission == 'granted'
           notification = new Notification(data.user_full_name, {body: data.message})
-          notification.onclick = (event) ->
-          event.preventDefault()
-          window.open 'http://www.mozilla.org', '_blank'
 
       else
         App.last_read.update(data.chatroom_id)

@@ -10,6 +10,8 @@ Rails.application.routes.draw do
       post :follow
       get :unfollow
       post :unfollow
+      get :contact
+      post :contact
     end
   end
 
