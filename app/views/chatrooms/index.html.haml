@@ -1,0 +1,25 @@
+%h1 Listing chatrooms
+
+= render partial: 'room_list'
+
+%table
+  %thead
+    %tr
+      %th Name
+      %th
+      %th
+      %th
+
+  %tbody
+    - @chatrooms.each do |chatroom|
+      %tr
+        %td= chatroom.name
+        %td= link_to 'Show', chatroom
+        %td= link_to 'Edit', edit_chatroom_path(chatroom)
+        %td= link_to 'Destroy', chatroom, :method => :delete, :data => { :confirm => 'Are you sure?' }
+        %td= link_to 'Join', chatroom_chatroom_users_path(chatroom), method: :post
+        %td= link_to 'Leave', chatroom_chatroom_users_path(chatroom), method: :delete
+
+%br
+
+= link_to 'New Chatroom', new_chatroom_path

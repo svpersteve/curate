@@ -1,0 +1,2 @@
+- current_user.chatrooms.each do |chatroom|
+  %p= link_to chatroom.name, chatroom, data: { behavior: "chatroom-link", chatroom_id: chatroom.id }
