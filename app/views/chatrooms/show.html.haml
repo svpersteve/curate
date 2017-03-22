@@ -1,20 +1,16 @@
 .container
-  .content
-    = render partial: 'room_list'
+  .three-column-container
 
-.container
-  .content
-    %p
-      %b Name:
-      = @chatroom.name
+    .third
+      = render partial: 'room_list'
 
-      %div{"data-behavior" => "messages", "data-chatroom-id" => "#{@chatroom.id}"}
-        - @messages.each do |message|
-          = render message
+    .half
+      %h1= sanitize message_title(@chatroom)
+      .m-chat
+        #messages{"data-behavior" => "messages", "data-chatroom-id" => "#{@chatroom.id}"}
+          = render @chatroom.messages
 
-    = form_for [@chatroom, Message.new] do |f|
-      = f.text_area :body, autofocus: true, rows: 1, class: 'u-full-width'
-
-    = link_to 'Edit', edit_chatroom_path(@chatroom)
-    \|
-    = link_to 'Back', chatrooms_path
+        = form_for [@chatroom, Message.new] do |f|
+          = f.text_area :body, autofocus: true, rows: 1, class: 'u-full-width'
+          .content.u-right
+            = f.submit 'Send', class: 'a-button'

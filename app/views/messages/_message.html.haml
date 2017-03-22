@@ -1,3 +1,7 @@
-%p
-  %strong= message.user.name
-  = message.body
+.m-chat__message
+  = profile_image(message.user, css_class: 'a-avatar--thumb-square')
+  .m-chat__message-body
+    %p
+      = message.user.name
+      %span.m-chat__datestamp= message.created_at.to_formatted_s(:time)
+    %p= message.body

@@ -2,6 +2,7 @@ class ChatroomsController < ApplicationController
   before_action :set_chatroom, only: [:show, :edit, :update, :destroy]
 
   def index
+    @chatroom = current_user.chatrooms.first
     @chatrooms = Chatroom.all
   end
 
@@ -21,7 +22,7 @@ class ChatroomsController < ApplicationController
 
     respond_to do |format|
       if @chatroom.save
-        format.html { redirect_to @chatroom, notice: 'Chatroom was successfully created.' }
+        format.html { redirect_to @chatroom }
         format.json { render :show, status: :created, location: @chatroom }
       else
         format.html { render :new }
@@ -33,7 +34,7 @@ class ChatroomsController < ApplicationController
   def update
     respond_to do |format|
       if @chatroom.update(chatroom_params)
-        format.html { redirect_to @chatroom, notice: 'Chatroom was successfully updated.' }
+        format.html { redirect_to @chatroom }
         format.json { render :show, status: :ok, location: @chatroom }
       else
         format.html { render :edit }

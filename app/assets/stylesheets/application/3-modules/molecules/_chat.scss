@@ -1,0 +1,28 @@
+.m-chat {
+  #messages {
+    overflow:scroll;
+    height: 450px;
+    border: solid 1px $colour-border;
+    padding: 20px;
+  }
+}
+
+.m-chat__message {
+  @include flex($justify-content: flex-start, $align-items: flex-start);
+
+  img {
+    margin-right: 10px;
+  }
+
+  p {
+    margin: 0;
+  }
+}
+
+.m-chat__message-body {
+  margin-bottom: 15px;
+}
+
+.m-chat__datestamp {
+  font-size: 10px;
+}
