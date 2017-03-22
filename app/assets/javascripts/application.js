@@ -22,4 +22,5 @@
 //= require application/user_menu.js
 //= require application/sticky_navbar.js
 //= require cable
-//= require chatrooms.coffee
+//= require application/chatrooms.coffee
+//= require application/notifications.coffee
