@@ -15,8 +15,7 @@ class RemoveOldChatModels < ActiveRecord::Migration[5.0]
       t.text :body
       t.references :user, foreign_key: true
       t.references :chat_room, foreign_key: true
-
-      t.timestamps
-    end
+    drop_table :chat_rooms
+    drop_table :messages
   end
 end
