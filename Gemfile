@@ -40,6 +40,8 @@ gem 'fog'
 gem 'mini_magick'
 gem 'ckeditor', github: 'galetahub/ckeditor'
 
+gem 'redis'
+
 group :development, :test do
   gem 'dotenv-rails', require: 'dotenv/rails-now'
   gem 'pry'
