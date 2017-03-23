@@ -3,8 +3,17 @@
     .content
       %h2 Post title
       = f.text_field :title, class: 'u-full-width'
+
+    .content
+      %h2 Excerpt
+      = f.text_area :introduction, class: 'u-full-width'
+
     .content.content--wide
       = cktext_area :post, :content, cols: 40, ckeditor: { uiColor: '$colour-grey', toolbar: 'mini' }
+
+    .content
+      %h2 Featured image
+      = f.file_field :featured_image
 
     .content
       %h2 Tags

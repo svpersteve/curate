@@ -8,6 +8,8 @@ class Post < ApplicationRecord
   extend FriendlyId
   friendly_id :title, use: [:slugged, :finders]
 
+  mount_uploader :featured_image, FeaturedImageUploader
+
   scope :published, -> { where.not(published_at: nil) }
   scope :draft, -> { where(published_at: nil) }
   scope :featured, -> { where(featured: true) }
