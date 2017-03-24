@@ -1,17 +1,12 @@
-- if defined?(title)
-  %h2= title
-- posts.each do |post|
-  %h4
-    = post_status(post)
-    = link_to post.title, post
-  %p
-    = link_to "By #{post.author.full_name}", post.author
-    %span.u-float-right
-      %i.fa.fa-calendar
-      = post_date(post)
-  %p= excerpt(post.content)
-
-  .u-right
-    = link_to 'Read more', post, class: 'a-button'
-
-  .u-margin-bottom
+.m-stories
+  - posts.each do |post|
+    .m-story
+      = link_to post do
+        %img.m-story__image{src: post.image_preview}
+      %h4.m-story__title
+        = link_to post do
+          = post_status(post)
+          = link_to post.title, post
+      = link_to post do
+        %p.m-story__date= post_date(post)
+        %p.m-story__intro= post.introduction

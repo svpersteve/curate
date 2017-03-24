@@ -37,4 +37,8 @@ class Post < ApplicationRecord
       update(published_at: nil)
     end
   end
+
+  def image_preview
+    featured_image.url(:twitter) || 'https://s3.eu-west-2.amazonaws.com/curate-group/uploads/images/27/08/twitter_2708db3a-8c91-4115-8f39-499af496fef9.jpg'
+  end
 end

@@ -3,7 +3,7 @@ class FeaturedImageUploader < ImageUploader
   process :set_content_type
 
   version :twitter do
-    process resize_to_fill: [280, 180]
+    process resize_to_fill: [560, 300]
     process optimise_jpg: [{ progressive: true, quality: 76 }]
   end
 
