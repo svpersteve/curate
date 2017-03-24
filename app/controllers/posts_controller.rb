@@ -35,6 +35,7 @@ class PostsController < ApplicationController
       flash[:notice] = 'Post already published!'
       redirect_to @post
     elsif @post.publish!
+      @post.author.events.create(action: 'published', eventable: @post)
       flash[:notice] = 'Post published!'
       redirect_to @post
     else
@@ -48,6 +49,8 @@ class PostsController < ApplicationController
       flash[:notice] = 'Post already a draft!'
       redirect_to @post
     elsif @post.unpublish!
+      event = Event.find_by(user: @post.author, eventable: @post)
+      event.destroy if event
       flash[:notice] = 'Post unpublished!'
       redirect_to @post
     else
@@ -62,6 +65,7 @@ class PostsController < ApplicationController
         like.post = @post
         like.fan = current_user
       end
+      current_user.events.create(action: 'liked', eventable: @post)
       render :likes
     else
       redirect_to sign_in_path
@@ -70,7 +74,9 @@ class PostsController < ApplicationController
 
   def unlike
     @like = Like.find_by(fan_id: current_user.id, post_id: @post.id)
-    @like.destroy
+    @like.destroy if @like
+    event = Event.find_by(user: current_user, eventable: @post)
+    event.destroy if event
     render :likes
   end
 

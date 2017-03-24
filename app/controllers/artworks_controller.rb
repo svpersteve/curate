@@ -21,6 +21,7 @@ class ArtworksController < ApplicationController
 
     respond_to do |format|
       if @artwork.save
+        current_user.events.create(action: 'listed', eventable: @artwork)
         format.html { redirect_to @artwork, notice: 'Artwork created.' }
       else
         format.html { render :new }

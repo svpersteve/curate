@@ -1,11 +1,8 @@
-- updates.each do |update|
+- events.each do |event|
   %p
-    = link_to update.fan.name, update.fan
-    liked a
-    = update.subject_type
-    = link_to update.subject_name, update.subject
-    by
-    = link_to update.subject_creator.full_name, update.subject_creator
+    = link_to event.user.label, event.user
+    = event.action
+    = link_to event.eventable.label, event.eventable
     %br
-    = relative_time(update.created_at)
+    = relative_time(event.created_at)
     ago

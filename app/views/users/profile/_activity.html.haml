@@ -9,7 +9,6 @@
       = link_to "Message #{@user.name}", contact_user_path(@user), class: 'a-button' unless current_user == @user
 
     .half
-      - if user.liked_posts.any?
-        .content
-          %h2 Activity
-          = render partial: 'shared/activity', locals: { updates: @updates }
+      .content
+        %h2 Activity
+        = render partial: 'shared/activity', locals: { events: @user.events }

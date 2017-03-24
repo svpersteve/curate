@@ -25,6 +25,8 @@ class User < ApplicationRecord
   has_many :chatrooms, through: :chatroom_users
   has_many :messages
 
+  has_many :events
+
   mount_uploader :hero_image, HeroUploader
   mount_uploader :profile_image, ProfileImageUploader
 
@@ -59,6 +61,10 @@ class User < ApplicationRecord
 
   def last_name
     full_name.split.last
+  end
+
+  def label
+    full_name
   end
 
   def avatar

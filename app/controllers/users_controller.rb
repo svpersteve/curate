@@ -12,7 +12,7 @@ class UsersController < ApplicationController
 
   def home
     if current_user
-      @updates = Like.order('created_at desc')
+      @events = Event.order('created_at desc')
     else
       redirect_to new_user_session_path
     end
@@ -35,6 +35,7 @@ class UsersController < ApplicationController
   def follow
     if current_user
       @artist_follow = ArtistFollow.find_or_create_by(follower_id: current_user.id, artist_id: @user.id)
+      current_user.events.create(action: 'followed', eventable: @user)
       render :follows
     else
       redirect_to sign_in_path
@@ -43,7 +44,9 @@ class UsersController < ApplicationController
 
   def unfollow
     @artist_follow = ArtistFollow.find_by(follower_id: current_user, artist_id: @user)
-    @artist_follow.destroy
+    @artist_follow.destroy if @artist_follow
+    event = Event.find_by(user: current_user, eventable: @user)
+    event.destroy if event
     render :follows
   end
 

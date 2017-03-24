@@ -14,6 +14,10 @@ class Post < ApplicationRecord
   scope :draft, -> { where(published_at: nil) }
   scope :featured, -> { where(featured: true) }
 
+  def label
+    title
+  end
+
   def published?
     published_at.present?
   end
