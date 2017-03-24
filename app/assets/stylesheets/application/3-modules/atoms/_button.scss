@@ -16,6 +16,10 @@
   font-family: $header-font;
   font-size: 20px;
 
+  i {
+    color: $colour-white;
+  }
+
   &:hover {
     background-color: $colour-button-hover;
     color: $colour-white;
