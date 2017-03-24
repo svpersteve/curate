@@ -15,6 +15,10 @@ class ApplicationController < ActionController::Base
   end
 
   def after_sign_in_path_for(resource)
-    session[:previous_url] || updates_path
+    if current_user.email =~ %r{changeme.com}
+      request_email_path
+    else
+      session[:previous_url] || updates_path
+    end
   end
 end

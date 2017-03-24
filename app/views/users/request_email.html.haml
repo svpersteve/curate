@@ -1,0 +1,9 @@
+- set_page_title("Your email address")
+
+= form_for current_user do |f|
+  .container
+    .content.d-form
+      %p Please provide us with your email address
+      = f.text_field :email, placeholder: 'Email address', class: 'u-full-width', value: ''
+    .content.d-form
+      = f.submit 'Save changes', class: 'a-button'
