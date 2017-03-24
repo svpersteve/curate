@@ -4,6 +4,6 @@
   %a.s-navbar__nav{ class: ('is-selected' if current_page?(updates_path)), href: updates_path } Home
   %a.s-navbar__nav{ class: ('is-selected' if current_page?(artworks_path)), href: artworks_path } Artwork
   %a.s-navbar__nav{ class: ('is-selected' if current_page?(users_path)), href: users_path } Artists
-  %a.s-navbar__nav{ class: ('is-selected' if current_page?(posts_path)), href: posts_path } Blog
+  %a.s-navbar__nav{ class: ('is-selected' if current_page?(posts_path)), href: posts_path } Journal
   - if current_user && current_user.has_role?(:admin)
     %a.s-navbar__nav{ class: ('is-selected' if current_page?('/chatrooms/1/chatroom_users')), href: '/chatrooms/1' } Curate chat
