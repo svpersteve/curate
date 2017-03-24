@@ -1,0 +1,12 @@
+- content_for :og_header do
+  = tag("meta", property: "og:title", content: @post.title)
+  - if @post.introduction
+    = tag("meta", property: "og:description", content: @post.introduction)
+  - else
+    = tag("meta", property: "og:description", content: @page_description)
+  = tag("meta", property: "og:image", content: @post.image_preview)
+  = tag("meta", property: "twitter:card", content: "summary_large_image")
+  - if @post.author.twitter_username
+    = tag("meta", property: "twitter:creator", content: @post.author.twitter_username)
+  - else
+    = tag("meta", property: "twitter:creator", content: "@Curate_London")

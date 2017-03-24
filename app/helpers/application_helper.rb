@@ -3,6 +3,10 @@ module ApplicationHelper
     @page_title = "#{title} | Curate"
   end
 
+  def set_page_description(description)
+    @page_description = description || "Let's talk about art."
+  end
+
   def excerpt(text, length = 250)
     simple_format(truncate(sanitize(text), length: length, escape: false, omission: '...'))
   end

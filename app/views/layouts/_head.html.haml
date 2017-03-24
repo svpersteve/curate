@@ -22,3 +22,7 @@
   = javascript_include_tag 'application', 'data-turbolinks-track' => 'reload'
   = javascript_include_tag Ckeditor.cdn_url
   = csrf_meta_tags
+  - if content_for?(:og_header)
+    = yield :og_header
+  - else
+    = render partial: 'layouts/twitter_card'
