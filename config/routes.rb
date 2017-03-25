@@ -44,5 +44,12 @@ Rails.application.routes.draw do
 
   resources :tags
 
-  resources :artworks
+  resources :artworks do
+    member do
+      get :like
+      post :like
+      get :unlike
+      post :unlike
+    end
+  end
 end

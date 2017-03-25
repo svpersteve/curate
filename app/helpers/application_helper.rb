@@ -23,15 +23,19 @@ module ApplicationHelper
     users.map { |u| link_to(u.name, user_path(u)) }.join(', ')
   end
 
-  def likes_count(subject)
-    case subject.likes.count
+  def likes_count(subject, likes)
+    case likes.count
     when 0
       "0 likes"
     when 1..3
       "liked by #{list_all_sentence(subject.fans)}".html_safe
     else
-      "liked by #{list_all(subject.fans.take(3))} and #{remaining_like_count(subject)}".html_safe
+      "liked by #{list_all(subject.fans.take(3))} and #{remaining_like_count(likes)}".html_safe
     end
+  end
+
+  def user_likes_artwork?(artwork)
+    current_user.liked_artworks.where(id: artwork).any?
   end
 
   def artist_follower_count(artist)
@@ -45,8 +49,8 @@ module ApplicationHelper
     end
   end
 
-  def remaining_like_count(subject)
-    pluralize((subject.likes.count - 4), 'other person')
+  def remaining_like_count(likes)
+    pluralize((likes.count - 4), 'other person')
   end
 
   def relative_time(date)

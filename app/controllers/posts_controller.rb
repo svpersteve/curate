@@ -1,5 +1,6 @@
 class PostsController < ApplicationController
   load_and_authorize_resource
+  before_action :authenticate_user!, only: [:like]
 
   def index
     @posts = Post.published.order('published_at desc')
@@ -35,7 +36,7 @@ class PostsController < ApplicationController
       flash[:notice] = 'Post already published!'
       redirect_to @post
     elsif @post.publish!
-      @post.author.events.create(action: 'published', eventable: @post)
+      @post.author.events.where(action: 'published', eventable: @post).first_or_create
       flash[:notice] = 'Post published!'
       redirect_to @post
     else
@@ -49,8 +50,7 @@ class PostsController < ApplicationController
       flash[:notice] = 'Post already a draft!'
       redirect_to @post
     elsif @post.unpublish!
-      event = Event.find_by(user: @post.author, eventable: @post)
-      event.destroy if event
+      @event = Event.where(user: @post.author, eventable: @post).destroy_all
       flash[:notice] = 'Post unpublished!'
       redirect_to @post
     else
@@ -60,23 +60,14 @@ class PostsController < ApplicationController
   end
 
   def like
-    if current_user
-      @post_like = Like.find_or_create_by(fan_id: current_user, post_id: @post) do |like|
-        like.post = @post
-        like.fan = current_user
-      end
-      current_user.events.create(action: 'liked', eventable: @post)
-      render :likes
-    else
-      redirect_to sign_in_path
-    end
+    @post_like = Like.where(fan: current_user, post: @post).first_or_create
+    current_user.events.where(action: 'liked', eventable: @post).first_or_create
+    render :likes
   end
 
   def unlike
-    @like = Like.find_by(fan_id: current_user.id, post_id: @post.id)
-    @like.destroy if @like
-    event = Event.find_by(user: current_user, eventable: @post)
-    event.destroy if event
+    @like = Like.where(fan: current_user, post: @post).destroy_all
+    @event = Event.where(user: current_user, eventable: @post).destroy_all
     render :likes
   end
 

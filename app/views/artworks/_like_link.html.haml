@@ -1,0 +1,16 @@
+- if current_user
+  - if user_likes_artwork?(subject)
+    %p
+      = link_to unlike_artwork_path(subject), class: 'a-love-link', remote: true do
+        %i.fa.fa-heart
+      = likes_count(subject, subject.artwork_likes) if defined?(user_list)
+  - else
+    %p
+      = link_to like_artwork_path(subject), class: 'a-love-link', remote: true do
+        %i.fa.fa-heart-o
+      = likes_count(subject, subject.artwork_likes) if defined?(user_list)
+- else
+  %p
+    = link_to new_user_session_path, class: 'a-love-link' do
+      %i.fa.fa-heart-o
+    = likes_count(subject, subject.artwork_likes) if defined?(user_list)

@@ -1,6 +1,7 @@
 class ArtworksController < ApplicationController
   load_and_authorize_resource
-  before_action :find_artwork, only: [:show]
+  before_action :find_artwork, only: [:show, :like, :unlike]
+  before_action :authenticate_user!, only: [:like]
 
   def show
     @artwork = Artwork.find(params[:id])
@@ -39,6 +40,18 @@ class ArtworksController < ApplicationController
         format.html { render :edit }
       end
     end
+  end
+
+  def like
+    @artwork_like = ArtworkLike.where(user: current_user, artwork: @artwork).first_or_create
+    @event = current_user.events.where(action: 'liked', eventable: @artwork).first_or_create
+    render :likes
+  end
+
+  def unlike
+    @artwork_like = ArtworkLike.where(user: current_user.id, artwork: @artwork).destroy_all
+    @event = Event.where(user: current_user, eventable: @artwork).destroy_all
+    render :likes
   end
 
   private

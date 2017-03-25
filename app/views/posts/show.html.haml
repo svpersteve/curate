@@ -6,7 +6,7 @@
     %h1.a-headline
       = post_status(@post)
       = @post.title
-    .u-center#likes_count= render partial: 'shared/like_link', locals: { subject: @post, user_list: true }
+    .u-center#likes_count= render partial: 'like_link', locals: { subject: @post, user_list: true }
 
 .container
   .content.content--tight
@@ -18,7 +18,7 @@
     = sanitize @post.content
 
     .u-center
-      %h1#likes_icon= render partial: 'shared/like_link', locals: { subject: @post }
+      %h1#likes_icon= render partial: 'like_link', locals: { subject: @post }
 
 - if @post.tags.any?
   .container

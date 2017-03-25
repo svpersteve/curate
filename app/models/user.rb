@@ -7,6 +7,9 @@ class User < ApplicationRecord
   has_many :likes, foreign_key: :fan_id
   has_many :liked_posts, through: :likes, source: :post
 
+  has_many :artwork_likes, foreign_key: :user_id
+  has_many :liked_artworks, through: :artwork_likes, source: :artwork
+
   has_many :artist_follows, class_name:  "ArtistFollow",
                                   foreign_key: "follower_id",
                                   dependent:   :destroy
@@ -25,7 +28,7 @@ class User < ApplicationRecord
   has_many :chatrooms, through: :chatroom_users
   has_many :messages
 
-  has_many :events
+  has_many :events, dependent: :destroy
 
   mount_uploader :hero_image, HeroUploader
   mount_uploader :profile_image, ProfileImageUploader

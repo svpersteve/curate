@@ -1,2 +1,2 @@
-$("#likes_count").html("<%= escape_javascript(render partial: 'shared/like_link', locals: { subject: @post, user_list: true }) %>");
-$("#likes_icon").html("<%= escape_javascript(render partial: 'shared/like_link', locals: { subject: @post }) %>");
+$("#likes_count").html("<%= escape_javascript(render partial: 'like_link', locals: { subject: @post, user_list: true }) %>");
+$("#likes_icon").html("<%= escape_javascript(render partial: 'like_link', locals: { subject: @post }) %>");
