@@ -1,8 +1,23 @@
 - events.each do |event|
-  %p
-    = link_to event.user.label, event.user
-    = event.action
-    = link_to event.eventable.label, event.eventable
-    %br
-    = relative_time(event.created_at)
-    ago
+  .m-event
+    .m-chat__message
+      = link_to event.user do
+        = profile_image(event.user, css_class: 'a-avatar--thumb-square')
+      .m-chat__message-body
+        %p
+          = link_to event.user.label, event.user
+          = event.action
+          = link_to event.eventable.label, event.eventable
+        %p
+          %span.m-chat__datestamp-large
+            = relative_time(event.created_at)
+            ago
+
+    - if event.eventable_type == 'Post'
+      = render partial: 'shared/events/post', locals: { post: event.eventable }
+
+    - if event.eventable_type == 'User'
+      = render partial: 'shared/events/user', locals: { user: event.eventable }
+
+    - if event.eventable_type == 'Artwork'
+      = render partial: 'shared/events/artwork', locals: { artwork: event.eventable }

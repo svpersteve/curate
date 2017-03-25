@@ -12,7 +12,7 @@ class UsersController < ApplicationController
 
   def home
     if current_user
-      @events = Event.order('created_at desc')
+      @events = Event.order('created_at desc').take(25)
     else
       redirect_to new_user_session_path
     end

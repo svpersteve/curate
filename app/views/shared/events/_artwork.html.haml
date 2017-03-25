@@ -1,0 +1,8 @@
+.m-events__artwork.u-center
+  = link_to artwork do
+    %img.m-event__artwork-image{src: artwork.image.url(:thumbnail)}
+  %h4.m-story__title
+    = link_to artwork do
+      = link_to artwork.name, artwork
+  = link_to artwork do
+    %p.m-story__intro= sanitize artwork.description

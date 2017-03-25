@@ -1,0 +1,7 @@
+.m-events__artist
+  = profile_image(user, css_class: 'a-avatar')
+  %br
+  %h1= link_to user.full_name, user
+  .content.content--tight.u-left
+    %p= sanitize user.bio
+    .u-right#follower_count[user]= render partial: 'shared/follow_link', locals: { artist: user, user_list: true }

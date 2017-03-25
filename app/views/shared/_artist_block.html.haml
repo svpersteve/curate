@@ -4,4 +4,4 @@
 = render partial: 'shared/social_links', locals: { user: user }
 .content.content--tight.u-center
   %p= sanitize user.bio
-  #follower_count= render partial: 'shared/follow_link', locals: { artist: user, user_list: true }
+  #follower_count[user]= render partial: 'shared/follow_link', locals: { artist: user, user_list: true }

@@ -1,0 +1,10 @@
+.m-events__post
+  = link_to post do
+    %img.m-event__post-image{src: post.image_preview}
+  %h4.m-story__title
+    = link_to post do
+      = post_status(post)
+      = link_to post.title, post
+  = link_to post do
+    %p.m-story__date= post_date(post)
+    %p.m-story__intro= post.introduction

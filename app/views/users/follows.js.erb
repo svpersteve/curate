@@ -1,1 +1,1 @@
-$("#follower_count").html("<%= escape_javascript(render partial: 'shared/follow_link', locals: { artist: @user, user_list: true }) %>");
+$("#follower_count_user_<%= @user.id %>").html("<%= escape_javascript(render partial: 'shared/follow_link', locals: { artist: @user, user_list: true }) %>");
