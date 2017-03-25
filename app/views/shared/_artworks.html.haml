@@ -5,4 +5,4 @@
         = image_tag artwork.image.url(:square_small)
         %h2= artwork.name
 
-        .u-center#likes_count= render partial: 'artworks/like_link', locals: { subject: artwork, user_list: true }
+        .u-center#likes_count[artwork]= render partial: 'artworks/like_link', locals: { subject: artwork, user_list: true }

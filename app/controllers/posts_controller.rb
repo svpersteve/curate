@@ -1,6 +1,7 @@
 class PostsController < ApplicationController
   load_and_authorize_resource
   before_action :authenticate_user!, only: [:like]
+  before_action :get_post, only: [:like, :unlike]
 
   def index
     @posts = Post.published.order('published_at desc')
@@ -97,6 +98,10 @@ class PostsController < ApplicationController
   end
 
   private
+
+  def get_post
+    @post = Post.find(params[:id])
+  end
 
   def post_params
     params[:post].permit(:title, :content, :featured, :introduction, :featured_image, tag_ids: [])
