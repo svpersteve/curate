@@ -10,15 +10,11 @@ class User < ApplicationRecord
   has_many :artwork_likes, foreign_key: :user_id
   has_many :liked_artworks, through: :artwork_likes, source: :artwork
 
-  has_many :artist_follows, class_name:  "ArtistFollow",
-                                  foreign_key: "follower_id",
-                                  dependent:   :destroy
+  has_many :artist_follows, class_name: "ArtistFollow", foreign_key: "follower_id", dependent: :destroy
 
   has_many :followed_artists, through: :artist_follows, source: 'artist'
 
-  has_many :followings, class_name:  "ArtistFollow",
-                                  foreign_key: "artist_id",
-                                  dependent:   :destroy
+  has_many :followings, class_name: "ArtistFollow", foreign_key: "artist_id", dependent: :destroy
 
   has_many :followers, through: :followings, source: 'follower'
 

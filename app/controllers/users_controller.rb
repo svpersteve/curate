@@ -1,5 +1,6 @@
 class UsersController < ApplicationController
   before_action :find_user, except: [:index, :home, :new_message]
+  before_action :authenticate_user!, only: [:home, :follow, :unfollow, :contact]
 
   def show
     @user = User.find(params[:id])
@@ -11,11 +12,7 @@ class UsersController < ApplicationController
   end
 
   def home
-    if current_user
-      @events = Event.order('created_at desc').take(25)
-    else
-      redirect_to new_user_session_path
-    end
+    @events = Event.order('created_at desc').take(25)
   end
 
   def edit
@@ -33,13 +30,9 @@ class UsersController < ApplicationController
   end
 
   def follow
-    if current_user
-      @artist_follow = ArtistFollow.find_or_create_by(follower_id: current_user.id, artist_id: @user.id)
-      current_user.events.create(action: 'followed', eventable: @user)
-      render :follows
-    else
-      redirect_to sign_in_path
-    end
+    @artist_follow = ArtistFollow.find_or_create_by(follower_id: current_user.id, artist_id: @user.id)
+    current_user.events.create(action: 'followed', eventable: @user)
+    render :follows
   end
 
   def unfollow

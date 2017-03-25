@@ -2,6 +2,7 @@ class PostsController < ApplicationController
   load_and_authorize_resource
   before_action :authenticate_user!, only: [:like]
   before_action :get_post, only: [:like, :unlike]
+  before_action :authenticate_user!, only: [:new, :like]
 
   def index
     @posts = Post.published.order('published_at desc')
@@ -12,11 +13,7 @@ class PostsController < ApplicationController
   end
 
   def new
-    if current_user
-      @post = Post.new
-    else
-      redirect_to new_user_session_path
-    end
+    @post = Post.new
   end
 
   def create
@@ -32,31 +29,31 @@ class PostsController < ApplicationController
     end
   end
 
-  def publishing
+  def publishing # rubocop:disable Metrics/MethodLength
     if @post.published?
       flash[:notice] = 'Post already published!'
-      redirect_to @post
+      render :show
     elsif @post.publish!
       @post.author.events.where(action: 'published', eventable: @post).first_or_create
       flash[:notice] = 'Post published!'
-      redirect_to @post
+      render :show
     else
       flash[:alert] = 'There was a problem publishing this.'
-      redirect_to :edit
+      render :edit
     end
   end
 
-  def unpublishing
+  def unpublishing # rubocop:disable Metrics/MethodLength
     if @post.draft?
       flash[:notice] = 'Post already a draft!'
-      redirect_to @post
+      render :show
     elsif @post.unpublish!
       @event = Event.where(user: @post.author, eventable: @post).destroy_all
       flash[:notice] = 'Post unpublished!'
-      redirect_to @post
+      render :show
     else
       flash[:alert] = 'There was a problem unpublishing this.'
-      redirect_to :edit
+      render :edit
     end
   end
 
