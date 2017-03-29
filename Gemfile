@@ -50,7 +50,7 @@ group :development, :test do
   gem 'poltergeist'
   gem 'capybara'
   gem 'factory_girl_rails'
-  gem 'scss-lint'
+  gem 'scss_lint'
   gem 'railroady'
   gem 'launchy'
 end
