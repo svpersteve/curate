@@ -1,5 +1,4 @@
 Rails.application.routes.draw do
-  mount ActionCable.server => '/cable'
   mount Ckeditor::Engine => '/ckeditor'
   devise_for :users, controllers: { omniauth_callbacks: "callbacks", registrations: "registrations", passwords: "passwords", sessions: "sessions" }
   root to: 'pages#index'
@@ -15,11 +14,6 @@ Rails.application.routes.draw do
       get :contact
       post :contact
     end
-  end
-
-  resources :chatrooms do
-    resource :chatroom_users
-    resources :messages
   end
 
   get '/users', to: redirect('/artists')
