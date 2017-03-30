@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170324230804) do
+ActiveRecord::Schema.define(version: 20170330203421) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -49,7 +49,7 @@ ActiveRecord::Schema.define(version: 20170324230804) do
     t.integer  "user_id"
     t.datetime "created_at",                                   null: false
     t.datetime "updated_at",                                   null: false
-    t.datetime "last_read_at", default: '2017-03-22 21:51:41'
+    t.datetime "last_read_at", default: '2017-03-22 21:57:37'
     t.index ["chatroom_id"], name: "index_chatroom_users_on_chatroom_id", using: :btree
     t.index ["user_id"], name: "index_chatroom_users_on_user_id", using: :btree
   end
@@ -70,6 +70,15 @@ ActiveRecord::Schema.define(version: 20170324230804) do
     t.datetime "created_at",                   null: false
     t.datetime "updated_at",                   null: false
     t.index ["type"], name: "index_ckeditor_assets_on_type", using: :btree
+  end
+
+  create_table "conversations", force: :cascade do |t|
+    t.integer  "sender_id"
+    t.integer  "recipient_id"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
+    t.index ["recipient_id"], name: "index_conversations_on_recipient_id", using: :btree
+    t.index ["sender_id"], name: "index_conversations_on_sender_id", using: :btree
   end
 
   create_table "events", force: :cascade do |t|
@@ -172,7 +181,6 @@ ActiveRecord::Schema.define(version: 20170324230804) do
     t.string   "facebook_username",           default: ""
     t.string   "twitter_username",            default: ""
     t.string   "website",                     default: ""
-    t.datetime "last_read_at"
     t.index ["email"], name: "index_users_on_email", unique: true, using: :btree
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
   end
