@@ -19,6 +19,10 @@ Rails.application.routes.draw do
   get '/users', to: redirect('/artists')
   get '/feed', to: 'users#home', as: 'updates'
 
+  resources :conversations do
+    resources :messages
+   end
+
   resources :posts do
     member do
       get :publishing, path: 'publish'
