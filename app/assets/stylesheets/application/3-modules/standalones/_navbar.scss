@@ -112,3 +112,11 @@
   padding: 15px;
   display: block;
 }
+
+.s-navbar__icon {
+  font-size: 30px;
+
+  &:hover {
+    color: $colour-grey;
+  }
+}
