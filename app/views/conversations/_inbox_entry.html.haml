@@ -3,7 +3,7 @@
   other_user = conversation.recipient if conversation.recipient != current_user
 
 = link_to conversation_messages_path(conversation) do
-  .m-chat__message
+  .m-chat__message.u-margin-top--small
     = profile_image(other_user, css_class: 'a-avatar--thumb-square')
     .m-chat__message-body
       %p
