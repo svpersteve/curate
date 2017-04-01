@@ -20,8 +20,11 @@ class User < ApplicationRecord
 
   has_many :artworks, foreign_key: :artist_id
 
-  has_many :conversations, foreign_key: :sender_id
   has_many :messages
+
+  def conversations
+    Conversation.where("sender_id = ? OR recipient_id = ?", self.id, self.id)
+  end
 
   has_many :events, dependent: :destroy
 

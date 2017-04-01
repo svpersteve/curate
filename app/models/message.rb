@@ -4,6 +4,9 @@ class Message < ApplicationRecord
 
   validates_presence_of :body, :conversation_id, :user_id
 
+  scope :unread, -> { where(read: false) }
+  scope :not_sent_by, ->(user) { where.not(user: user) }
+
   def message_time
     created_at.strftime("%m/%d/%y at %l:%M %p")
   end

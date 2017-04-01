@@ -1,9 +1,13 @@
+:ruby
+  other_user = conversation.sender if conversation.sender != current_user
+  other_user = conversation.recipient if conversation.recipient != current_user
+
 = link_to conversation_messages_path(conversation) do
   .m-chat__message
-    = profile_image(conversation.recipient, css_class: 'a-avatar--thumb-square')
+    = profile_image(other_user, css_class: 'a-avatar--thumb-square')
     .m-chat__message-body
       %p
-        = conversation.recipient.full_name
+        = other_user.full_name
         - if conversation.messages.last
           %span.m-chat__datestamp= conversation.messages.last.created_at.to_formatted_s(:time)
       %p= excerpt(conversation.messages.last.body, 30) if conversation.messages.last
