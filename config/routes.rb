@@ -50,4 +50,6 @@ Rails.application.routes.draw do
       post :unlike
     end
   end
+
+  resources :charges
 end
