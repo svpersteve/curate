@@ -4,7 +4,8 @@
 
 = link_to conversation_messages_path(conversation) do
   .m-chat__message.u-margin-top--small
-    = profile_image(other_user, css_class: 'a-avatar--thumb-square')
+    .m-chat__inbox-icon{"data-badge" => (conversation.unread_messages_count(current_user) if conversation.unread_messages_count(current_user) > 0)}
+      = profile_image(other_user, css_class: 'a-avatar--thumb-square')
     .m-chat__message-body
       %p
         = other_user.full_name

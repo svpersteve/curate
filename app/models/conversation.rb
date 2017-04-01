@@ -9,4 +9,8 @@ class Conversation < ApplicationRecord
   scope :between, ->(sender, recipient) do
     where(sender_id: sender, recipient_id: recipient).or(where(sender_id: recipient, recipient_id: sender)).limit(1)
   end
+
+  def unread_messages_count(user)
+    messages.not_sent_by(user).unread.size
+  end
 end
