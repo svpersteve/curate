@@ -1,9 +1,13 @@
 .container
   .content
+    %h2= @conversation.recipient.full_name
+
     - if @over_ten
       = link_to 'Show Previous', '?m=all'
-    - @messages.each do |message|
-      = render partial: 'message', locals: { message: message } if message.persisted?
+    .m-chat
+      #messages
+        - @messages.each do |message|
+          = render partial: 'message', locals: { message: message } if message.persisted?
 
     = form_for [@conversation, @message] do |f|
-      = f.text_field :body, class: "u-full-width"
+      = f.text_field :body, autofocus: true, class: "u-full-width"
