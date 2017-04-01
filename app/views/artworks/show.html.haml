@@ -14,7 +14,7 @@
       .content
         = image_tag @artwork.image.url(:square_large)
         %h1.u-center= @artwork.name
-        - if @artwork.price.present?
+        - if @artwork.price.present? && @artwork.artist.payment_enabled?
           = form_tag charges_path(@artwork) do
             - if flash[:error].present?
               #error_explanation

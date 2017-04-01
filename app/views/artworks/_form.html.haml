@@ -8,13 +8,18 @@
       %p Image
       = f.file_field :image
 
-    .content.content--wide
+    .content
+      %p Describe your artwork
       = cktext_area :artwork, :description, cols: 40, ckeditor: { uiColor: '$colour-grey', toolbar: 'mini' }
 
     .content
-      %p Price in whole GBP
-      = f.number_field :price
-
+      - if current_user.payment_enabled?
+        %p
+          Price in GBP
+        = f.number_field :price
+      - else
+        %p Please connect with Stripe so you can sell artwork
+        = link_to 'Connect to Stripe', user_stripe_connect_omniauth_authorize_path, class: 'a-button'
 
     .content.content--wide
       .a-buttons.u-float-right

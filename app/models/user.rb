@@ -93,4 +93,8 @@ class User < ApplicationRecord
   def most_recent_conversation
     conversations.order('updated_at DESC').first
   end
+
+  def payment_enabled?
+    access_code.present?
+  end
 end
