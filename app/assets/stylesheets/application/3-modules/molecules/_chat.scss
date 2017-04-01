@@ -43,8 +43,8 @@
   display: inline-block;
 }
 
-.m-chat__strike > p:before,
-.m-chat__strike > p:after {
+.m-chat__strike > p::before,
+.m-chat__strike > p::after {
   content: "";
   position: absolute;
   top: 50%;
@@ -53,12 +53,12 @@
   background: $colour-black;
 }
 
-.m-chat__strike > p:before {
+.m-chat__strike > p::before {
   right: 100%;
   margin-right: 15px;
 }
 
-.m-chat__strike > p:after {
+.m-chat__strike > p::after {
   left: 100%;
   margin-left: 15px;
 }
