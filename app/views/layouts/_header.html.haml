@@ -1,9 +1,13 @@
-.s-navbar
+.s-navbar#primary-navbar
   = link_to 'CURATE', root_path, class: 's-navbar__logo'
   = render partial: 'layouts/navbar/user_nav'
 
 = render partial: 'layouts/canvas' if current_page?(root_path)
 
-.s-navbar{class: ('js-stick--below-canvas' if current_page?(root_path) )}
+.s-navbar{class: (current_page?(root_path) ? 'js-stick--below-canvas' : 'js-stick--below-navbar s-navbar__menu-bar' )}
   = render partial: 'layouts/navbar/menu'
-.u-navbar-clear
+
+- if current_page?(root_path)
+  .u-navbar-clear
+- else
+  .u-navbar-clear--double

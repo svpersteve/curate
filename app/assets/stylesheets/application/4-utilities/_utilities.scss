@@ -48,6 +48,10 @@
   padding-top: $navbar-height;
 }
 
+.u-navbar-clear--double {
+  padding-top: $navbar-height + $navbar-menu-height;
+}
+
 .u-hide-on-mobile {
   @media #{$to-medium} {
     display: none;

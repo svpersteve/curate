@@ -9,6 +9,12 @@
   font-family: $body-font;
 }
 
+.s-navbar__menu-bar {
+  top: $navbar-height;
+  height: $navbar-menu-height;
+  margin-bottom: -$navbar-menu-height;
+}
+
 .s-navbar__right {
   @include flex($justify-content: space-around);
   width: 120px;
@@ -41,7 +47,7 @@
 
 .s-navbar__menu {
   font-family: $header-font;
-  max-height: $navbar-height - 2px;
+  max-height: $navbar-menu-height - 2px;
   position: absolute;
   @include flex($direction: column);
   background-color: $colour-white;
