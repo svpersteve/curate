@@ -36,7 +36,7 @@ class User < ApplicationRecord
 
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable,
-         :omniauthable, omniauth_providers: [:instagram]
+         :omniauthable, omniauth_providers: [:instagram, :stripe_connect]
 
   validates :full_name, presence: true
   validates :username, presence: true
