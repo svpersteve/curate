@@ -1,13 +1,23 @@
 .container
-  .content
-    %h2= @conversation.recipient.full_name
+  .three-column-container
 
-    - if @over_ten
-      = link_to 'Show Previous', '?m=all'
-    .m-chat
-      #messages
-        - @messages.each do |message|
-          = render partial: 'message', locals: { message: message } if message.persisted?
+    .quarter.u-margin-top--small
+      %h2 Conversations
 
-    = form_for [@conversation, @message] do |f|
-      = f.text_field :body, autofocus: true, class: "u-full-width"
+      .u-margin-top--small
+        - current_user.conversations.each do |conversation|
+          = render partial: 'conversations/inbox_entry', locals: { conversation: conversation }
+
+    .half
+      .content
+        %h2= @conversation.recipient.full_name
+
+        .m-chat.u-margin-top--small
+          #messages
+            %p= link_to 'Older messages', '?m=all' if @over_ten
+
+            - @messages.each do |message|
+              = render partial: 'message', locals: { message: message } if message.persisted?
+
+        = form_for [@conversation, @message] do |f|
+          = f.text_field :body, autofocus: true, autocomplete: :off, class: "u-full-width"
