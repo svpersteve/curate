@@ -8,15 +8,22 @@
     .third.centered
       = render partial: 'shared/artist_block', locals: { user: @user }
 
-      = link_to 'Edit artwork', edit_artwork_path(@artwork), class: 'a-button' if can? :edit, @artwork
+      = link_to 'Edit artwork', edit_artwork_path(artwork: @artwork), class: 'a-button' if can? :edit, @artwork
 
     .half
       .content
         = image_tag @artwork.image.url(:square_large)
         %h1.u-center= @artwork.name
         - if @artwork.price.present?
-          %h2.u-center
-            = precede '£' do
-              = @artwork.price
-
+          = form_tag charges_path(@artwork) do
+            - if flash[:error].present?
+              #error_explanation
+                %p= flash[:error]
+            %h2.u-center
+              = precede '£' do
+                = @artwork.price
+            .u-center
+              %script.stripe-button{"data-amount" => (@artwork.price * 100), "data-description" => "Purchasing #{@artwork.name}", "data-artwork" => @artwork, "data-key" => "#{Rails.configuration.stripe[:publishable_key]}", "data-locale" => "auto", "data-currency" => "gbp", :src => "https://checkout.stripe.com/checkout.js"}
         .u-center#likes_count[@artwork]= render partial: 'like_link', locals: { subject: @artwork, user_list: true }
+
+
