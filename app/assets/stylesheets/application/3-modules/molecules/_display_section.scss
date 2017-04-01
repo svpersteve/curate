@@ -1,0 +1,18 @@
+.m-display-section {
+  @include flex($direction: column-reverse);
+  margin: 40px 0 60px;
+
+  @media #{$from-medium} {
+    @include flex($direction: row);
+  }
+}
+
+.m-display-section__first,
+.m-display-section__second {
+  padding: 10px 15px 25px;
+
+  @media #{$from-medium} {
+    width: 50%;
+    padding: 15px 25px;
+  }
+}
