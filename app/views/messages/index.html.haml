@@ -3,12 +3,13 @@
 .container
   .three-column-container
 
-    .quarter.u-margin-top--small.container.u-border-right
+    .quarter.u-margin-top--small.container
       %h2 Conversations
 
-      .u-margin-top--small
-        - current_user.conversations.each do |conversation|
-          = render partial: 'conversations/inbox_entry', locals: { conversation: conversation }
+      .m-chat
+        #messages.u-margin-top--small
+          - current_user.conversations.each do |conversation|
+            = render partial: 'conversations/inbox_entry', locals: { conversation: conversation }
 
     .three-quarters
       .content
