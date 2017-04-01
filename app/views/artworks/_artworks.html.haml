@@ -1,0 +1,10 @@
+.m-art-gallery
+  - artists.each do |artist|
+    - if artist.artworks.any?
+      .m-art-gallery__block
+        .m-art-gallery__block-information
+          %h1= artist.full_name
+          %p= artist.bio
+          = link_to "Discover #{artist.name}", user_path(artist), class: 'a-button u-margin-top--small'
+        .m-art-gallery__block-image
+          = link_to image_tag(artist.artworks.first.image.url(:square_small)), artist.artworks.first
