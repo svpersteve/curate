@@ -81,4 +81,16 @@ class User < ApplicationRecord
   def avatar_thumbnail
     profile_image.present? ? profile_image.url(:thumbnail) : auth_provider_profile_image
   end
+
+  def unread_messages_count
+    count = 0
+    conversations.each do |c|
+      count += c.messages.not_sent_by(self).unread.size
+    end
+    count
+  end
+
+  def most_recent_conversation
+    messages.last.conversation
+  end
 end

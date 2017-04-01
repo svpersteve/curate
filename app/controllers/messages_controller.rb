@@ -3,12 +3,15 @@ class MessagesController < ApplicationController
 
   def index
     @messages = @conversation.messages
+    @messages.not_sent_by(current_user).each do |m|
+      m.read = true
+      m.save
+    end
     if @messages.length > 10
       @over_ten = true
       @messages = @messages[-10..-1]
     end
     @over_ten = false if params[:m]
-    @messages.last.read = true if @messages.last && @messages.last.user_id != current_user.id
     @message = @conversation.messages.new
   end
 

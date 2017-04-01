@@ -1,4 +1,7 @@
-- set_page_title(@conversation.recipient.full_name)
+:ruby
+  other_user = @conversation.sender if @conversation.sender != current_user
+  other_user = @conversation.recipient if @conversation.recipient != current_user
+  set_page_title(other_user.full_name)
 
 .container
   .three-column-container
@@ -13,7 +16,7 @@
 
     .three-quarters
       .content
-        %h2= link_to @conversation.recipient.full_name, user_path(@conversation.recipient)
+        %h2= link_to other_user.full_name, user_path(other_user)
 
         .m-chat.u-margin-top--small
           #messages
