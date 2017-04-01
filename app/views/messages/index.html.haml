@@ -11,7 +11,7 @@
 
       .m-chat
         #messages.u-margin-top--small
-          - current_user.conversations.each do |conversation|
+          - current_user.conversations.order('updated_at DESC').each do |conversation|
             = render partial: 'conversations/inbox_entry', locals: { conversation: conversation }
 
     .three-quarters

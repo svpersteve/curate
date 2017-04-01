@@ -91,6 +91,6 @@ class User < ApplicationRecord
   end
 
   def most_recent_conversation
-    messages.last.conversation
+    messages.unread.last.conversation || messages.last.conversation
   end
 end
