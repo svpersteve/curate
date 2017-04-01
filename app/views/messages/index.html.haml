@@ -12,7 +12,7 @@
 
     .half
       .content
-        %h2= @conversation.recipient.full_name
+        %h2= link_to @conversation.recipient.full_name, user_path(@conversation.recipient)
 
         .m-chat.u-margin-top--small
           #messages

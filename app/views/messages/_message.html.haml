@@ -1,5 +1,5 @@
 .m-chat__message
-  = profile_image(message.user, css_class: 'a-avatar--thumb-square')
+  = link_to profile_image(message.user, css_class: 'a-avatar--thumb-square'), user_path(message.user)
   .m-chat__message-body
     %p
       = message.user.full_name
