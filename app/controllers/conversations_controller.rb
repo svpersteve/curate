@@ -1,10 +1,6 @@
 class ConversationsController < ApplicationController
   before_action :authenticate_user!
 
-  def index
-    @conversations = current_user.conversations
-  end
-
   def create
     if Conversation.between(current_user.id, params[:recipient_id]).present?
       @conversation = Conversation.between(current_user.id, params[:recipient_id]).first
