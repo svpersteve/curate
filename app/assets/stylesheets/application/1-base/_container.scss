@@ -50,15 +50,15 @@
   @include flex($direction: column);
   margin: 50px auto;
 
+  .quarter {
+    width: 100%;
+  }
+
   .third {
     width: 100%;
   }
 
   .half {
-    width: 100%;
-  }
-
-  .quarter {
     width: 100%;
   }
 
@@ -73,6 +73,10 @@
   @media #{$from-large} {
     @include flex($direction: row, $justify-content: center, $align-items: flex-start);
 
+    .quarter {
+      width: 25%;
+    }
+
     .third {
       width: 33%;
       margin-right: 50px;
@@ -82,8 +86,8 @@
       width: 50%;
     }
 
-    .quarter {
-      width: 25%;
+    .three-quarters {
+      width: 70%;
     }
 
     .centered {

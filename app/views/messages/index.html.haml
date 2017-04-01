@@ -3,14 +3,14 @@
 .container
   .three-column-container
 
-    .quarter.u-margin-top--small
+    .quarter.u-margin-top--small.container.u-border-right
       %h2 Conversations
 
       .u-margin-top--small
         - current_user.conversations.each do |conversation|
           = render partial: 'conversations/inbox_entry', locals: { conversation: conversation }
 
-    .half
+    .three-quarters
       .content
         %h2= link_to @conversation.recipient.full_name, user_path(@conversation.recipient)
 
