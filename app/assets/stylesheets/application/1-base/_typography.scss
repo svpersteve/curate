@@ -44,6 +44,8 @@ h4 {
 p {
   font-family: $body-font;
   color: lighten($colour-black, 30%);
+  line-height: 1.5;
+  font-size: 1.1em;
 }
 
 p a {
