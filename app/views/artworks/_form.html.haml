@@ -11,6 +11,11 @@
     .content.content--wide
       = cktext_area :artwork, :description, cols: 40, ckeditor: { uiColor: '$colour-grey', toolbar: 'mini' }
 
+    .content
+      %p Price in whole GBP
+      = f.number_field :price
+
+
     .content.content--wide
       .a-buttons.u-float-right
         = @artwork.persisted? ? (link_to 'Cancel', @artwork, class: 'a-button' ) : (link_to 'Cancel', artworks_path, class: 'a-button' )

@@ -14,5 +14,9 @@
       .content
         = image_tag @artwork.image.url(:square_large)
         %h1.u-center= @artwork.name
+        - if @artwork.price.present?
+          %h2.u-center
+            = precede '£' do
+              = @artwork.price
 
         .u-center#likes_count[@artwork]= render partial: 'like_link', locals: { subject: @artwork, user_list: true }

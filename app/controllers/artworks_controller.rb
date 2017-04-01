@@ -61,6 +61,6 @@ class ArtworksController < ApplicationController
   end
 
   def artwork_params
-    params[:artwork].permit(:name, :description, :image)
+    params[:artwork].permit(:name, :description, :image, :price)
   end
 end

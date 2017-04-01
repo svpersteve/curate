@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170330204224) do
+ActiveRecord::Schema.define(version: 20170401202005) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -41,6 +41,7 @@ ActiveRecord::Schema.define(version: 20170330204224) do
     t.string  "image"
     t.string  "image_uuid"
     t.string  "slug"
+    t.integer "price"
     t.index ["artist_id"], name: "index_artworks_on_artist_id", using: :btree
   end
 
@@ -181,6 +182,8 @@ ActiveRecord::Schema.define(version: 20170330204224) do
     t.string   "facebook_username",           default: ""
     t.string   "twitter_username",            default: ""
     t.string   "website",                     default: ""
+    t.string   "publishable_key"
+    t.string   "access_code"
     t.index ["email"], name: "index_users_on_email", unique: true, using: :btree
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
   end
