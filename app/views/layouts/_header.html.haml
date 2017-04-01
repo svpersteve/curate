@@ -1,5 +1,9 @@
-.s-navbar{class: ('js-stick--below-canvas' if current_page?(root_path) )}
-  = link_to 'Curate', root_path, class: 's-navbar__logo'
-  = render partial: 'layouts/navbar/menu'
+.s-navbar
+  = link_to 'CURATE', root_path, class: 's-navbar__logo'
   = render partial: 'layouts/navbar/user_nav'
+
+= render partial: 'layouts/canvas' if current_page?(root_path)
+
+.s-navbar{class: ('js-stick--below-canvas' if current_page?(root_path) )}
+  = render partial: 'layouts/navbar/menu'
 .u-navbar-clear

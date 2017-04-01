@@ -1,12 +1,13 @@
-- if current_user
-  - if current_user.conversations.any?
-    = link_to conversation_messages_path(current_user.most_recent_conversation) do
-      .m-chat__inbox-icon{"data-badge" => (current_user.unread_messages_count if current_user.unread_messages_count > 0)}
-        %i.fa.fa-envelope.s-navbar__icon
-  = link_to avatar_small(current_user, css_class: 'a-avatar--thumb js-user-menu-trigger'), user_path(current_user)
+.s-navbar__right
+  - if current_user
+    - if current_user.conversations.any?
+      = link_to conversation_messages_path(current_user.most_recent_conversation) do
+        .m-chat__inbox-icon{"data-badge" => (current_user.unread_messages_count if current_user.unread_messages_count > 0)}
+          %i.fa.fa-envelope.s-navbar__icon
+    = link_to avatar_small(current_user, css_class: 'a-avatar--thumb js-user-menu-trigger'), user_path(current_user)
 
-- else
-  = link_to 'Sign in', new_user_session_path, class: 's-navbar__nav'
+  - else
+    = link_to 'Sign in', new_user_session_path, class: 's-navbar__sign-in'
 
 - if current_user
   .s-navbar__dropdown.js-user-menu

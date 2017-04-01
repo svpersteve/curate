@@ -1,10 +1,31 @@
 .s-navbar {
-  @include flex($justify-content: space-between);
+  @include flex($justify-content: center);
   padding: 0 15px;
   position: relative;
-  border-bottom: 1px dashed $colour-black;
+  border-bottom: 1px solid $colour-box-shadow;
   height: $navbar-height;
   margin-bottom: -$navbar-height;
+  background-color: $colour-white;
+  font-family: $body-font;
+}
+
+.s-navbar__right {
+  @include flex($justify-content: space-around);
+  width: 120px;
+  position: absolute;
+  right: 0;
+  top: ($navbar-height - $avatar-size) / 2;
+  i {
+    margin-top: -5px;
+    font-size: 40px;
+  }
+}
+
+.s-navbar__sign-in {
+  margin-top: $navbar-height / 10;
+  font-weight: bold;
+  font-size: 20px;
+  color: $colour-grey;
 }
 
 .s-navbar--center {
@@ -19,6 +40,7 @@
 }
 
 .s-navbar__menu {
+  font-family: $header-font;
   max-height: $navbar-height - 2px;
   position: absolute;
   @include flex($direction: column);
@@ -36,7 +58,6 @@
   .s-navbar__nav {
     margin: 0 auto;
     display: block;
-    font-family: $header-font;
     font-size: $nav-item-font-size;
   }
 
@@ -63,9 +84,7 @@
   background-color: $colour-white;
 
   @media #{$from-large} {
-    font-family: $header-font;
     color: $colour-grey;
-    font-weight: bold;
 
     &:not(:last-child) {
       margin-right: 50px;
@@ -81,16 +100,21 @@
 .s-navbar__logo {
   font-size: 40px;
   font-weight: bold;
-  font-family: $header-font;
+
+  @media #{$to-medium} {
+    position: absolute;
+    left: 15px;
+    top: 10px;
+  }
 }
 
 .s-navbar__dropdown {
-  position: absolute;
   @include flex($direction: column);
+  position: absolute;
   background-color: $colour-white;
   padding: 10px;
   float: right;
-  top: 62px;
+  top: 80px;
   box-shadow: 0 1px 5px 1px $colour-box-shadow;
   border: 1px solid $colour-light-grey;
   right: 15px;
@@ -103,10 +127,13 @@
     right: 0;
     text-align: center;
   }
+
+  @media #{$from-medium} {
+    width: 230px;
+  }
 }
 
 .s-navbar__subnav {
-  font-family: $header-font;
   font-size: 20px;
   padding: 15px;
   display: block;

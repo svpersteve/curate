@@ -1,14 +1,21 @@
 .m-canvas {
+  @include flex($direction: column);
   height: 100vh;
-  background-image: url("https://s3.eu-west-2.amazonaws.com/curate-group/assets/landing.jpg");
+  background: linear-gradient( rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4) ), url('https://s3.eu-west-2.amazonaws.com/curate-group/assets/landing.jpg');
   background-size: cover;
   background-attachment: fixed;
-
-  @include flex;
+  color: $colour-white;
+  font-family: $header-font;
 
   h1 {
-    background-color: $colour-white;
-    padding: 5px 30px;
-    font-size: 80px;
+    font-weight: normal;
+    font-size: 90px;
+    line-height: 1;
+  }
+
+  p {
+    font-family: $body-font;
+    color: $colour-white;
+    font-size: 30px;
   }
 }
