@@ -12,4 +12,4 @@
 .container
   .content.content--xxwide
     %h1 Stories
-    = render partial: 'shared/posts', locals: { posts: @featured_posts }
+    = render partial: 'shared/posts', locals: { posts: @featured_posts.take(6) }
