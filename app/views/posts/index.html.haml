@@ -4,11 +4,10 @@
   .content.content--xwide
     .m-display-section
       .m-display-section__first
-        %h1 Curate stories
-        %p
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed sed velit in turpis imperdiet venenatis. Mauris viverra porta imperdiet. Fusce porta nulla nec ante maximus dictum. Aliquam mi nulla, tempus in varius in, aliquet sit amet arcu. Integer a rutrum lorem, et posuere libero. Aenean lectus dui, vulputate in bibendum nec, faucibus at elit. Quisque nec lacus a dui molestie tempor eu eget magna. Aenean maximus nec orci ut commodo.
+        %h1= @posts.first.title
+        %p= @posts.first.introduction
       .m-display-section__second
         = image_tag(@posts.first.featured_image, class: 'm-display-section__image')
 
   .content.content--xxwide
-    = render partial: 'shared/posts', locals: { posts: @posts }
+    = render partial: 'shared/posts', locals: { posts: @posts[1..10] }
