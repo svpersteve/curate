@@ -8,7 +8,13 @@
         %p
           Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed sed velit in turpis imperdiet venenatis. Mauris viverra porta imperdiet. Fusce porta nulla nec ante maximus dictum. Aliquam mi nulla, tempus in varius in, aliquet sit amet arcu. Integer a rutrum lorem, et posuere libero. Aenean lectus dui, vulputate in bibendum nec, faucibus at elit. Quisque nec lacus a dui molestie tempor eu eget magna. Aenean maximus nec orci ut commodo.
       .m-display-section__second
-        = image_tag('https://s3.eu-west-2.amazonaws.com/curate-group/uploads/images/cc/8c/twitter_cc8ce497-8649-4e3a-9ab8-345289f473f3.jpg', class: 'm-display-section__image')
+        - content_for :additional_stylesheet do
+          %style
+            :plain
+              #user_#{@artists.first.id} {
+                background-image: url(#{@artists.first.artworks.first.image});
+              }
+        .m-display-section__image[@artists.first]
 
 .container
   .content.content--xxwide

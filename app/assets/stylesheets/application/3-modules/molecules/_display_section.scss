@@ -10,6 +10,7 @@
 .m-display-section__first,
 .m-display-section__second {
   padding: 10px 15px 25px;
+  width: 100%;
 
   @media #{$from-medium} {
     width: 50%;
@@ -18,8 +19,14 @@
 }
 
 .m-display-section__image {
-  max-height: 300px;
-  width: auto;
+  height: 300px;
+  width: 100%;
+  background: {
+    position: center center;
+    repeat: no-repeat;
+    size: cover;
+    position: center center;
+  }
 }
 
 .m-display-section__hero {

@@ -7,7 +7,13 @@
         %h1= @posts.first.title
         %p= @posts.first.introduction
       .m-display-section__second
-        = image_tag(@posts.first.featured_image, class: 'm-display-section__image')
+        - content_for :additional_stylesheet do
+          %style
+            :plain
+              #post_#{@posts.first.id} {
+                background-image: url(#{@posts.first.featured_image.url});
+              }
+        .m-display-section__image[@posts.first]
 
   .content.content--xxwide
     = render partial: 'shared/posts', locals: { posts: @posts[1..10] }
