@@ -9,9 +9,9 @@
 
 .container.u-center
   .content.content--separated.d-form
-    = link_to user_instagram_omniauth_authorize_path, class: 'a-button a-button--elastic' do
-      %i.fa.fa-instagram
-      Sign in with Instagram
+    = link_to user_facebook_omniauth_authorize_path, class: 'a-button a-button--elastic' do
+      %i.fa.fa-facebook-square
+      Sign in with Facebook
 
 .container
   .content.d-form
@@ -19,8 +19,6 @@
       = devise_error_messages!
       %p= f.label 'Name'
       = f.text_field :full_name, autofocus: true, class: 'u-full-width'
-      %p= f.label 'Choose a username'
-      = f.text_field :username, class: 'u-full-width'
       %p= f.label :email
       = f.email_field :email, class: 'u-full-width'
       %p= f.label :password

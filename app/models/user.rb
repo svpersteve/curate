@@ -36,27 +36,22 @@ class User < ApplicationRecord
   mount_uploader :profile_image, ProfileImageUploader
 
   extend FriendlyId
-  friendly_id :username, use: [:slugged, :finders]
+  friendly_id :full_name, use: [:slugged, :finders]
 
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable,
-         :omniauthable, omniauth_providers: [:instagram, :stripe_connect]
+         :omniauthable, omniauth_providers: [:stripe_connect, :facebook]
 
   validates :full_name, presence: true
-  validates :username, presence: true
-  validates_uniqueness_of :username, case_sensitive: false
 
   def self.from_omniauth(auth) # rubocop:disable Metrics/MethodLength
     where(provider: auth.provider, uid: auth.uid).first_or_create! do |user|
       user.provider = auth.provider
       user.uid = auth.uid
-      user.email = auth.extra.raw_info.email || "#{auth.extra.raw_info.username}@changeme.com"
+      user.email = auth.extra.raw_info.email
       user.password = Devise.friendly_token[0, 20]
-      user.full_name = auth.extra.raw_info.full_name
-      user.instagram_username = auth.extra.raw_info.username
-      user.username = auth.extra.raw_info.username
-      user.bio = auth.extra.raw_info.bio
-      user.auth_provider_profile_image = auth.extra.raw_info.profile_picture
+      user.full_name = auth.extra.raw_info.name
+      user.auth_provider_profile_image = auth.info.image
     end
   end
 
