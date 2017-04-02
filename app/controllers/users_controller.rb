@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  before_action :find_user, except: [:index, :home, :new_message]
+  before_action :find_user, except: [:index, :home, :new_message, :request_email]
   before_action :authenticate_user!, only: [:home, :follow, :unfollow, :contact]
 
   def show
