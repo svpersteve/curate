@@ -1,7 +1,14 @@
 - set_page_title('Stories')
 
 .container
+  .content.content--xwide
+    .m-display-section
+      .m-display-section__first
+        %h1 Curate stories
+        %p
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed sed velit in turpis imperdiet venenatis. Mauris viverra porta imperdiet. Fusce porta nulla nec ante maximus dictum. Aliquam mi nulla, tempus in varius in, aliquet sit amet arcu. Integer a rutrum lorem, et posuere libero. Aenean lectus dui, vulputate in bibendum nec, faucibus at elit. Quisque nec lacus a dui molestie tempor eu eget magna. Aenean maximus nec orci ut commodo.
+      .m-display-section__second
+        = image_tag(@posts.first.featured_image, class: 'm-display-section__image')
+
   .content.content--xxwide
-    %h1 Stories
-    %br
     = render partial: 'shared/posts', locals: { posts: @posts }
