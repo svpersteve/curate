@@ -74,7 +74,7 @@ class User < ApplicationRecord
 
   def avatar
     if profile_image.present?
-      profile_image.url(:profile_image)
+      profile_image.url(:profile_image_large)
     elsif auth_provider_profile_image.present?
       auth_provider_profile_image
     else

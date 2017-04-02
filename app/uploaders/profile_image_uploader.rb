@@ -9,7 +9,7 @@ class ProfileImageUploader < ImageUploader
     process resize_to_fill: [200, 200]
   end
 
-  version :large do
+  version :profile_image_large do
     process resize_to_fill: [500, 500]
   end
 end

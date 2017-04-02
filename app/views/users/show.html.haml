@@ -6,7 +6,13 @@
   .content.content--wide
     .m-display-section
       .m-display-section__first.u-center
-        = profile_image(@user, css_class: 'm-display-section__image')
+        - content_for :additional_stylesheet do
+          %style
+            :plain
+              .m-display-section__image#user_#{@user.id} {
+                background-image: url(#{@user.avatar});
+              }
+        .m-display-section__image[@user]
 
       .m-display-section__second
         %h1
