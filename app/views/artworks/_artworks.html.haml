@@ -1,10 +1,15 @@
-.m-art-gallery
-  - artists.each do |artist|
-    - if artist.artworks.any?
-      .m-art-gallery__block
-        .m-art-gallery__block-information
-          %h1= artist.full_name
-          %p= artist.bio
-          = link_to "Discover #{artist.name}", user_path(artist), class: 'a-button u-margin-top--small'
-        .m-art-gallery__block-image
-          = link_to image_tag(artist.artworks.first.image.url(:square_small)), artist.artworks.first
+.m-gallery
+  - artworks.each do |artwork|
+    - content_for :additional_stylesheet do
+      %style
+        :plain
+          #artwork_#{artwork.id} {
+            background-image: url(#{artwork.image});
+          }
+    .m-gallery__piece
+      = link_to artwork_path(artwork) do
+        .m-gallery__image[artwork]
+      %h2.u-center.u-margin-top--small
+        = link_to artwork.name, artwork_path(artwork)
+      %h3= artwork.price_in_gbp
+      .u-center#likes_count[artwork]= render partial: 'artworks/like_link', locals: { subject: artwork, user_list: true }

@@ -11,4 +11,8 @@ class Artwork < ApplicationRecord
   def label
     name
   end
+
+  def price_in_gbp
+    price ? "£#{price}" : nil
+  end
 end
