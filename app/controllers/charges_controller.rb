@@ -18,7 +18,7 @@ class ChargesController < ApplicationController
       :description => @artwork.name,
       :currency    => 'gbp',
       :application_fee => (@amount / 10)
-    }, :stripe_account => @artwork.artist.uid)
+    }, :stripe_account => @artwork.artist.stripe_uid)
 
   rescue Stripe::CardError => e
     flash[:error] = e.message

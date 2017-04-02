@@ -14,8 +14,7 @@ class CallbacksController < Devise::OmniauthCallbacksController
   def stripe_connect
     @user = current_user
     if @user.update_attributes({
-      provider: request.env["omniauth.auth"].provider,
-      uid: request.env["omniauth.auth"].uid,
+      stripe_uid: request.env["omniauth.auth"].uid,
       access_code: request.env["omniauth.auth"].credentials.token,
       publishable_key: request.env["omniauth.auth"].info.stripe_publishable_key
     })
