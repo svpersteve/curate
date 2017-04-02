@@ -8,10 +8,6 @@ FactoryGirl.define do
       "jake.shears#{n}@scissorsisters.com"
     end
 
-    sequence :username do |n|
-      "jake-#{n}"
-    end
-
     password 'wtf123'
     bio 'I make cool songs'
     auth_provider_profile_image 'image.jpg'

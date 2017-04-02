@@ -12,7 +12,6 @@ feature 'user sign-in' do
 
   def create_an_account
     fill_in 'user_full_name', with: 'Beyonce'
-    fill_in 'user_username', with: 'beyonce'
     fill_in 'user_email', with: 'beyonce@star.com'
     fill_in 'user_password', with: 'wtf123'
     click_on 'Register'

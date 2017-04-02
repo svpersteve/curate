@@ -12,7 +12,6 @@ class FeaturedImageUploader < ImageUploader
     process optimise_jpg: [{ progressive: true, quality: 76 }]
   end
 
-
   def filename(*args)
     model_uuid + ".jpg" if original_filename.present?
   end
