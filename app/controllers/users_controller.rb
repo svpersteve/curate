@@ -12,7 +12,7 @@ class UsersController < ApplicationController
   end
 
   def home
-    @events = Event.order('created_at desc').take(25)
+    @follow_updates = current_user.follow_updates.order('created_at desc').take(25)
   end
 
   def edit

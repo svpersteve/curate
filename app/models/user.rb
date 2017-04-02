@@ -20,6 +20,10 @@ class User < ApplicationRecord
 
   has_many :artworks, foreign_key: :artist_id
 
+  has_many :events
+
+  has_many :follow_updates, through: :followed_artists, source: :events
+
   has_many :messages
 
   def conversations
