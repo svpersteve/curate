@@ -1,11 +1,19 @@
 - set_page_title(@post.title)
+- content_for :additional_stylesheet do
+  %style
+    :plain
+      .m-stories__featured-image#post_#{@post.id} {
+        background-image: url(#{@post.featured_image.url(:featured_large)});
+      }
 = render partial: 'og_header'
 
+.m-stories__featured-image[@post]
 .container
   .content.content--xxwide.u-center
     %h1.a-headline
       = post_status(@post)
       = @post.title
+
     .u-center#likes_count[@post]= render partial: 'like_link', locals: { subject: @post, user_list: true }
     = link_to 'Edit', edit_post_path(@post), class: 'a-button' if can? :edit, @post
 
