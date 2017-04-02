@@ -7,6 +7,7 @@
       = post_status(@post)
       = @post.title
     .u-center#likes_count[@post]= render partial: 'like_link', locals: { subject: @post, user_list: true }
+    = link_to 'Edit', edit_post_path(@post), class: 'a-button' if can? :edit, @post
 
 .container
   .content.content--tight
@@ -14,7 +15,6 @@
       = link_to "By #{@post.author.full_name}", @post.author
       %span.u-float-right
         = post_date(@post)
-    = link_to 'Edit', edit_post_path(@post), class: 'a-button a-button--corner' if can? :edit, @post
     = sanitize @post.content
 
     .u-center
