@@ -32,21 +32,21 @@
 }
 
 .m-chat__inbox-icon {
-   position: relative;
+  position: relative;
 }
 
-.m-chat__inbox-icon[data-badge]:after {
-   content: attr(data-badge);
-   position: absolute;
-   top: -5px;
-   right: 11px;
-   font-size: .7em;
-   background: $colour-red;
-   color: white;
-   width: 18px;
-   height: 18px;
-   text-align: center;
-   line-height: 18px;
-   border-radius: 50%;
-   box-shadow: 0 0 1px #333;
+.m-chat__inbox-icon[data-badge]::after {
+  content: attr(data-badge);
+  position: absolute;
+  top: -5px;
+  right: 11px;
+  font-size: .7em;
+  background: $colour-red;
+  color: $colour-white;
+  width: 18px;
+  height: 18px;
+  text-align: center;
+  line-height: 18px;
+  border-radius: 50%;
+  box-shadow: 0 0 1px $colour-box-shadow;
 }

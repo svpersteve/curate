@@ -1,7 +1,7 @@
 class MessagesController < ApplicationController
   before_action :find_conversation
 
-  def index
+  def index # rubocop:disable Metrics/MethodLength
     @messages = @conversation.messages
     @messages.not_sent_by(current_user).each do |m|
       m.read = true

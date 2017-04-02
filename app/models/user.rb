@@ -27,7 +27,7 @@ class User < ApplicationRecord
   has_many :messages
 
   def conversations
-    Conversation.where("sender_id = ? OR recipient_id = ?", self.id, self.id)
+    Conversation.where("sender_id = ? OR recipient_id = ?", id, id)
   end
 
   has_many :events, dependent: :destroy
