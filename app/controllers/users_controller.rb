@@ -43,32 +43,6 @@ class UsersController < ApplicationController
     render :follows
   end
 
-  def activity
-    @updates = @user.likes.order('created_at desc')
-    respond_to do |format|
-      format.js
-    end
-  end
-
-  def posts
-    respond_to do |format|
-      format.js
-    end
-  end
-
-  def artworks
-    respond_to do |format|
-      format.js
-    end
-  end
-
-  def contact
-    @chatroom = Chatroom.create(name: @user.full_name)
-    @chatroom_user = @chatroom.chatroom_users.where(user_id: @user.id).first_or_create
-    @chatroom_user = @chatroom.chatroom_users.where(user_id: current_user.id).first_or_create
-    redirect_to @chatroom
-  end
-
   private
 
   def user_params

@@ -2,6 +2,43 @@
 
 = render 'users/profile/intro', selector: "#user_#{@user.id}", src: @user.hero_image.url(:header_medium), srcset: {'900px' => @user.hero_image.url(:header_large)}, title: @user.full_name, user: @user
 
-= render partial: 'users/profile/nav', locals: { user: @user }
+.container
+  .content.content--wide
+    .m-display-section
+      .m-display-section__first.u-center
+        = profile_image(@user, css_class: 'm-display-section__image')
 
-#profile-ajax= render partial: 'users/profile/activity', locals: { user: @user, updates: @updates }
+      .m-display-section__second
+        %h1
+          Meet
+          = @user.name
+        %p= sanitize @user.bio
+        #follower_count[@user]= render partial: 'shared/follow_link', locals: { artist: @user, user_list: true }
+        = link_to "Message #{@user.name}", conversations_path(recipient_id: @user.id), method: 'post', class: 'a-button' unless current_user == @user
+        = link_to 'Edit', edit_user_path(@user), class: 'a-button' if can? :edit, @user
+
+- if @user.artworks.any?
+  .container
+    .content.content--xxwide.content--tight
+      .m-display-section
+        - content_for :additional_stylesheet do
+          %style
+            :plain
+              #artwork_#{@user.artworks.first.id} {
+                background-image: url(#{@user.artworks.first.image.url(:header_medium)});
+              }
+        .m-display-section__hero[@user.artworks.first]
+
+.container
+  .content.content--wide.content--tight
+    %h2.u-center
+      More about
+      = @user.name
+    %p
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed sed velit in turpis imperdiet venenatis. Mauris viverra porta imperdiet. Fusce porta nulla nec ante maximus dictum. Aliquam mi nulla, tempus in varius in, aliquet sit amet arcu. Integer a rutrum lorem, et posuere libero. Aenean lectus dui, vulputate in bibendum nec, faucibus at elit. Quisque nec lacus a dui molestie tempor eu eget magna. Aenean maximus nec orci ut commodo.
+    .u-margin-top--small= render partial: 'shared/social_links', locals: { user: @user }
+
+- if @user.artworks.any?
+  .container
+    .content.content--xxwide
+      = render partial: 'artworks/artworks', locals: { artworks: @user.artworks }

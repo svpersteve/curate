@@ -1,9 +1,0 @@
-%nav.s-navbar.s-navbar--center.js-stick--below-canvas
-  = link_to user_activity_path, id: 'activity-nav', class: 's-navbar__nav is-selected',  :remote => true do
-    Activity
-  - if user.posts.any?
-    = link_to user_posts_path, id: 'post-nav', class: 's-navbar__nav',  :remote => true do
-      Posts
-  = link_to user_artworks_path, id: 'artwork-nav', class: 's-navbar__nav',  :remote => true do
-    Artwork
-.u-navbar-clear
