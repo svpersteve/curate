@@ -53,7 +53,8 @@ Rails.application.routes.draw do
 
   namespace :admin do
     root to: 'users#index'
-    resources :posts
     resources :users
+    resources :artworks
+    resources :posts
   end
 end
