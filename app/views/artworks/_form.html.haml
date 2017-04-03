@@ -22,7 +22,8 @@
         = link_to 'Connect to Stripe', user_stripe_connect_omniauth_authorize_path, class: 'a-button'
 
     .content.content--wide
-      .a-buttons.u-float-right
+      .a-buttons
+        = link_to "Delete artwork", @artwork, method: :delete, data: { confirm: 'Delete artwork?' }, class: 'a-button a-button--warning' if @artwork.persisted?
         = @artwork.persisted? ? (link_to 'Cancel', @artwork, class: 'a-button' ) : (link_to 'Cancel', artworks_path, class: 'a-button' )
         = f.submit 'Save', class: 'a-button u-float-right'
 

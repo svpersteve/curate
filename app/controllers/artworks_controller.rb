@@ -42,6 +42,13 @@ class ArtworksController < ApplicationController
     end
   end
 
+  def destroy
+    @artwork.destroy
+    respond_to do |format|
+      format.html { redirect_to artworks_path }
+    end
+  end
+
   def like
     @artwork_like = ArtworkLike.where(user: current_user, artwork: @artwork).first_or_create
     @event = current_user.events.where(action: 'liked', eventable: @artwork).first_or_create

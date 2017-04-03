@@ -27,7 +27,8 @@
         = f.label 'Feature post on blog and home page'
 
     .content.content--wide
-      .a-buttons.u-float-right
+      .a-buttons
+        = link_to "Delete post", @post, method: :delete, data: { confirm: 'Delete post?' }, class: 'a-button a-button--warning' if @post.persisted?
         = @post.persisted? ? (link_to 'Cancel', @post, class: 'a-button' ) : (link_to 'Cancel', posts_path, class: 'a-button' )
         - if can? :publish, @post
           = f.submit 'Unpublish', class: 'a-button a-button--ghost', value: 'Unpublish' if @post.published?
