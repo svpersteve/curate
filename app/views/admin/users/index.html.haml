@@ -1,0 +1,32 @@
+.container
+  .content.content--xxwide
+    .m-admin-table__row
+      .m-admin-table__column-20
+        %h4 Name
+      .m-admin-table__column-15.u-center
+        %h4 Joined
+      .m-admin-table__column-20.u-center
+        %h4 Artworks
+      .m-admin-table__column-20.u-center
+        %h4 Posts
+      .m-admin-table__column-5.u-center
+        %h4
+          %i.fa.fa-heart
+      .m-admin-table__column-20.u-center
+    %hr.u-black-line
+    - @users.each do |user|
+      = form_for [:admin, user] do |f|
+        .m-admin-table__row
+          .m-admin-table__column-20
+            %p= link_to user.full_name, user
+          .m-admin-table__column-15.u-center
+            %p= user.created_at.to_date.to_formatted_s(:long)
+          .m-admin-table__column-20.u-center
+            %p= user.artworks.size
+          .m-admin-table__column-20.u-center
+            %p= user.posts.size
+          .m-admin-table__column-5.u-center
+            %p= user.followers.size
+          .m-admin-table__column-20.u-center
+            %p= link_to 'Edit', edit_user_path(user), class: 'a-button'
+

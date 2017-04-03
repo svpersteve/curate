@@ -1,4 +1,5 @@
 %a.s-navbar__menu-burger.js-menu-trigger{href: '#'}
   %i.fa.fa-reorder
 .s-navbar__menu.js-dropdown
-  %a.s-navbar__nav{ class: ('is-selected' if current_page?(admin_root_path)), href: admin_root_path } Posts
+  %a.s-navbar__nav{ class: ('is-selected' if current_page?(admin_root_path)), href: admin_root_path } Users
+  %a.s-navbar__nav{ class: ('is-selected' if current_page?(admin_posts_path)), href: admin_posts_path } Posts

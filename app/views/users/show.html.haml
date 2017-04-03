@@ -21,7 +21,7 @@
         %p= sanitize @user.bio
         #follower_count[@user]= render partial: 'shared/follow_link', locals: { artist: @user, user_list: true }
         = link_to "Message #{@user.name}", conversations_path(recipient_id: @user.id), method: 'post', class: 'a-button' unless current_user == @user
-        = link_to 'Edit', edit_user_path(@user), class: 'a-button' if can? :edit, @user
+        = link_to 'Edit', edit_user_path(@user), class: 'a-button' if current_user == @user
 
 - if @user.artworks.any?
   .container

@@ -52,7 +52,8 @@ Rails.application.routes.draw do
   resources :charges
 
   namespace :admin do
-    root to: 'posts#index'
+    root to: 'users#index'
     resources :posts
+    resources :users
   end
 end
