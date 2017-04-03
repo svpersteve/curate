@@ -11,6 +11,6 @@
         .m-gallery__image[artwork]
       .m-gallery__piece-details
         %p= link_to artwork.artist.full_name, artwork_path(artwork)
-        .u-center#likes_count[artwork]= render partial: 'artworks/like_link', locals: { subject: artwork }
+        .u-center#likes_count[artwork]= render partial: 'artworks/like_link', locals: { subject: artwork, like_total: true }
         - if artwork.price_in_gbp.present?
           %p= artwork.price_in_gbp

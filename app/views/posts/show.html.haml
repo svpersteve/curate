@@ -26,7 +26,7 @@
     = sanitize @post.content
 
     .u-center
-      %h1#likes_icon[@post]= render partial: 'like_link', locals: { subject: @post }
+      %h1#likes_icon[@post]= render partial: 'like_link', locals: { subject: @post, like_total: true }
 
 - if @post.tags.any?
   .container

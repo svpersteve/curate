@@ -1,2 +1,2 @@
 $("#likes_count_post_<%= @post.id %>").html("<%= escape_javascript(render partial: 'like_link', locals: { subject: @post, user_list: true }) %>");
-$("#likes_icon_post_<%= @post.id %>").html("<%= escape_javascript(render partial: 'like_link', locals: { subject: @post }) %>");
+$("#likes_icon_post_<%= @post.id %>").html("<%= escape_javascript(render partial: 'like_link', locals: { subject: @post, like_total: true }) %>");

@@ -1,1 +1,1 @@
-$("#likes_count_artwork_<%= @artwork.id %>").html("<%= escape_javascript(render partial: 'like_link', locals: { subject: @artwork, user_list: true }) %>");
+$("#likes_count_artwork_<%= @artwork.id %>").html("<%= escape_javascript(render partial: 'like_link', locals: { subject: @artwork, like_total: true }) %>");
