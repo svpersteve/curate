@@ -5,3 +5,19 @@
     font-size: 70px;
   }
 }
+
+.a-headline--small {
+  font-size: 22px;
+
+  @media #{$from-medium} {
+    font-size: 50px;
+  }
+}
+
+.a-headline--xsmall {
+  font-size: 20px;
+
+  @media #{$from-medium} {
+    font-size: 28px;
+  }
+}

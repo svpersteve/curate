@@ -10,20 +10,21 @@
 .m-stories__featured-image[@post]
 .container
   .content.content--xxwide.u-center
+    %h2.a-headline--small= link_to 'Curate Journal', posts_path if @post.featured
     %h1.a-headline
       = post_status(@post)
       = @post.title
 
-    .u-center#likes_count[@post]= render partial: 'like_link', locals: { subject: @post, user_list: true }
-    = link_to 'Edit', edit_post_path(@post), class: 'a-button' if can? :edit, @post
+    .u-center.u-margin-top--small
+      %h4.a-headline--xsmall= link_to "By #{@post.author.full_name}", @post.author
+      %h4.a-headline--xsmall= post_date(@post)
+      #likes_count[@post]= render partial: 'like_link', locals: { subject: @post, user_list: true }
+
+%hr.u-black-line
 
 .container
   .content.content--tight
-    %h4
-      = link_to "By #{@post.author.full_name}", @post.author
-      %span.u-float-right
-        = post_date(@post)
-    = sanitize @post.content
+    .u-drop-cap= sanitize @post.content
 
     .u-center
       %h1#likes_icon[@post]= render partial: 'like_link', locals: { subject: @post, like_total: true }

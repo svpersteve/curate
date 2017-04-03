@@ -67,3 +67,22 @@
 .u-border-right {
   border-right: solid 1px $colour-grey;
 }
+
+.u-drop-cap::first-letter {
+  color: $colour-black;
+  float: left;
+  font-family: $header-font;
+  font-size: 75px;
+  line-height: 60px;
+  padding-top: 10px;
+  padding-right: 5px;
+  padding-left: 2px;
+}
+
+.u-black-line {
+  border: solid 2px $colour-black;
+
+  @media #{$from-medium} {
+    border: solid 3px $colour-black;
+  }
+}
