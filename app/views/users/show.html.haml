@@ -35,14 +35,14 @@
               }
         .m-display-section__hero[@user.artworks.first]
 
-.container
-  .content.content--wide.content--tight
-    %h2.u-center
-      More about
-      = @user.name
-    %p
-      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed sed velit in turpis imperdiet venenatis. Mauris viverra porta imperdiet. Fusce porta nulla nec ante maximus dictum. Aliquam mi nulla, tempus in varius in, aliquet sit amet arcu. Integer a rutrum lorem, et posuere libero. Aenean lectus dui, vulputate in bibendum nec, faucibus at elit. Quisque nec lacus a dui molestie tempor eu eget magna. Aenean maximus nec orci ut commodo.
-    .u-margin-top--small= render partial: 'shared/social_links', locals: { user: @user }
+- if @user.description.present?
+  .container
+    .content.content--wide.content--tight
+      %h2.u-center
+        More about
+        = @user.name
+      %p= @user.description
+      .u-margin-top--small= render partial: 'shared/social_links', locals: { user: @user }
 
 - if @user.artworks.any?
   .container

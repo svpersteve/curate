@@ -13,8 +13,10 @@
       = f.text_field :full_name, placeholder: 'Full name', class: 'u-full-width'
       %p= f.label :email
       = f.text_field :email, placeholder: 'Email address', class: 'u-full-width'
-      %p= f.label :bio
-      = f.text_area :bio, placeholder: 'Bio', class: 'u-full-width'
+      %p Introduction
+      = f.text_area :bio, placeholder: 'Introduction', class: 'u-full-width'
+      %p About the artist
+      = f.text_area :description, placeholder: 'About the artist', class: 'u-full-width'
     .content.d-form
       %p Links
       %p= f.label 'Personal website'
