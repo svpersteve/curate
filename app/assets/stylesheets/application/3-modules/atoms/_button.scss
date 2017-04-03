@@ -1,5 +1,10 @@
 .a-buttons {
-  @include flex($justify-content: center);
+  @include flex($justify-content: center, $flex-wrap: wrap);
+
+  .a-button {
+    margin-bottom: 20px;
+  }
+
   .a-button:not(:last-child) {
     margin-right: 20px;
   }

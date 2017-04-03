@@ -2,18 +2,20 @@
   = form_for @post do |f|
     .content
       %h2 Post title
+      %p Aim for 20-50 characters.
       = f.text_field :title, class: 'u-full-width'
 
     .content
       %h2 Excerpt
-      %p Max. 200 characters
+      %p Aim for 100 - 150 characters.
       = f.text_area :introduction, class: 'u-full-width'
 
-    .content.content--wide
+    .content
       = cktext_area :post, :content, cols: 40, ckeditor: { uiColor: '$colour-grey', toolbar: 'mini' }
 
     .content
       %h2 Featured image
+      %p Use a wide image, ideally 1024 x 300 or higher.
       = f.file_field :featured_image
 
     .content
@@ -27,7 +29,7 @@
         = f.label 'Feature post on blog and home page'
 
     .content.content--wide
-      .a-buttons
+      .a-buttons.u-margin-top
         = link_to "Delete post", @post, method: :delete, data: { confirm: 'Delete post?' }, class: 'a-button a-button--warning' if @post.persisted?
         = @post.persisted? ? (link_to 'Cancel', @post, class: 'a-button' ) : (link_to 'Cancel', posts_path, class: 'a-button' )
         - if can? :publish, @post
