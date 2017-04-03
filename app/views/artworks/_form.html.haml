@@ -9,6 +9,10 @@
       = f.file_field :image
 
     .content
+      %p Size
+      = f.select :frame_size, frame_size_options_for_select(f.object.frame_size), { label: 'Size' }
+
+    .content
       %p Describe your artwork
       = cktext_area :artwork, :description, cols: 40, ckeditor: { uiColor: '$colour-grey', toolbar: 'mini' }
 
