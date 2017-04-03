@@ -1,0 +1,30 @@
+.container
+  .content.content--xxwide
+    .m-admin-table__row
+      .m-admin-table__column-20
+        %h4 Title
+      .m-admin-table__column-20.u-center
+        %h4 Author
+      .m-admin-table__column-20.u-center
+        %h4 Featured?
+      .m-admin-table__column-20.u-center
+        %h4 Published
+      .m-admin-table__column-20.u-center
+        %h4 Edit
+    %hr.u-black-line
+    - @posts.each do |post|
+      = form_for [:admin, post] do |f|
+        .m-admin-table__row
+          .m-admin-table__column-20
+            %p
+              = post_status(post)
+              = link_to (post.title.present? ? post.title : 'Untitled post'), post_path(post)
+          .m-admin-table__column-20.u-center
+            %p= link_to post.author.full_name, post.author
+          .m-admin-table__column-20.u-center
+            %p= f.check_box :featured, onchange: "this.form.submit();"
+          .m-admin-table__column-20.u-center
+            %p= post.published_at.to_date.to_formatted_s(:long) if post.published_at.present?
+          .m-admin-table__column-20.u-center
+            %p= link_to 'Edit', edit_post_path(post), class: 'a-button'
+

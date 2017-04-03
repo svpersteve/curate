@@ -15,4 +15,5 @@
     = link_to 'List artwork', new_artwork_path, class: 's-navbar__subnav' if can? :create, Artwork
     = link_to 'Write a post', new_post_path, class: 's-navbar__subnav' if can? :create, Post
     %hr
+    = link_to 'Admin', admin_root_path, class: 's-navbar__subnav' if current_user.has_role? :admin
     = link_to 'Sign out', destroy_user_session_path, method: :delete, class: 's-navbar__subnav'

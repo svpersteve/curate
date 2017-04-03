@@ -1,0 +1,13 @@
+.m-admin-table__row {
+  @include flex($direction: row, $justify-content: flex-start, $align-items: flex-start);
+  width: 100%;
+}
+
+.m-admin-table__column-20 {
+  width: 20%;
+}
+
+.m-admin-table__column-20 {
+  width: 20%;
+}
+

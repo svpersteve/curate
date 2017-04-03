@@ -101,7 +101,7 @@ class PostsController < ApplicationController
   end
 
   def post_params
-    params[:post].permit(:title, :content, :featured, :introduction, :featured_image, tag_ids: [])
+    params[:post].permit(:title, :content, :introduction, :featured_image, tag_ids: [])
   end
 
   def submitting_to_publish?

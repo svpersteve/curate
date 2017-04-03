@@ -1,0 +1,8 @@
+.s-navbar#primary-navbar
+  = link_to 'CURATE', root_path, class: 's-navbar__logo'
+  = render partial: 'layouts/navbar/user_nav'
+
+.s-navbar.js-stick--below-navbar.s-navbar__menu-bar
+  = render partial: 'layouts/admin/menu'
+
+.u-navbar-clear--double

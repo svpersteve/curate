@@ -50,4 +50,9 @@ Rails.application.routes.draw do
   end
 
   resources :charges
+
+  namespace :admin do
+    root to: 'posts#index'
+    resources :posts
+  end
 end
