@@ -21,7 +21,7 @@ Rails.application.routes.draw do
     resources :messages
   end
 
-  resources :posts do
+  resources :posts, path: 'journal' do
     member do
       get :publishing, path: 'publish'
       post :publish
