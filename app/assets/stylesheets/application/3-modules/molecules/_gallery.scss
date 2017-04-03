@@ -12,6 +12,12 @@
   }
 }
 
+.m-gallery__piece-details {
+  @include flex($justify-content: space-between);
+  width: 100%;
+  font-size: 14px;
+}
+
 .m-gallery__image {
   overflow: hidden;
   width: 300px;

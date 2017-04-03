@@ -9,7 +9,8 @@
     .m-gallery__piece
       = link_to artwork_path(artwork) do
         .m-gallery__image[artwork]
-      %h2.u-center.u-margin-top--small
-        = link_to artwork.name, artwork_path(artwork)
-      %h3= artwork.price_in_gbp
-      .u-center#likes_count[artwork]= render partial: 'artworks/like_link', locals: { subject: artwork, user_list: true }
+      .m-gallery__piece-details
+        %p= link_to artwork.artist.full_name, artwork_path(artwork)
+        .u-center#likes_count[artwork]= render partial: 'artworks/like_link', locals: { subject: artwork }
+        - if artwork.price_in_gbp.present?
+          %p= artwork.price_in_gbp
