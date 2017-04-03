@@ -9,7 +9,7 @@ class ArtworksController < ApplicationController
   end
 
   def index
-    @artworks = Artwork.all
+    @artworks = Artwork.curated
   end
 
   def new

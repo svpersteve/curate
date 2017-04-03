@@ -7,11 +7,13 @@
         %h4 Created
       .m-admin-table__column-20.u-center
         %h4 Size
-      .m-admin-table__column-20.u-center
+      .m-admin-table__column-5.u-center
         %h4 Price
       .m-admin-table__column-5.u-center
         %h4
           %i.fa.fa-heart
+      .m-admin-table__column-15.u-center
+        %h4 Curated?
       .m-admin-table__column-20.u-center
     %hr.u-black-line
     - @artworks.each do |artwork|
@@ -25,11 +27,13 @@
             %p= artwork.created_at.to_date.to_formatted_s(:long)
           .m-admin-table__column-20.u-center
             %p= f.select :frame_size, frame_size_options_for_select(f.object.frame_size), { label: 'Size' }, onchange: "this.form.submit();"
-          .m-admin-table__column-20.u-center
+          .m-admin-table__column-5.u-center
             %p
               = "£#{artwork.price}" if artwork.price
           .m-admin-table__column-5.u-center
             %p= artwork.fans.size
+          .m-admin-table__column-15.u-center
+            %p= f.check_box :curated, onchange: "this.form.submit();"
           .m-admin-table__column-20.u-center
             %p= link_to 'Edit', edit_artwork_path(artwork), class: 'a-button'
 

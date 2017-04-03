@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170403230909) do
+ActiveRecord::Schema.define(version: 20170403232545) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -45,6 +45,7 @@ ActiveRecord::Schema.define(version: 20170403230909) do
     t.string   "frame_size",  default: "18-32\"", null: false
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.boolean  "curated",     default: false
     t.index ["artist_id"], name: "index_artworks_on_artist_id", using: :btree
   end
 

@@ -25,6 +25,6 @@ class Admin::ArtworksController < Admin::BaseController
   end
 
   def artwork_params
-    params[:artwork].permit(:name, :description, :image, :price, :frame_size)
+    params[:artwork].permit(:name, :description, :image, :price, :frame_size, :curated)
   end
 end
