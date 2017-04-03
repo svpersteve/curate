@@ -12,7 +12,7 @@
 - if current_user
   .s-navbar__dropdown.js-user-menu
     = link_to 'Your profile', user_path(current_user), class: 's-navbar__subnav'
-    = link_to 'List your artwork', new_artwork_path, class: 's-navbar__subnav' if can? :create, Artwork
-    = link_to 'Write a blog post', new_post_path, class: 's-navbar__subnav' if can? :create, Post
+    = link_to 'List artwork', new_artwork_path, class: 's-navbar__subnav' if can? :create, Artwork
+    = link_to 'Write a post', new_post_path, class: 's-navbar__subnav' if can? :create, Post
     %hr
     = link_to 'Sign out', destroy_user_session_path, method: :delete, class: 's-navbar__subnav'
