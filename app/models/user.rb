@@ -71,7 +71,7 @@ class User < ApplicationRecord
     if profile_image.present?
       profile_image.url(:profile_image_large)
     elsif auth_provider_profile_image.present?
-      auth_provider_profile_image
+      auth_provider_profile_image + '?type=large'
     else
       'https://s3.eu-west-2.amazonaws.com/wlcimages/avatar.png'
     end
