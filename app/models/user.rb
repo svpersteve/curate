@@ -2,12 +2,12 @@ class User < ApplicationRecord
   rolify
 
   has_many :posts, foreign_key: :author_id, dependent: :destroy
-  has_many :tags, foreign_key: :creator_id
+  has_many :tags, foreign_key: :creator_id, dependent: :destroy
 
-  has_many :likes, foreign_key: :fan_id
+  has_many :likes, foreign_key: :fan_id, dependent: :destroy
   has_many :liked_posts, through: :likes, source: :post
 
-  has_many :artwork_likes, foreign_key: :user_id
+  has_many :artwork_likes, foreign_key: :user_id, dependent: :destroy
   has_many :liked_artworks, through: :artwork_likes, source: :artwork
 
   has_many :artist_follows, class_name: "ArtistFollow", foreign_key: "follower_id", dependent: :destroy
@@ -18,13 +18,11 @@ class User < ApplicationRecord
 
   has_many :followers, through: :followings, source: 'follower'
 
-  has_many :artworks, foreign_key: :artist_id
-
-  has_many :events
+  has_many :artworks, foreign_key: :artist_id, dependent: :destroy
 
   has_many :follow_updates, through: :followed_artists, source: :events
 
-  has_many :messages
+  has_many :messages, dependent: :destroy
 
   def conversations
     Conversation.where("sender_id = ? OR recipient_id = ?", id, id)

@@ -2,8 +2,9 @@ class Post < ApplicationRecord
   belongs_to :author, class_name: 'User'
   has_many :post_tags
   has_many :tags, through: :post_tags
-  has_many :likes
+  has_many :likes, dependent: :destroy
   has_many :fans, through: :likes
+  has_many :events, dependent: :destroy, foreign_key: :eventable_id
 
   extend FriendlyId
   friendly_id :title, use: [:slugged, :finders]
