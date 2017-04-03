@@ -11,10 +11,10 @@
         - content_for :additional_stylesheet do
           %style
             :plain
-              #user_#{@artists.first.id} {
-                background-image: url(#{@artists.first.artworks.first.image});
+              #artwork_#{Artwork.last.id} {
+                background-image: url(#{Artwork.last.image});
               }
-        .m-display-section__image[@artists.first]
+        .m-display-section__image[Artwork.last]
 
 .container
   .content.content--xwide
