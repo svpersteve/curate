@@ -6,20 +6,8 @@
   %hr.u-black-line--thin
   - if current_user.notifications.any?
     - current_user.notifications.order('created_at desc').take(10).each do |notification|
-      %p.m-notification{class: ('m-notifications__unread' unless notification.read)}
-        - if notification.notifiable_type == 'User'
-          %strong= link_to notification.notified_by.full_name, notification.notified_by
-          = notification.action
-          you
-        - else
-          = link_to notification.notified_by.full_name, notification.notified_by
-          = notification.action
-          your
-          = notification.notifiable_type.downcase
-          %strong= link_to notification.notifiable.label, link_through_path(notification)
-        %br
-        %span.u-small-text= notification.created_at.to_formatted_s(:long)
-      %hr.u-black-line--thin
-
+      = render partial: 'notifications/notification', locals: { notification: notification }
   - else
     You have no notifications yet 😕
+  .u-center
+    =link_to 'Show all', notifications_path
