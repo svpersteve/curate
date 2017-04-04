@@ -17,13 +17,15 @@
 
 .s-navbar__right {
   @include flex($justify-content: space-around);
-  width: 120px;
+  width: 150px;
   position: absolute;
   right: 0;
   top: ($navbar-height - $avatar-size) / 2;
+
   i {
     margin-top: -5px;
-    font-size: 40px;
+    margin-right: 10px;
+    font-size: 30px;
   }
 }
 
@@ -126,6 +128,7 @@
   right: 15px;
   z-index: 1100;
   display: none;
+  overflow: scroll;
 
   @media #{$to-medium} {
     width: 100%;

@@ -61,6 +61,7 @@ class PostsController < ApplicationController
     @post_like = Like.where(fan: current_user, post: @post).first_or_create
     current_user.events.where(action: 'liked', eventable: @post).first_or_create
     @post.likes_count += 1
+    create_post_like_notification(@post)
     render :likes
   end
 
@@ -68,6 +69,7 @@ class PostsController < ApplicationController
     @like = Like.where(fan: current_user, post: @post).destroy_all
     @event = Event.where(user: current_user, eventable: @post).destroy_all
     @post.likes_count -= 1
+    delete_post_like_notification(@post)
     render :likes
   end
 
@@ -112,5 +114,22 @@ class PostsController < ApplicationController
 
   def submitting_to_unpublish?
     params[:commit] == 'Unpublish'
+  end
+
+  def create_post_like_notification(post)
+      return if post.author == current_user
+      Notification.create(user: post.author,
+                          notified_by: current_user,
+                          notifiable: post,
+                          action: 'liked')
+  end
+
+  def delete_post_like_notification(post)
+      return if post.author == current_user
+      notification = Notification.find_by(user_id: post.author.id,
+                          notified_by_id: current_user.id,
+                          notifiable_id: post.id,
+                          notifiable_type: 'Post')
+      notification.destroy if notification.present?
   end
 end

@@ -5,6 +5,7 @@ class Post < ApplicationRecord
   has_many :likes, dependent: :destroy
   has_many :fans, through: :likes
   has_many :events, dependent: :destroy, foreign_key: :eventable_id
+  has_many :notifications, dependent: :destroy, foreign_key: :notifiable_id
 
   extend FriendlyId
   friendly_id :title, use: [:slugged, :finders]

@@ -1,5 +1,8 @@
 .s-navbar__right
   - if current_user
+    %a.js-open-notifications{href: '#'}
+      .m-chat__inbox-icon{"data-badge" => (current_user.notifications.unread.size if current_user.notifications.unread.size > 0)}
+        %i.fa.fa-bell-o
     - if current_user.conversations.any?
       = link_to conversation_messages_path(current_user.most_recent_conversation) do
         .m-chat__inbox-icon{"data-badge" => (current_user.unread_messages_count if current_user.unread_messages_count > 0)}
@@ -17,3 +20,5 @@
     %hr
     = link_to 'Admin', admin_root_path, class: 's-navbar__subnav' if current_user.has_role? :admin
     = link_to 'Sign out', destroy_user_session_path, method: :delete, class: 's-navbar__subnav'
+
+  #notifications= render partial: 'layouts/navbar/notifications'

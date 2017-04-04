@@ -86,3 +86,15 @@
     border: solid 3px $colour-black;
   }
 }
+
+.u-black-line--thin {
+  border: solid 1px $colour-black;
+
+  @media #{$from-medium} {
+    border: solid 2px $colour-black;
+  }
+}
+
+.u-small-text {
+  font-size: 14px;
+}

@@ -33,6 +33,7 @@ class UsersController < ApplicationController
     @artist_follow = ArtistFollow.find_or_create_by(follower_id: current_user.id, artist_id: @user.id)
     current_user.events.create(action: 'followed', eventable: @user)
     @user.artist_follows_count += 1
+    create_follow_notification(@user)
     render :follows
   end
 
@@ -42,6 +43,7 @@ class UsersController < ApplicationController
     event = Event.find_by(user: current_user, eventable: @user)
     event.destroy if event
     @user.artist_follows_count -= 1
+    delete_follow_notification(@user)
     render :follows
   end
 
@@ -53,5 +55,20 @@ class UsersController < ApplicationController
 
   def find_user
     @user = User.find(params[:id])
+  end
+
+  def create_follow_notification(user)
+    Notification.create(user: user,
+                        notified_by: current_user,
+                        notifiable: user,
+                        action: 'followed')
+  end
+
+  def delete_follow_notification(user)
+    notification = Notification.find_by(user_id: user.id,
+                        notified_by_id: current_user.id,
+                        notifiable_id: user.id,
+                        notifiable_type: 'User')
+    notification.destroy if notification.present?
   end
 end
