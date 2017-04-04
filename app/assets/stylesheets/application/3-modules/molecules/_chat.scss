@@ -38,15 +38,15 @@
 .m-chat__inbox-icon[data-badge]::after {
   content: attr(data-badge);
   position: absolute;
-  top: -5px;
-  right: 11px;
-  font-size: .7em;
+  top: -11px;
+  right: 4px;
+  font-size: .6em;
   background: $colour-red;
   color: $colour-white;
-  width: 18px;
-  height: 18px;
+  width: 16px;
+  height: 16px;
   text-align: center;
-  line-height: 18px;
+  line-height: 16px;
   border-radius: 50%;
   box-shadow: 0 0 1px $colour-box-shadow;
 }

@@ -51,6 +51,9 @@ Rails.application.routes.draw do
 
   resources :charges
 
+  get 'notifications/:id/link_through', to: 'notifications#link_through', as: :link_through
+  get 'notifications/mark_all_read', to: 'notifications#mark_all_read', as: :mark_all_read
+
   namespace :admin do
     root to: 'users#index'
     resources :users

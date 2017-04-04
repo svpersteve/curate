@@ -22,3 +22,4 @@
 //= require application/user_menu.js
 //= require application/sticky_navbar.js
 //= require application/sticky_navbar_menu_bar.js
+//= require application/notifications.js
