@@ -60,12 +60,14 @@ class PostsController < ApplicationController
   def like
     @post_like = Like.where(fan: current_user, post: @post).first_or_create
     current_user.events.where(action: 'liked', eventable: @post).first_or_create
+    @post.likes_count += 1
     render :likes
   end
 
   def unlike
     @like = Like.where(fan: current_user, post: @post).destroy_all
     @event = Event.where(user: current_user, eventable: @post).destroy_all
+    @post.likes_count -= 1
     render :likes
   end
 

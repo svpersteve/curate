@@ -2,10 +2,10 @@ class Admin::PostsController < Admin::BaseController
   before_action :get_post, only: [:update, :destroy]
 
   def index
-    @posts = Post.order('created_at desc')
+    @posts = Post.order('likes_count desc')
   end
 
-  def update # rubocop:disable Metrics/MethodLength
+  def update
     if @post.update(post_params)
       redirect_to admin_posts_path, notice: 'Post was successfully updated.'
     else
