@@ -8,7 +8,7 @@
     .third.centered
       = render partial: 'shared/artist_block', locals: { user: @user }
 
-      = link_to 'Edit artwork', edit_artwork_path(artwork: @artwork), class: 'a-button' if can? :edit, @artwork
+      = link_to 'Edit artwork', edit_artwork_path(artwork: @artwork), class: 'a-button' if current_user == @artwork.artist
 
     .half
       .content

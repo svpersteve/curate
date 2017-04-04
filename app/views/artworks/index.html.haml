@@ -11,7 +11,7 @@
         - content_for :additional_stylesheet do
           %style
             :plain
-              #image_#{@artworks.first.id} {
+              #artwork_#{@artworks.first.id} {
                 background-image: url(#{@artworks.first.image.url});
               }
         .m-display-section__image[@artworks.first]
