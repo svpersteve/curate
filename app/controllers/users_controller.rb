@@ -32,6 +32,7 @@ class UsersController < ApplicationController
   def follow
     @artist_follow = ArtistFollow.find_or_create_by(follower_id: current_user.id, artist_id: @user.id)
     current_user.events.create(action: 'followed', eventable: @user)
+    @user.followers_count += 1
     render :follows
   end
 
@@ -40,6 +41,7 @@ class UsersController < ApplicationController
     @artist_follow.destroy if @artist_follow
     event = Event.find_by(user: current_user, eventable: @user)
     event.destroy if event
+    @user.followers_count -= 1
     render :follows
   end
 
