@@ -7,7 +7,8 @@
   - if current_user.notifications.any?
     - current_user.notifications.order('created_at desc').take(10).each do |notification|
       = render partial: 'notifications/notification', locals: { notification: notification }
+
+    .u-center
+      = link_to 'Show all', notifications_path if current_user.notifications.size >= 10
   - else
     You have no notifications yet 😕
-  .u-center
-    =link_to 'Show all', notifications_path
