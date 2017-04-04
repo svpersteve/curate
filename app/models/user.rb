@@ -30,6 +30,8 @@ class User < ApplicationRecord
 
   has_many :events, dependent: :destroy
 
+  has_many :notifications, dependent: :destroy
+
   mount_uploader :hero_image, HeroUploader
   mount_uploader :profile_image, ProfileImageUploader
 

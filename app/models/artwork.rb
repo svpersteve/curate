@@ -3,6 +3,7 @@ class Artwork < ApplicationRecord
   has_many :artwork_likes, dependent: :destroy
   has_many :fans, through: :artwork_likes, source: :user
   has_many :events, dependent: :destroy, foreign_key: :eventable_id
+  has_many :notifications, dependent: :destroy, foreign_key: :notifiable_id
 
   extend FriendlyId
   friendly_id :name, use: [:slugged, :finders]
