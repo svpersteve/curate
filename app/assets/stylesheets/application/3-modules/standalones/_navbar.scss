@@ -126,13 +126,12 @@
   box-shadow: 0 1px 5px 1px $colour-box-shadow;
   border: 1px solid $colour-light-grey;
   right: 15px;
-  z-index: 1100;
+  z-index: 2000;
   display: none;
   overflow: scroll;
 
   @media #{$to-medium} {
     width: 100%;
-    overflow: visible;
     right: 0;
     text-align: center;
   }
