@@ -5,4 +5,14 @@ class Notification < ApplicationRecord
 
   scope :unread, -> { where(read: false) }
   scope :read, -> { where(read: true) }
+
+  def emoji
+    if notifiable_type == 'Post'
+      "📝"
+    elsif notifiable_type == 'Artwork'
+      "🖼"
+    else notifiable_type == 'User'
+      "👋🏽"
+    end
+  end
 end
