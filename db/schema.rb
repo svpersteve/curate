@@ -191,7 +191,7 @@ ActiveRecord::Schema.define(version: 20170404090853) do
     t.string   "stripe_uid"
     t.string   "facebook_uid"
     t.text     "description",                 default: ""
-    t.integer  "followers_count",             default: 0
+    t.integer  "artist_follows_count",        default: 0
     t.index ["email"], name: "index_users_on_email", unique: true, using: :btree
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
   end

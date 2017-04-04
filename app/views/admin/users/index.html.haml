@@ -26,7 +26,7 @@
           .m-admin-table__column-20.u-center
             %p= user.posts.size
           .m-admin-table__column-5.u-center
-            %p= user.followers.size
+            %p= user.followers.size if user.followers.present?
           .m-admin-table__column-20.u-center
             %p= link_to 'Edit', edit_user_path(user), class: 'a-button'
 

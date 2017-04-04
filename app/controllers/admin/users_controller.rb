@@ -2,7 +2,7 @@ class Admin::UsersController < Admin::BaseController
   before_action :get_user, only: [:update, :destroy]
 
   def index
-    @users = User.order('created_at desc')
+    @users = User.order('artist_follows_count desc')
   end
 
   def update

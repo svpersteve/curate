@@ -16,7 +16,7 @@ class User < ApplicationRecord
 
   has_many :followings, class_name: "ArtistFollow", foreign_key: "artist_id", dependent: :destroy
 
-  has_many :followers, through: :followings, source: 'follower', counter_cache: true
+  has_many :followers, through: :followings, source: 'follower'
 
   has_many :artworks, foreign_key: :artist_id, dependent: :destroy
 
