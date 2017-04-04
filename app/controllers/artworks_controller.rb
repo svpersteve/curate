@@ -52,12 +52,14 @@ class ArtworksController < ApplicationController
   def like
     @artwork_like = ArtworkLike.where(user: current_user, artwork: @artwork).first_or_create
     @event = current_user.events.where(action: 'liked', eventable: @artwork).first_or_create
+    @artwork.artwork_likes_count += 1
     render :likes
   end
 
   def unlike
     @artwork_like = ArtworkLike.where(user: current_user.id, artwork: @artwork).destroy_all
     @event = Event.where(user: current_user, eventable: @artwork).destroy_all
+    @artwork.artwork_likes_count -= 1
     render :likes
   end
 
