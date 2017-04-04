@@ -15,8 +15,5 @@ class NotificationsController < ApplicationController
     current_user.notifications.unread.each do |n|
       n.update read: true
     end
-    respond_to do |format|
-      format.js {render inline: "location.reload();" }
-    end
   end
 end

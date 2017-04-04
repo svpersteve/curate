@@ -1,6 +1,6 @@
 .s-navbar__right
   - if current_user
-    %a.js-open-notifications{href: '#'}
+    = link_to mark_all_read_path, remote: true, class: 'js-open-notifications' do
       .m-chat__inbox-icon{"data-badge" => (current_user.notifications.unread.size if current_user.notifications.unread.size > 0)}
         %i.fa.fa-bell-o
     - if current_user.conversations.any?

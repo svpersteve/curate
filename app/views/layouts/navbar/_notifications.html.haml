@@ -1,8 +1,6 @@
 .m-notifications.js-notifications-window
   .m-notifications__menu
     Notifications
-    = link_to mark_all_read_path, remote: true do
-      .u-small-text Mark all as read
   %hr.u-black-line--thin
   - if current_user.notifications.any?
     - current_user.notifications.order('created_at desc').take(10).each do |notification|
