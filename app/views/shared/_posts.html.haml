@@ -9,5 +9,3 @@
           = link_to post.title, post
       = link_to post do
         %p.m-story__date= post_date(post)
-        %p.m-story__intro= post.introduction
-      #likes_count[post]= render partial: 'posts/like_link', locals: { subject: post, user_list: true }
