@@ -3,5 +3,7 @@
   = render partial: 'layouts/navbar/menu'
   = render partial: 'layouts/navbar/user_nav'
 
-= render partial: 'layouts/canvas' if current_page?(root_path)
-
+- if current_page?(root_path)
+  = render partial: 'layouts/canvas'
+- else
+  .u-navbar-clear
