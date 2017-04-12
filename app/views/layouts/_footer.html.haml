@@ -1,8 +1,16 @@
-%footer.u-center
-  .a-icon-row
-    %a{href: 'mailto:lisa@curateart.co.uk', target: '_blank'}
-      %i.fa.fa-envelope
-    %a{href: 'https://www.instagram.com/curateart/', target: '_blank'}
-      %i.fa.fa-instagram
-    %a{href: 'https://twitter.com/Curate_London', target: '_blank'}
-      %i.fa.fa-twitter
+%footer
+  .a-footer__first-column
+    %i.fa.fa-copyright
+    Curate
+  .a-footer__second-column
+    = link_to 'About', '#'
+    = link_to 'Contact', '#'
+    = link_to 'Terms', '#'
+  .a-footer__third-column
+    .a-icon-row
+      %a{href: 'mailto:lisa@curateart.co.uk', target: '_blank'}
+        %i.fa.fa-envelope
+      %a{href: 'https://www.instagram.com/curateart/', target: '_blank'}
+        %i.fa.fa-instagram
+      %a{href: 'https://twitter.com/Curate_London', target: '_blank'}
+        %i.fa.fa-twitter

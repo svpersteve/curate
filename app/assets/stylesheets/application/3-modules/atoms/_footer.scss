@@ -1,5 +1,25 @@
 footer {
+  @include flex($justify-content: space-between);
   padding: 30px;
   border-top: 2px solid $colour-black;
   font-family: $body-font;
+  background-color: $colour-black;
+  color: $colour-very-light-grey;
+
+  i,
+  a {
+    color: $colour-very-light-grey;
+  }
+
+  i:hover,
+  a:hover {
+    color: $colour-light-grey;
+  }
+}
+
+.a-footer__second-column {
+  @include flex;
+  a:not(:last-child) {
+    margin-right: 15px;
+  }
 }
