@@ -1,15 +1,27 @@
+.container.container--alt
+  .content.content--xxwide
+    %h1.u-center Browse some of our favourite artworks
+
+.container.container--alt
+  .content.content--xxwide
+    = render partial: 'artworks/artworks', locals: { artworks: @featured_artworks.take(6) }
+    .u-center.u-margin-top--small.u-margin-bottom= link_to 'Discover more artwork', artworks_path, class: 'a-button'
+
+
 .container.content--separated-bottom
   .content.content--xxwide
     .m-display-section
       .m-display-section__first
-        %h1 Curate Gallery
+        %h1 Featured Artists
         %p
           Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed sed velit in turpis imperdiet venenatis. Mauris viverra porta imperdiet. Fusce porta nulla nec ante maximus dictum. Aliquam mi nulla, tempus in varius in, aliquet sit amet arcu. Integer a rutrum lorem, et posuere libero. Aenean lectus dui, vulputate in bibendum nec, faucibus at elit. Quisque nec lacus a dui molestie tempor eu eget magna. Aenean maximus nec orci ut commodo.
-        = link_to 'Discover', artworks_path, class: 'a-button u-margin-top--small a-button--elastic'
+        = link_to 'See Featured Artists', artworks_path, class: 'a-button u-margin-top--small a-button--elastic'
       .m-display-section__second
         = image_tag('https://s3.eu-west-2.amazonaws.com/curate-group/uploads/images/cc/8c/twitter_cc8ce497-8649-4e3a-9ab8-345289f473f3.jpg', class: 'm-display-section__image')
 
 .container
   .content.content--xxwide
-    %h1 Journal
+    %h1.u-center Journal
+.container.container--alt
+  .content.content--xxwide
     = render partial: 'shared/posts', locals: { posts: @featured_posts.take(6) }
