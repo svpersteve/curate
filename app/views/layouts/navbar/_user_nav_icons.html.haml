@@ -1,0 +1,13 @@
+- if current_user
+  = link_to mark_all_read_path, remote: true, class: 'js-open-notifications' do
+    .m-chat__inbox-icon{"data-badge" => (current_user.notifications.unread.size if current_user.notifications.unread.size > 0)}
+      %i.fa.fa-heart
+  - if current_user.conversations.any?
+    = link_to conversation_messages_path(current_user.most_recent_conversation) do
+      .m-chat__inbox-icon{"data-badge" => (current_user.unread_messages_count if current_user.unread_messages_count > 0)}
+        %i.fa.fa-envelope.s-navbar__icon
+  = link_to avatar_small(current_user, css_class: 'a-avatar--thumb js-user-nav-trigger'), user_path(current_user)
+
+- else
+  = link_to 'Log in', new_user_session_path, class: 's-navbar__nav'
+  = link_to 'Sign up', new_user_registration_path, class: 'a-button a-button--small a-button--hollow'

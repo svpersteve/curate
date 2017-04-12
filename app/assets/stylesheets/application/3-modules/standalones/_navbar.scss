@@ -1,152 +1,133 @@
+$navbar-height: 80px;
+$navbar-menu-height: 60px;
+
 .s-navbar {
-  @include flex($justify-content: center);
-  padding: 0 15px;
-  position: relative;
-  border-bottom: 1px solid $colour-box-shadow;
+  @include flex($justify-content: space-between);
   height: $navbar-height;
+  padding: 0 15px;
   margin-bottom: -$navbar-height;
-  background-color: $colour-white;
   font-family: $body-font;
 }
 
-.s-navbar__menu-bar {
-  top: $navbar-height;
-  height: $navbar-menu-height;
-  margin-bottom: -$navbar-menu-height;
-}
-
-.s-navbar__right {
-  @include flex($justify-content: space-around);
-  width: 150px;
-  position: absolute;
-  right: 0;
-  top: ($navbar-height - $avatar-size) / 2;
-
-  i {
-    margin-top: -5px;
-    margin-right: 10px;
-    font-size: 30px;
-  }
-}
-
-.s-navbar__sign-in {
-  margin-top: $navbar-height / 10;
+.s-navbar__logo {
+  font-size: 36px;
   font-weight: bold;
-  font-size: 20px;
-  color: $colour-grey;
 }
 
-.s-navbar--center {
-  @include flex;
-}
+.s-navbar__desktop-nav-menu {
+  @media #{$to-medium} {
+    display: none;
+  }
 
-.s-navbar--fixed {
-  position: fixed;
-  top: 0;
-  width: 100%;
-  background-color: $colour-white;
-}
-
-.s-navbar__menu {
-  font-family: $header-font;
-  max-height: $navbar-menu-height - 2px;
-  position: absolute;
-  @include flex($direction: column);
-  background-color: $colour-white;
-  padding: 10px 5px;
-  top: 62px;
-  box-shadow: 0 1px 5px 1px $colour-box-shadow;
-  border: 1px solid $colour-light-grey;
-  width: 100%;
-  overflow: visible;
-  display: none;
-  left: 0;
-  text-align: center;
+  @include flex($justify-content: flex-start);
 
   .s-navbar__nav {
-    margin: 0 auto;
-    display: block;
-    font-size: $nav-item-font-size;
+    font-size: 17px;
+    color: $colour-grey;
+    margin: 0 15px;
   }
 
-  @media #{$from-large} {
-    @include flex;
-    position: static;
-    width: 80%;
-    border: 0;
-    box-shadow: none;
+  .is-selected {
+    color: $colour-primary;
   }
 }
 
-.s-navbar__menu-burger {
-  font-size: 25px;
-
-  @media #{$from-large} {
+.s-navbar__mobile-burger {
+  @media #{$from-medium} {
     display: none;
   }
 }
 
-.s-navbar__nav {
-  font-size: 20px;
-  padding: 15px;
-  background-color: $colour-white;
+.s-navbar__user-nav-icons {
+  @include flex($justify-content: flex-end);
 
-  @media #{$from-large} {
-    color: $colour-grey;
+  a:not(:last-child) {
+    margin-right: 15px;
+  }
 
-    &:not(:last-child) {
-      margin-right: 50px;
+  i {
+    font-size: 25px;
+  }
+
+  .a-button {
+    font-size: 16px;
+  }
+}
+
+#nav-menu-dropdown-mobile,
+#user-nav-menu-dropdown,
+#notifications-dropdown {
+  display: none;
+}
+
+#notifications-dropdown {
+  @media #{$from-medium} {
+    position: absolute;
+    width: 350px;
+    background-color: $colour-white;
+    max-height: 90vh;
+    overflow: scroll;
+    right: 10px;
+    top: $navbar-height;
+
+    .s-navbar__notifications-dropdown {
+      margin: 0;
     }
   }
 }
 
-.s-navbar__nav:hover,
-.s-navbar__nav.is-selected {
-  color: $colour-black;
-}
-
-.s-navbar__logo {
-  font-size: 40px;
-  font-weight: bold;
-
-  @media #{$to-medium} {
+#user-nav-menu-dropdown {
+  @media #{$from-medium} {
     position: absolute;
-    left: 15px;
-    top: 10px;
+    width: 250px;
+    background-color: $colour-white;
+    overflow: scroll;
+    right: 10px;
+    top: $navbar-height;
+
+    .s-navbar__user-nav-menu-dropdown {
+      margin: 0;
+    }
   }
 }
 
-.s-navbar__dropdown {
+.s-navbar__menu-mobile {
   @include flex($direction: column);
-  position: absolute;
-  background-color: $colour-white;
-  padding: 10px;
-  float: right;
-  top: 80px;
-  box-shadow: 0 1px 5px 1px $colour-box-shadow;
-  border: 1px solid $colour-light-grey;
-  right: 15px;
-  z-index: 2000;
-  display: none;
+  margin-top: $navbar-height;
+  margin-bottom: -$navbar-height;
+  padding: 10px 20px;
+  width: 100%;
+
+  .s-navbar__nav {
+    padding: 20px;
+  }
+}
+
+.s-navbar__user-nav-menu-dropdown {
+  @include flex($direction: column);
+  margin-top: $navbar-height;
+  margin-bottom: -$navbar-height;
+  padding: 10px 20px;
+  width: 100%;
+
+  .s-navbar__nav {
+    padding: 20px;
+  }
+}
+
+.s-navbar__notifications-dropdown {
+  @include flex($direction: column, $align-items: flex-start);
+  margin-top: $navbar-height;
+  margin-bottom: -$navbar-height;
+  padding: 10px 20px;
+  width: 100%;
   overflow: scroll;
 
-  @media #{$to-medium} {
-    width: 100%;
-    right: 0;
-    text-align: center;
+  .s-navbar__notification {
+    padding: 5px;
   }
-}
 
-.s-navbar__subnav {
-  font-size: 1em;
-  padding: 10px;
-  display: block;
-}
-
-.s-navbar__icon {
-  font-size: 30px;
-
-  &:hover {
-    color: $colour-grey;
+  .s-navbar__notification__unread {
+    background-color: $colour-box-shadow;
   }
 }

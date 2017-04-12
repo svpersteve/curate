@@ -1,4 +1,4 @@
-%p.m-notification{class: ('m-notifications__unread' unless notification.read)}
+%p.s-navbar__notification{class: ('s-navbar__notification__unread' unless notification.read)}
   - if notification.notifiable_type == 'User'
     %strong= link_to notification.notified_by.full_name, notification.notified_by
     = notification.action

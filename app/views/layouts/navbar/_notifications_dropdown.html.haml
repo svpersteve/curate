@@ -1,6 +1,5 @@
-.m-notifications.js-notifications-window
-  .m-notifications__menu
-    Notifications
+.s-navbar__notifications-dropdown
+  %h4 Notifications
   %hr.u-black-line--thin
   - if current_user.notifications.any?
     - current_user.notifications.order('created_at desc').take(10).each do |notification|

@@ -12,7 +12,6 @@
 
 .a-button {
   display: inline-block;
-  border: 0;
   background-color: $colour-button;
   color: $colour-white;
   padding: 8px 35px;
@@ -33,6 +32,22 @@
 
 .a-button--large {
   padding: 16px 50px;
+}
+
+.a-button--small {
+  padding: 5px 25px;
+}
+
+.a-button--hollow {
+  background-color: $colour-white;
+  border: solid 1px $colour-primary;
+  color: $colour-primary;
+}
+
+.a-button--hollow:hover {
+  background-color: $colour-primary;
+  border: solid 1px $colour-primary;
+  color: $colour-white;
 }
 
 .a-button--elastic {

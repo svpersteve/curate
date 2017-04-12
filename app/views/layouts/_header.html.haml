@@ -1,7 +1,12 @@
-.s-navbar#primary-navbar
-  = link_to 'CURATE', root_path, class: 's-navbar__logo'
-  = render partial: 'layouts/navbar/menu'
-  = render partial: 'layouts/navbar/user_nav'
+.s-navbar
+  .s-navbar__logo= link_to 'CURATE', root_path
+  .s-navbar__desktop-nav-menu= render partial: 'layouts/navbar/nav_menu_items'
+  .s-navbar__mobile-burger= render partial: 'layouts/navbar/mobile_burger'
+  .s-navbar__user-nav-icons= render partial: 'layouts/navbar/user_nav_icons'
+
+#nav-menu-dropdown-mobile= render partial: 'layouts/navbar/nav_menu_dropdown_mobile'
+#user-nav-menu-dropdown= render partial: 'layouts/navbar/user_nav_menu_dropdown' if current_user
+#notifications-dropdown= render partial: 'layouts/navbar/notifications_dropdown' if current_user
 
 - if current_page?(root_path)
   = render partial: 'layouts/canvas'

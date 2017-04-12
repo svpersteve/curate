@@ -89,6 +89,7 @@
 
 .u-black-line--thin {
   border: solid 1px $colour-black;
+  width: 100%;
 
   @media #{$from-medium} {
     border: solid 2px $colour-black;
