@@ -1,10 +1,16 @@
 footer {
-  @include flex($justify-content: space-between);
+  @include flex($direction: column);
   padding: 30px;
   border-top: 2px solid $colour-black;
   font-family: $body-font;
   background-color: $colour-black;
   color: $colour-very-light-grey;
+
+  @media #{$to-medium} {
+    div:not(:last-child) {
+      margin-bottom: 20px;
+    }
+  }
 
   i,
   a {
@@ -14,6 +20,10 @@ footer {
   i:hover,
   a:hover {
     color: $colour-light-grey;
+  }
+
+  @media #{$from-medium} {
+    @include flex($direction: row, $justify-content: space-between);
   }
 }
 
