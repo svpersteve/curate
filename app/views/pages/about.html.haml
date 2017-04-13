@@ -1,0 +1,14 @@
+.container.u-footer-push
+  .content
+    %h1 Our story
+    %p
+      Curate Art was born in London 2016 by a group of young creatives. The mission was simple: create an online community of independent artists who could share their beautiful creations and earn a living doing what they love. We've curated
+      = User.all.size
+      talented artists and share their works with fans throughout Europe.
+
+    %p We believe in a more meaningful way to purchase goods. We believe our community is defining a new way of self-expression.
+
+    %p Be part of the movement.
+
+  .content
+    = link_to 'Join Curate', new_user_registration_path, class: 'a-button'
