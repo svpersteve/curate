@@ -1,5 +1,6 @@
 $navbar-height: 80px;
 $navbar-menu-height: 60px;
+$admin-navbar-height: 40px;
 
 .s-navbar {
   @include flex($justify-content: space-between);
@@ -7,6 +8,15 @@ $navbar-menu-height: 60px;
   padding: 0 15px;
   margin-bottom: -$navbar-height;
   font-family: $body-font;
+}
+
+.s-navbar--admin {
+  background-color: lighten($colour-purple, 55%);
+  height: $admin-navbar-height;
+
+  .s-navbar__logo {
+    font-size: 25px;
+  }
 }
 
 .s-navbar__logo {
