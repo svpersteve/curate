@@ -8,7 +8,4 @@
 #user-nav-menu-dropdown= render partial: 'layouts/navbar/user_nav_menu_dropdown' if current_user
 #notifications-dropdown= render partial: 'layouts/navbar/notifications_dropdown' if current_user
 
-- if current_page?(root_path)
-  = render partial: 'layouts/canvas'
-- else
-  .u-navbar-clear
+.u-navbar-clear
