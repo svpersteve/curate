@@ -1,12 +1,5 @@
-- artists.each do |artist|
-  .m-artist
-    .m-artist__details
-      .m-artist__avatar
-        = link_to profile_image(artist, css_class: 'a-avatar--thumb'), artist
-      .m-artist__name
-        %h2= link_to artist.full_name, artist
-        %p= artist.bio
-
-
-    .m-artist__artwork
-      = render partial: 'artworks/artworks', locals: { artworks: artist.artworks.take(3) }
+.m-artists
+  - artists.each do |artist|
+    .m-artist
+      = link_to profile_image(artist, css_class: 'm-artist__avatar'), artist
+      %h4= link_to artist.full_name, artist

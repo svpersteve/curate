@@ -1,5 +1,23 @@
+.m-artists {
+  @include flex($flex-wrap: wrap);
+}
+
 .m-artist {
-  margin-bottom: 50px;
+  padding: 0 30px;
+  text-align: center;
+  margin-bottom: 60px;
+
+  @media #{$from-medium} {
+    width: 50%;
+  }
+
+  @media #{$from-large} {
+    width: 30%;
+  }
+}
+
+.m-artist__avatar {
+  width: 100%;
 }
 
 .m-artist__details {
