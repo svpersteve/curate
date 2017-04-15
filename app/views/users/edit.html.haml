@@ -15,6 +15,10 @@
       = f.text_field :email, placeholder: 'Email address', class: 'u-full-width'
       %p About the artist
       = f.text_area :description, placeholder: 'About the artist', class: 'u-full-width'
+      %p City
+      = f.text_field :city, class: 'u-full-width'
+      %p Country
+      = f.select :country_number, country_options_for_select(Country.all, f.object.country_number), { label: 'Country' }, class: 'chosen-select'
     .content.d-form
       %p Links
       %p= f.label 'Personal website URL'

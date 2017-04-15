@@ -65,4 +65,17 @@ module ApplicationHelper
   def date_and_time_as_sentence(date)
     "#{time_as_sentence(date)}, #{date.to_date.to_formatted_s(:short)}"
   end
+
+  def country_options_for_select(countries, selected = nil)
+    options_for_select(countries.map { |c| [c.unofficial_names.first, c.number] }, selected)
+  end
+
+  def city_options_for_select(countries, selected = nil)
+    options_for_select(countries.map { |c| [c.unofficial_names.first, c.number] }, selected)
+  end
+
+  def user_country(country_number)
+    country = Country.find_country_by_number(country_number)
+    country.unofficial_names.first
+  end
 end

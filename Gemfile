@@ -44,6 +44,8 @@ gem 'ckeditor', github: 'galetahub/ckeditor'
 gem 'stripe'
 gem 'omniauth-stripe-connect'
 
+gem 'countries', :require => 'countries/global'
+
 group :development, :test do
   gem 'dotenv-rails', require: 'dotenv/rails-now'
   gem 'pry'

@@ -23,7 +23,9 @@
     - if defined?(title)
       %h1.m-hero__title= title
     .m-hero__location
-      %h3 London
+      %h3
+        = "#{@user.city}," if @user.city
+        = user_country(@user.country_number) if @user.country_number.present?
 
     .m-hero__links
       = link_to 'Instagram', instagram_url(@user) if @user.instagram_username.present?
