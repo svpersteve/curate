@@ -1,6 +1,6 @@
 .container
   .content
-    %h1.u-center Notifications
+    %h2.u-center Notifications
     %hr.u-black-line--thin
     - @notifications.each do |notification|
       = render partial: 'notification', locals: { notification: notification }

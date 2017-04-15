@@ -4,7 +4,7 @@
   .content.content--xwide
     .m-display-section
       .m-display-section__first
-        %h1= link_to @posts.first.title, @posts.first
+        %h2= link_to @posts.first.title, @posts.first
         %p= @posts.first.introduction
       .m-display-section__second
         - content_for :additional_stylesheet do
