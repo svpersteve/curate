@@ -24,7 +24,8 @@
       %h1.m-hero__title= title
     .m-hero__location
       %h3
-        = "#{@user.city}," if @user.city
+        = @user.city
+        = "," if @user.city.present? && @user.country_number.present?
         = user_country(@user.country_number) if @user.country_number.present?
 
     .m-hero__links
