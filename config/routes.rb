@@ -62,5 +62,6 @@ Rails.application.routes.draw do
     resources :users
     resources :artworks
     resources :posts
+    resources :wallpapers
   end
 end

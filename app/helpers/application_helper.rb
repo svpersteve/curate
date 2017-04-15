@@ -78,4 +78,12 @@ module ApplicationHelper
     country = Country.find_country_by_number(country_number)
     country.unofficial_names.first
   end
+
+  def wallpaper_options_for_select(selected = nil)
+    options_for_select(wallpaper_locations.map { |l| l }, selected)
+  end
+
+  def wallpaper_locations
+    ['Homepage', 'Events banner']
+  end
 end

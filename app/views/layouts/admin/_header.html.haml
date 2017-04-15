@@ -2,7 +2,4 @@
   .s-navbar__logo= link_to 'Admin', admin_root_path
   .s-navbar__desktop-nav-menu= render partial: 'layouts/admin/nav_menu_items'
 
-- if current_page?(root_path)
-  = render partial: 'layouts/canvas'
-- else
-  .u-navbar-clear--double
+.u-navbar-clear

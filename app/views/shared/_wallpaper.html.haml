@@ -1,0 +1,32 @@
+- content_for :additional_stylesheet do
+  %style
+    :plain
+      @media all and (min-width: 648px) {
+        .m-canvas {
+          background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4) ), url(#{source.url(:small)});
+          background-size: cover;
+          background-attachment: fixed;
+          background-repeat: no-repeat;
+          background-position: left top;
+        }
+      }
+
+      @media all and (min-width: 900px) {
+        .m-canvas {
+          background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4) ), url(#{source.url(:medium)});
+          background-size: cover;
+          background-attachment: fixed;
+          background-repeat: no-repeat;
+          background-position: left top;
+        }
+      }
+
+      @media all and (min-width: 1280px) {
+        .m-canvas {
+          background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4) ), url(#{source.url(:large)});
+          background-size: cover;
+          background-attachment: fixed;
+          background-repeat: no-repeat;
+          background-position: left top;
+        }
+      }

@@ -1,0 +1,22 @@
+.container
+  = form_for [:admin, @wallpaper] do |f|
+    .content
+      %h2 Name
+      = f.text_field :name, class: 'u-full-width'
+
+    .content
+      %h2 Image
+      %p Use a wide image, ideally 2000 x 1440.
+      = f.file_field :image
+
+    .content
+      %h2 Location
+      = f.select :location, wallpaper_options_for_select(f.object.location), { label: 'Location' }, class: 'chosen-select'
+
+    .content.content--wide
+      .a-buttons.u-margin-top
+        = link_to "Delete wallpaper", admin_wallpaper_path(@wallpaper), method: :delete, data: { confirm: 'Delete wallpaper?' }, class: 'a-button a-button--warning' if @wallpaper.persisted?
+        = @wallpaper.persisted? ? (link_to 'Cancel', admin_wallpaper_path(@wallpaper), class: 'a-button' ) : (link_to 'Cancel', admin_wallpapers_path, class: 'a-button' )
+        = f.submit 'Save', class: 'a-button u-float-right'
+
+.u-margin-bottom

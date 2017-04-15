@@ -1,0 +1,19 @@
+.container
+  .content.content--xxwide
+    = link_to 'Add wallpaper', new_admin_wallpaper_path, class: 'a-button u-float-right'
+  .content.content--xxwide
+    %h1 Wallpapers
+    .m-gallery
+      - @wallpapers.each do |wallpaper|
+        - content_for :additional_stylesheet do
+          %style
+            :plain
+              #wallpaper_#{wallpaper.id} {
+                background-image: url(#{wallpaper.image.url(:small)});
+              }
+        .m-gallery__piece
+          = link_to admin_wallpaper_path(wallpaper) do
+            .m-gallery__image[wallpaper]
+          .m-gallery__piece-details
+            %p= wallpaper.name
+            %p= link_to 'Edit', edit_admin_wallpaper_path(wallpaper)
