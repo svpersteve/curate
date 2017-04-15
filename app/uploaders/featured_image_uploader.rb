@@ -7,11 +7,6 @@ class FeaturedImageUploader < ImageUploader
     process optimise_jpg: [{ progressive: true, quality: 76 }]
   end
 
-  version :featured_large do
-    process resize_to_fill: [1048, 300]
-    process optimise_jpg: [{ progressive: true, quality: 76 }]
-  end
-
   def filename(*args)
     model_uuid + ".jpg" if original_filename.present?
   end
