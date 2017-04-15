@@ -3,9 +3,9 @@
 = form_for @user do |f|
   .container
     .content.d-form
-      %p Cover photo
+      %h1 Edit profile
+      %p Cover image
       = f.file_field :hero_image
-    .content.d-form
       %p Profile image
       = f.file_field :profile_image
     .content.d-form
@@ -17,14 +17,14 @@
       = f.text_area :description, placeholder: 'About the artist', class: 'u-full-width'
     .content.d-form
       %p Links
-      %p= f.label 'Personal website'
+      %p= f.label 'Personal website URL'
       = f.text_field :website, placeholder: 'http://mysite.com', class: 'u-full-width'
       %p= f.label 'Instagram username'
-      = f.text_field :instagram_username, placeholder: 'curateart', class: 'u-full-width'
+      = f.text_field :instagram_username, placeholder: 'my-instagram-username', class: 'u-full-width'
       %p= f.label 'Facebook username'
-      = f.text_field :facebook_username, placeholder: 'curateart', class: 'u-full-width'
+      = f.text_field :facebook_username, placeholder: 'my-facebook-username', class: 'u-full-width'
       %p= f.label 'Twitter username'
-      = f.text_field :twitter_username, placeholder: 'curateart', class: 'u-full-width'
+      = f.text_field :twitter_username, placeholder: 'my-twitter-username', class: 'u-full-width'
     .content.d-form
       = link_to 'Cancel', user_path(@user), class: 'a-button'
       = f.submit 'Save changes', class: 'a-button'

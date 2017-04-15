@@ -1,11 +1,20 @@
 - set_page_title(@user.full_name)
 
-= render 'users/profile/intro', selector: "#user_#{@user.id}", src: @user.hero_image.url(:header_medium), srcset: {'900px' => @user.hero_image.url(:header_large)}, title: @user.full_name, user: @user
+= render 'users/profile/intro', selector: "#user_#{@user.id}", src: @user.hero_image.url(:profile_medium), srcset: {'900px' => @user.hero_image.url(:profile_medium)}, title: @user.full_name, user: @user
 
 .container
-  .content.content--wide
+  .content.content--xxwide
     .m-display-section
-      .m-display-section__first.u-center
+      .m-display-section__first
+        %h1
+          About
+          = @user.name
+        %p= sanitize @user.description
+        #follower_count[@user]= render partial: 'shared/follow_link', locals: { artist: @user, user_list: true }
+        = link_to "Message #{@user.name}", conversations_path(recipient_id: @user.id), method: 'post', class: 'a-button' unless current_user == @user
+        = link_to 'Edit', edit_user_path(@user), class: 'a-button' if current_user == @user
+
+      .m-display-section__second
         - content_for :additional_stylesheet do
           %style
             :plain
@@ -14,37 +23,9 @@
               }
         .m-display-section__image[@user]
 
-      .m-display-section__second
-        %h1
-          Meet
-          = @user.name
-        %p= sanitize @user.bio
-        #follower_count[@user]= render partial: 'shared/follow_link', locals: { artist: @user, user_list: true }
-        = link_to "Message #{@user.name}", conversations_path(recipient_id: @user.id), method: 'post', class: 'a-button' unless current_user == @user
-        = link_to 'Edit', edit_user_path(@user), class: 'a-button' if current_user == @user
-
 - if @user.artworks.any?
-  .container
-    .content.content--xxwide.content--tight
-      .m-display-section
-        - content_for :additional_stylesheet do
-          %style
-            :plain
-              #artwork_#{@user.artworks.first.id} {
-                background-image: url(#{@user.artworks.first.image.url(:header_medium)});
-              }
-        .m-display-section__hero[@user.artworks.first]
-
-- if @user.description.present?
-  .container
-    .content.content--wide.content--tight
-      %h2.u-center
-        More about
-        = @user.name
-      %p= @user.description
-      .u-margin-top--small= render partial: 'shared/social_links', locals: { user: @user }
-
-- if @user.artworks.any?
-  .container
+  .container.container--alt
+    .content
+      %h2.u-center.u-margin-top--small Artwork
     .content.content--xxwide
       = render partial: 'artworks/artworks', locals: { artworks: @user.artworks }

@@ -1,18 +1,66 @@
 .m-hero {
-  @include flex;
-  text-align: center;
-  height: 70vh;
+  @include flex($justify-content: space-between);
+  color: $colour-white;
+  height: 500px;
+  width: 100%;
+}
+
+.m-hero__left {
+  height: 100%;
+  width: 100%;
   background-color: $colour-black;
   background: {
-    position: center center;
+    position: left top;
     repeat: no-repeat;
-    size: cover;
   }
 
-  h1 {
-    color: $colour-white;
-    margin: 0;
+  @media #{$to-large} {
+    display: none;
+  }
+}
+
+.m-hero__right {
+  @include flex($direction: column);
+  height: 100%;
+  width: 100%;
+  background-color: $colour-black;
+}
+
+.m-hero__title {
+  background-color: $colour-white;
+  text-align: center;
+  color: $colour-black;
+  padding: 0 10px;
+  font-size: 60px;
+  display: inline;
+  align-self: flex-start;
+  margin: auto 0 0 20px;
+
+  @media #{$from-large} {
+    margin: auto 0 0 -200px;
     padding: 0 30px;
-    font-size: 100px;
+  }
+}
+
+.m-hero__location {
+  align-self: flex-start;
+  margin: 10px 0 0 20px;
+  text-transform: capitalize;
+
+  @media #{$from-large} {
+    margin: 10px 0 0 0 10px;
+  }
+}
+
+.m-hero__links {
+  @include flex($flex-wrap: wrap);
+  font-family: $header-font;
+  font-size: 20px;
+  margin-top: auto;
+  align-self: flex-end;
+  padding: 20px;
+
+  a:not(:last-child) {
+    margin-right: 20px;
   }
 }

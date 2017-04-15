@@ -7,28 +7,8 @@ class HeroUploader < ImageUploader
     process optimise_jpg: [{ progressive: true, quality: 76 }]
   end
 
-  version :regular do
-    process resize_to_fill: REGULAR_SIZE
-    process optimise_jpg: [{ progressive: true, quality: 76 }]
-  end
-
-  version :hero do
-    process resize_to_fill: SHORT_HERO_SIZE
-    process optimise_jpg: [{ progressive: true, quality: 76 }]
-  end
-
-  version :promo_small do
-    process resize_to_fill: [900, 360]
-    process optimise_jpg: [{ progressive: true, quality: 76 }]
-  end
-
-  version :promo_medium do
-    process resize_to_fill: [1250, 440]
-    process optimise_jpg: [{ progressive: true, quality: 76 }]
-  end
-
-  version :promo_large do
-    process resize_to_fill: [1600, 560]
+  version :profile_medium do
+    process resize_to_fill: [800, 500]
     process optimise_jpg: [{ progressive: true, quality: 76 }]
   end
 
