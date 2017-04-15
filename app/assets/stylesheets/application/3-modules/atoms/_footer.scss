@@ -27,9 +27,19 @@ footer {
   }
 }
 
+.a-footer__first-column {
+  width: 20%;
+}
+
 .a-footer__second-column {
+  width: 60%;
   @include flex;
   a:not(:last-child) {
     margin-right: 15px;
   }
+}
+
+.a-footer__third-column {
+  width: 20%;
+  @include flex($justify-content: flex-end);
 }
