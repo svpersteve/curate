@@ -18,6 +18,8 @@ class Ability
       can :like, Artwork
       can :unlike, Artwork
       can :manage, Artwork, artist_id: user.id
+      cannot :read, Post.draft
+      can :read, Post.draft, author_id: user.id
     end
   end
 end
