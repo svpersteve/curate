@@ -30,11 +30,20 @@
     .content.content--xxwide
       = render partial: 'artworks/artworks', locals: { artworks: @user.artworks }
 
-- if @user.posts.any?
+- if @user.posts.published.any?
   .container
     .content.content--xxwide
       %h1.u-center.u-margin-top--small
         Journal
   .container
     .content.content--xxwide
-      = render partial: 'shared/posts', locals: { posts: @user.posts }
+      = render partial: 'shared/posts', locals: { posts: @user.posts.published }
+
+- if @user.posts.draft.any? && @user == current_user
+  .container.container--alt
+    .content.content--xxwide.u-center
+      %h1.u-margin-top--small
+        Drafts
+      %p Only you can see your draft posts.
+    .content.content--xxwide
+      = render partial: 'shared/posts', locals: { posts: @user.posts.draft }
