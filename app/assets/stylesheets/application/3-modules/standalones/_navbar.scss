@@ -79,6 +79,7 @@ $admin-navbar-height: 40px;
     overflow: scroll;
     right: 10px;
     top: $navbar-height;
+    border: solid 1px $colour-box-shadow;
 
     .s-navbar__notifications-dropdown {
       margin: 0;
@@ -94,6 +95,7 @@ $admin-navbar-height: 40px;
     overflow: scroll;
     right: 10px;
     top: $navbar-height;
+    border: solid 1px $colour-box-shadow;
 
     .s-navbar__user-nav-menu-dropdown {
       margin: 0;
