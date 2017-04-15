@@ -4,4 +4,4 @@
   = link_to profile_image(message.user, css_class: 'a-avatar--thumb-square'), user_path(message.user)
   .m-chat__message-body
     %p
-      = message.body
+      = auto_link(message.body)
