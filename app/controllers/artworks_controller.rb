@@ -76,19 +76,13 @@ class ArtworksController < ApplicationController
   end
 
   def create_artwork_like_notification(artwork)
-      return if artwork.artist == current_user
-      Notification.create(user: artwork.artist,
-                          notified_by: current_user,
-                          notifiable: artwork,
-                          action: 'liked')
+    return if artwork.artist == current_user
+    Notification.create(user: artwork.artist, notified_by: current_user, notifiable: artwork, action: 'liked')
   end
 
   def delete_artwork_like_notification(artwork)
-      return if artwork.artist == current_user
-      notification = Notification.find_by(user_id: artwork.artist.id,
-                          notified_by_id: current_user.id,
-                          notifiable_id: artwork.id,
-                          notifiable_type: 'Artwork')
-      notification.destroy if notification.present?
+    return if artwork.artist == current_user
+    notification = Notification.find_by(user_id: artwork.artist.id, notified_by_id: current_user.id, notifiable_id: artwork.id, notifiable_type: 'Artwork')
+    notification.destroy if notification.present?
   end
 end

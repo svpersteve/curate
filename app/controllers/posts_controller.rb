@@ -1,4 +1,4 @@
-class PostsController < ApplicationController
+class PostsController < ApplicationController # rubocop:disable Metrics/ClassLength
   load_and_authorize_resource
   before_action :authenticate_user!, only: [:like]
   before_action :get_post, only: [:like, :unlike]
@@ -117,19 +117,13 @@ class PostsController < ApplicationController
   end
 
   def create_post_like_notification(post)
-      return if post.author == current_user
-      Notification.create(user: post.author,
-                          notified_by: current_user,
-                          notifiable: post,
-                          action: 'liked')
+    return if post.author == current_user
+    Notification.create(user: post.author, notified_by: current_user, notifiable: post, action: 'liked')
   end
 
   def delete_post_like_notification(post)
-      return if post.author == current_user
-      notification = Notification.find_by(user_id: post.author.id,
-                          notified_by_id: current_user.id,
-                          notifiable_id: post.id,
-                          notifiable_type: 'Post')
-      notification.destroy if notification.present?
+    return if post.author == current_user
+    notification = Notification.find_by(user_id: post.author.id, notified_by_id: current_user.id, notifiable_id: post.id, notifiable_type: 'Post')
+    notification.destroy if notification.present?
   end
 end

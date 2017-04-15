@@ -58,17 +58,11 @@ class UsersController < ApplicationController
   end
 
   def create_follow_notification(user)
-    Notification.create(user: user,
-                        notified_by: current_user,
-                        notifiable: user,
-                        action: 'followed')
+    Notification.create(user: user, notified_by: current_user, notifiable: user, action: 'followed')
   end
 
   def delete_follow_notification(user)
-    notification = Notification.find_by(user_id: user.id,
-                        notified_by_id: current_user.id,
-                        notifiable_id: user.id,
-                        notifiable_type: 'User')
+    notification = Notification.find_by(user_id: user.id, notified_by_id: current_user.id, notifiable_id: user.id, notifiable_type: 'User')
     notification.destroy if notification.present?
   end
 end

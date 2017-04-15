@@ -10,7 +10,7 @@ class Artwork < ApplicationRecord
 
   mount_uploader :image, ArtworkUploader
 
-  scope :curated, ->{ where(curated: true) }
+  scope :curated, -> { where(curated: true) }
 
   def label
     name

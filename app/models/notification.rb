@@ -11,7 +11,7 @@ class Notification < ApplicationRecord
       "📝"
     elsif notifiable_type == 'Artwork'
       "🖼"
-    else notifiable_type == 'User'
+    else
       "👋🏽"
     end
   end

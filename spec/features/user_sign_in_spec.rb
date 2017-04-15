@@ -18,7 +18,7 @@ feature 'User sign up' do
 
   scenario 'with Facebook' do
     visit root_path
-    click_on 'Sign in'
+    click_on 'Log in'
     click_on 'Sign in with Facebook'
     expect(page).to have_content(user[:auth_provider_profile_image])
   end
