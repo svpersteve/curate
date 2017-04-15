@@ -7,7 +7,7 @@ $(document).on('turbolinks:load', function() {
     $menuContents.toggle();
     $userNavContents.hide();
     $notificationsContents.hide();
-    messagesContents.hide();
+    $messagesContents.hide();
   };
 
   $menuTrigger.on('click', toggleMenu);
@@ -20,7 +20,7 @@ $(document).on('turbolinks:load', function() {
     $userNavContents.toggle();
     $menuContents.hide();
     $notificationsContents.hide();
-    messagesContents.hide();
+    $messagesContents.hide();
   };
 
   $userNavTrigger.on('click', toggleUserNav);
@@ -33,7 +33,7 @@ $(document).on('turbolinks:load', function() {
     $notificationsContents.toggle();
     $menuContents.hide();
     $userNavContents.hide();
-    messagesContents.hide();
+    $messagesContents.hide();
   };
 
   $notificationsTrigger.on('click', toggleNotifications);

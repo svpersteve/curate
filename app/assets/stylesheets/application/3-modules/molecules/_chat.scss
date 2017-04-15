@@ -41,7 +41,7 @@
 .m-chat__inbox-icon[data-badge]::after {
   content: attr(data-badge);
   position: absolute;
-  top: -11px;
+  top: -6px;
   right: 4px;
   font-size: .6em;
   background: $colour-red;
@@ -54,6 +54,15 @@
   box-shadow: 0 0 1px $colour-box-shadow;
 }
 
+.m-chat__inbox-line {
+  width: 100%;
+  padding: 10px 20px 5px;
+}
+
 .m-chat__inbox-entry {
   margin-top: -5px;
+}
+
+.m-chat__inbox-entry-unread {
+  background-color: $colour-box-shadow;
 }
