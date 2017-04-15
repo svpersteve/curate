@@ -11,7 +11,7 @@
 
     .content
       %h2 Location
-      = f.select :location, wallpaper_options_for_select(f.object.location), { label: 'Location' }, class: 'chosen-select'
+      = f.select :location, wallpaper_options_for_select(f.object.location), { label: 'Location', include_blank: 'None'}, class: 'chosen-select'
 
     .content.content--wide
       .a-buttons.u-margin-top
