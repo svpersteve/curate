@@ -46,13 +46,12 @@ p {
   font-family: $body-font;
   color: lighten($colour-black, 30%);
   line-height: 1.5;
-  font-size: 20px;
+  font-size: 1em;
 }
 
 p a {
   color: $colour-black;
   transition: border 0.5s;
-  font-size: 20px;
 
   &:hover {
     color: $colour-black;

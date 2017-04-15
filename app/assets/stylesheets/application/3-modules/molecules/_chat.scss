@@ -2,7 +2,6 @@
   .m-chat__messages {
     overflow: scroll;
     height: 450px;
-    border: solid 1px $colour-light-grey;
     padding: 20px;
   }
 }
@@ -20,11 +19,15 @@
 }
 
 .m-chat__message-body {
-  margin-bottom: 15px;
+  margin: 0 0 15px;
+  background-color: lighten($colour-purple, 50%);
+  padding: 10px;
+  border-radius: 5px;
 }
 
 .m-chat__datestamp {
   font-size: 10px;
+  margin-bottom: 10px;
 }
 
 .m-chat__datestamp-large {
@@ -49,4 +52,8 @@
   line-height: 16px;
   border-radius: 50%;
   box-shadow: 0 0 1px $colour-box-shadow;
+}
+
+.m-chat__inbox-entry {
+  margin-top: -5px;
 }

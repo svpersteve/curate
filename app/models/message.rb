@@ -8,6 +8,6 @@ class Message < ApplicationRecord
   scope :not_sent_by, ->(user) { where.not(user_id: user.id) }
 
   def message_time
-    created_at.strftime("%m/%d/%y at %l:%M %p")
+    created_at.localtime.strftime("%A %l:%M %p")
   end
 end

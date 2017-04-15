@@ -3,7 +3,7 @@
     .m-chat__message
       = link_to event.user do
         = profile_image(event.user, css_class: 'a-avatar--thumb-square')
-      .m-chat__message-body
+      .m-chat__inbox-entry
         %p
           = link_to event.user.label, event.user
           = event.action

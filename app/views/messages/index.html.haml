@@ -4,26 +4,19 @@
   set_page_title(other_user.full_name)
 
 .container
-  .three-column-container.three-column-container--messenger
+  .content.content--tight
+    %h3= link_to other_user.full_name, user_path(other_user)
 
-    .quarter.u-margin-top--small.container
-      %h2 Conversations
+    .m-chat.u-margin-top--small
+      .m-chat__messages#messages
+        %p= link_to 'Older messages', '?m=all' if @over_ten
 
-      .m-chat
-        .m-chat__messages.u-margin-top--small
-          - current_user.conversations.order('updated_at DESC').each do |conversation|
-            = render partial: 'conversations/inbox_entry', locals: { conversation: conversation }
+        - @messages.each do |message|
+          = render partial: 'message', locals: { message: message } if message.persisted?
 
-    .three-quarters
-      .content
-        %h2= link_to other_user.full_name, user_path(other_user)
-
-        .m-chat.u-margin-top--small
-          .m-chat__messages#messages
-            %p= link_to 'Older messages', '?m=all' if @over_ten
-
-            - @messages.each do |message|
-              = render partial: 'message', locals: { message: message } if message.persisted?
-
-        = form_for [@conversation, @message] do |f|
-          = f.text_field :body, autofocus: true, autocomplete: :off, class: "u-full-width"
+.container
+  .content.content--tight
+    = form_for [@conversation, @message] do |f|
+      = f.text_field :body, autofocus: true, autocomplete: :off, class: "u-full-width"
+      .content.u-center
+        = f.submit 'Send', class: 'a-button'
