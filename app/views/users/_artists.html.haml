@@ -2,6 +2,7 @@
   - artists.each do |artist|
     - if artist.artworks.any?
       .m-artist
-        .m-artist__image
-          = link_to profile_image(artist, css_class: 'm-artist__avatar'), artist
+        = link_to artist do
+          .m-artist__image
+            = profile_image(artist, css_class: 'm-artist__avatar')
         %h4= link_to artist.full_name, artist
