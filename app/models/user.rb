@@ -43,6 +43,7 @@ class User < ApplicationRecord
          :omniauthable, omniauth_providers: [:stripe_connect, :facebook]
 
   validates :full_name, presence: true
+  validates :email, presence: true, uniqueness: true
 
   def self.from_omniauth(auth)
     where(provider: auth.provider, uid: auth.uid).first_or_create! do |user|
