@@ -1,66 +1,69 @@
 .m-hero {
-  @include flex($justify-content: space-between);
+  @include flex($direction: column, $justify-content: space-between);
+  background-color: $colour-black;
   color: $colour-white;
-  height: 500px;
+  height: 425px;
   width: 100%;
-}
-
-.m-hero__left {
-  height: 100%;
-  width: 100%;
-  background-color: $colour-black;
+  text-align: center;
   background: {
-    position: left top;
+    position: left center;
     repeat: no-repeat;
+    size: cover;
   }
 
-  @media #{$to-large} {
-    display: none;
+  @media #{$from-large} {
+    height: 300px;
+    background: {
+      size: 50% auto;
+    }
+  }
+
+  @media #{$from-xlarge} {
+    height: 425px;
+    background: {
+      size: 50% auto;
+    }
   }
 }
 
-.m-hero__right {
-  @include flex($direction: column);
-  height: 100%;
-  width: 100%;
-  background-color: $colour-black;
+.m-hero__top {
+  height: 60px;
+}
+
+.m-hero__middle {
+  text-transform: capitalize;
 }
 
 .m-hero__title {
   background-color: $colour-white;
-  text-align: center;
   color: $colour-black;
   padding: 0 10px;
-  font-size: 60px;
-  display: inline;
   align-self: flex-start;
-  margin: auto 0 0 20px;
 
   @media #{$from-large} {
-    margin: auto 0 0 -200px;
+    display: inline-block;
+    margin: 0 auto;
     padding: 0 30px;
   }
 }
 
 .m-hero__location {
-  align-self: flex-start;
-  margin: 10px 0 0 20px;
-  text-transform: capitalize;
-
   @media #{$from-large} {
-    margin: 10px 0 0 0 10px;
+    margin-left: 450px;
   }
 }
 
 .m-hero__links {
-  @include flex($flex-wrap: wrap);
   font-family: $header-font;
   font-size: 20px;
-  margin-top: auto;
   align-self: flex-end;
   padding: 20px;
 
   a:not(:last-child) {
     margin-right: 20px;
+  }
+
+  @media #{$from-medium} {
+    text-align: right;
   }
 }

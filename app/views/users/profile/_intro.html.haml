@@ -16,24 +16,22 @@
           }
         }
 
-.m-hero
-  .m-hero__left[user]
-
-  .m-hero__right
+.m-hero[user]
+  .m-hero__top
+  .m-hero__middle
     - if defined?(title)
       %h1.m-hero__title= title
-    .m-hero__location
-      %h3
-        = @user.city
-        = "," if @user.city.present? && @user.country_number.present?
-        - if @user.country_number.present?
-          = user_country(@user.country_number) if @user.country_number.present?
+    %h3.m-hero__location
+      = @user.city
+      = "," if @user.city.present? && @user.country_number.present?
+      - if @user.country_number.present?
+        = user_country(@user.country_number) if @user.country_number.present?
 
-    .m-hero__links
-      = link_to 'Instagram', instagram_url(@user) if @user.instagram_username.present?
-      = link_to 'Facebook', facebook_url(@user) if @user.facebook_username.present?
-      = link_to 'Twitter', twitter_url(@user) if @user.twitter_username.present?
-      = link_to 'Website', website_url(@user) if @user.website.present?
-      = link_to "Contact", conversations_path(recipient_id: @user.id), method: 'post'
+  .m-hero__links
+    = link_to 'Instagram', instagram_url(@user) if @user.instagram_username.present?
+    = link_to 'Facebook', facebook_url(@user) if @user.facebook_username.present?
+    = link_to 'Twitter', twitter_url(@user) if @user.twitter_username.present?
+    = link_to 'Website', website_url(@user) if @user.website.present?
+    = link_to "Contact", conversations_path(recipient_id: @user.id), method: 'post'
 
 

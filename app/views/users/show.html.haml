@@ -33,7 +33,7 @@
 - if @user.posts.published.any?
   .container
     .content.content--xxwide
-      %h1.u-center.u-margin-top--small
+      %h2.u-center.u-margin-top--small
         Journal
   .container
     .content.content--xxwide
@@ -42,7 +42,7 @@
 - if @user.posts.draft.any? && @user == current_user
   .container.container--alt
     .content.content--xxwide.u-center
-      %h1.u-margin-top--small
+      %h2.u-margin-top--small
         Drafts
       %p Only you can see your draft posts.
     .content.content--xxwide
