@@ -5,6 +5,10 @@ class Admin::BaseController < ApplicationController
   private
 
   def verify_admin
-    redirect_to root_url unless current_user.has_role? :admin
+    if current_user
+      redirect_to root_url unless current_user.has_role? :admin
+    else
+      redirect_to root_url
+    end
   end
 end
