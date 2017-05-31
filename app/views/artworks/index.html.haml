@@ -11,5 +11,11 @@
 .container
   .content.content--xxwide
     %h1.u-center Art
+
+    = search_form_for @search do |f|
+      = f.label :name_cont
+      = f.search_field :name_cont
+      = f.submit
+
   .content.content--xxwide
     = render partial: 'artworks', locals: { artworks: @artworks[1...10] }

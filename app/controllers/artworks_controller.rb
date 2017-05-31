@@ -9,7 +9,8 @@ class ArtworksController < ApplicationController
   end
 
   def index
-    @artworks = Artwork.curated.limit(30)
+    @search = Artwork.curated.ransack(params[:q])
+    @artworks = @search.result(distinct: true).in_popularity_order
     @artworks_wallpaper = Wallpaper.find_by(location: 'Artworks').image
   end
 

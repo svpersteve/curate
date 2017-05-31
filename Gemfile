@@ -48,6 +48,8 @@ gem 'omniauth-stripe-connect'
 gem 'countries', :require => 'countries/global'
 gem 'rails_autolink'
 
+gem 'ransack', github: 'activerecord-hackery/ransack'
+
 group :development, :test do
   gem 'dotenv-rails', require: 'dotenv/rails-now'
   gem 'pry'
