@@ -26,6 +26,7 @@ gem 'turbolinks', '~> 5'
 gem 'jbuilder', '~> 2.5'
 
 gem 'devise'
+gem 'devise-i18n'
 gem 'omniauth'
 gem 'omniauth-instagram'
 gem 'omniauth-facebook'

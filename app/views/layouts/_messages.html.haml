@@ -5,4 +5,4 @@
         - flash.each do |name, msg|
           - if msg.is_a?(String)
             = content_tag :div, msg, :class => "a-flash--#{name}"
-      = link_to 'Ok', '#', class: 'a-button js-dismiss-trigger'
+      = link_to 'Ok', '#', class: 'a-button a-button--small js-dismiss-trigger'
