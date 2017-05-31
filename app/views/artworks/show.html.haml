@@ -1,7 +1,5 @@
 - set_page_title("#{@artwork.name}, by #{@user.full_name}")
 
-= render 'users/profile/intro', selector: "#user_#{@user.id}", src: @artwork.image.url(:header_medium), srcset: {'900px' => @artwork.image.url(:header_large) }, title: @artwork.name, user: @user
-
 .container
   .three-column-container
 
