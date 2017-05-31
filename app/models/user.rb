@@ -45,6 +45,8 @@ class User < ApplicationRecord
   validates :full_name, presence: true
   validates :email, presence: true, uniqueness: true
 
+  scope :in_popularity_order, -> { order('artist_follows_count desc') }
+
   def self.from_omniauth(auth)
     where(provider: auth.provider, uid: auth.uid).first_or_create! do |user|
       user.provider = auth.provider

@@ -12,10 +12,10 @@
   .content.content--xxwide
     %h1.u-center Art
 
-    = search_form_for @search do |f|
-      = f.label :name_cont
-      = f.search_field :name_cont
-      = f.submit
+    = search_form_for @search, url: search_artworks_path, html: { method: :post } do |f|
+      .a-search-bar
+        %i.fa.fa-search
+        = f.search_field :name_cont
 
   .content.content--xxwide
-    = render partial: 'artworks', locals: { artworks: @artworks[1...10] }
+    #artwork-search-results= render partial: 'artworks', locals: { artworks: @artworks }

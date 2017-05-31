@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  before_action :find_user, except: [:index, :home, :new_message, :request_email]
+  before_action :find_user, except: [:index, :home, :new_message, :request_email, :search]
   before_action :authenticate_user!, only: [:home, :follow, :unfollow, :contact]
 
   def show
@@ -7,8 +7,14 @@ class UsersController < ApplicationController
     @updates = @user.likes.order('created_at desc')
   end
 
+  def search
+    index
+    render :index
+  end
+
   def index
-    @artists = User.all
+    @search = User.ransack(params[:q])
+    @artists = @search.result(distinct: true).in_popularity_order
   end
 
   def home

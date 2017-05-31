@@ -3,5 +3,10 @@
 .container
   .content
     %h2.u-center Browse our artists
+    = search_form_for @search, url: search_users_path, html: { method: :post } do |f|
+      .a-search-bar
+        %i.fa.fa-search
+        = f.search_field :full_name_cont
+
   .content.content--xxwide
-    = render partial: 'artists', locals: { artists: @artists }
+    #user-search-results= render partial: 'artists', locals: { artists: @artists }

@@ -14,6 +14,9 @@ Rails.application.routes.draw do
       get :unfollow
       post :unfollow
     end
+    collection do
+      match 'search' => 'users#search', via: [:get, :post], as: :search
+    end
   end
 
   get '/users', to: redirect('/artists')
@@ -48,6 +51,9 @@ Rails.application.routes.draw do
       post :like
       get :unlike
       post :unlike
+    end
+    collection do
+      match 'search' => 'artworks#search', via: [:get, :post], as: :search
     end
   end
 

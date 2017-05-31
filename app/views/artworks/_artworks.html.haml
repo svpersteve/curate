@@ -1,16 +1,20 @@
-.m-gallery
-  - artworks.each do |artwork|
-    - content_for :additional_stylesheet do
-      %style
-        :plain
-          #artwork_#{artwork.id} {
-            background-image: url(#{artwork.image});
-          }
-    .m-gallery__piece
-      = link_to artwork_path(artwork) do
-        .m-gallery__image[artwork]
-      .m-gallery__piece-details
-        %p= link_to artwork.artist.full_name, artwork_path(artwork)
-        .u-center#likes_count[artwork]= render partial: 'artworks/like_link', locals: { subject: artwork, like_total: true }
-        - if artwork.price_in_gbp.present?
-          %p= artwork.price_in_gbp
+- if artworks.any?
+  .m-gallery
+    - artworks.each do |artwork|
+      - content_for :additional_stylesheet do
+        %style
+          :plain
+            #artwork_#{artwork.id} {
+              background-image: url(#{artwork.image});
+            }
+      .m-gallery__piece
+        = link_to artwork_path(artwork) do
+          .m-gallery__image[artwork]
+        .m-gallery__piece-details
+          %p= link_to artwork.artist.full_name, artwork_path(artwork)
+          .u-center#likes_count[artwork]= render partial: 'artworks/like_link', locals: { subject: artwork, like_total: true }
+          - if artwork.price_in_gbp.present?
+            %p= artwork.price_in_gbp
+- else
+  .u-center.u-margin-bottom
+    Sorry, nothing here ☹️

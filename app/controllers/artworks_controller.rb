@@ -8,6 +8,11 @@ class ArtworksController < ApplicationController
     @user = @artwork.artist
   end
 
+  def search
+    index
+    render :index
+  end
+
   def index
     @search = Artwork.curated.ransack(params[:q])
     @artworks = @search.result(distinct: true).in_popularity_order
