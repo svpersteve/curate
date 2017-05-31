@@ -6,7 +6,8 @@
     = link_to '#', class: 'js-open-messages' do
       .m-chat__inbox-icon{"data-badge" => (current_user.unread_messages_count if current_user.unread_messages_count > 0)}
         %i.fa.fa-envelope.s-navbar__icon
-  = link_to avatar_small(current_user, css_class: 'a-avatar--thumb js-user-nav-trigger'), user_path(current_user)
+  = link_to user_path(current_user), class: 'js-user-nav-trigger' do
+    %i.fa.fa-bars
 
 - else
   = link_to 'Log in', new_user_session_path, class: 's-navbar__nav'
