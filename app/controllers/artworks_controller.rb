@@ -9,7 +9,8 @@ class ArtworksController < ApplicationController
   end
 
   def index
-    @artworks = Artwork.curated
+    @artworks = Artwork.curated.limit(30)
+    @artworks_wallpaper = Wallpaper.find_by(location: 'Artworks').image
   end
 
   def new

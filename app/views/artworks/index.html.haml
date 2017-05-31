@@ -1,5 +1,13 @@
 - set_page_title('Artwork')
 
+= render partial: 'shared/wallpaper', locals: { source: @artworks_wallpaper, selector: '#artworks_banner' }
+.m-canvas.m-canvas--small.u-center#artworks_banner
+  .container
+    .content.content--wide
+      %h2 Browse our artwork
+      %p
+        You don’t need to know anything about art to find a piece you love, giving your home a personal touch. A curated art gallery minus the intimidating vibe and lack of information.
+
 .container
   .content.content--xxwide
     %h1.u-center Art

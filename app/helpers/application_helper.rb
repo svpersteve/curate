@@ -84,6 +84,6 @@ module ApplicationHelper
   end
 
   def wallpaper_locations
-    ['Homepage', 'Events banner']
+    ['Homepage', 'Events banner', 'Artworks']
   end
 end
