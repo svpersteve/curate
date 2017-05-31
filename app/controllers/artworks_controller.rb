@@ -79,7 +79,7 @@ class ArtworksController < ApplicationController
   end
 
   def artwork_params
-    params[:artwork].permit(:name, :description, :image, :price, :frame_size)
+    params[:artwork].permit(:name, :description, :image, :price, :frame_size, :tags)
   end
 
   def create_artwork_like_notification(artwork)

@@ -17,6 +17,10 @@
       = cktext_area :artwork, :description, cols: 40, ckeditor: { uiColor: '$colour-grey', toolbar: 'mini' }
 
     .content
+      %p Add search tags (comma separated)
+      = f.text_area :tags, class: 'u-full-width'
+
+    .content
       - if current_user.payment_enabled?
         %p
           Price in GBP
