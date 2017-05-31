@@ -2,7 +2,7 @@ class Admin::ArtworksController < Admin::BaseController
   before_action :get_artwork, only: [:update, :destroy]
 
   def index
-    @artworks = Artwork.order('artwork_likes_count desc')
+    @artworks = Artwork.in_popularity_order
   end
 
   def update

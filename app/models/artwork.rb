@@ -11,6 +11,7 @@ class Artwork < ApplicationRecord
   mount_uploader :image, ArtworkUploader
 
   scope :curated, -> { where(curated: true) }
+  scope :in_popularity_order, -> { order('artwork_likes_count desc') }
 
   def label
     name
